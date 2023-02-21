@@ -1,2 +1,2 @@
 # LikeHome
-A mini clone of hotels.com
+> A mini clone of hotels.com
