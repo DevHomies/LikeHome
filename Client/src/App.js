@@ -1,14 +1,9 @@
-
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-<<<<<<< HEAD
-     <h1>LikeHome</h1>
-=======
-      <h1>LikeHome</h1>
->>>>>>> main
+      <h1>HELLO WORLD!</h1>
     </div>
   );
 }
