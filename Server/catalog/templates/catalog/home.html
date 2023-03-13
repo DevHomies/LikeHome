@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Homepage</title>
+  </head>
+  <body>
+    <h1>Welcome to My Homepage!</h1>
+    <p>Here you can find all sorts of interesting things.</p>
+
+    {% if user.is_authenticated %}
+        {{ user.username }}
+      {% for obj in my_data %}
+        <li> {{ obj.room }}</li>
+      {% endfor %}
+    <form method="post">
+      <a href="logout_view">Logout</a>
+    </form>
+    {% endif %}
+  </body>
+</html>

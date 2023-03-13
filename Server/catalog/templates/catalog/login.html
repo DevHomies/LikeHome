@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <style>
+      /* Add some basic styling to the form */
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      label, input {
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="post">
+        {% csrf_token %}
+      <h1>Login</h1>
+      <label for="username">Username:</label>
+      <input type="username" id="username" name="username" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <button type="submit">Login</button>
+    </form>
+  </body>
+</html>
