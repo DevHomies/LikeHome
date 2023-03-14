@@ -1,21 +1,16 @@
-import {
-  HashRouter as Router,
-  Route
-} from "react-router-dom";
-
+import { Routes, Route } from 'react-router-dom';
 
 import './App.css';
-import HomePage from './pages/HomePage'
-import Login from "./pages/Login";
-import Registerexample from "./pages/Registerexample";
+import { HomePage, Login, Registerexample } from './pages';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-
-      {/* <Login /> */}
-      {/* <HomePage /> */}
-      <Registerexample />
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Registerexample />} />
+      </Routes>
     </div>
   );
 }

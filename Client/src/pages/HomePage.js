@@ -20,6 +20,7 @@ const HomePage = () => {
             {info.map((info, index) => (
                 <h3>{info.room}</h3>
             ))}
+            <h1>HELLO WORLD</h1>
         </div>
     )
 
