@@ -1,18 +1,25 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function Login() {
+import './signup.css';
+
+function Registerexample() {
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [rpassword, setRPassword] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
       username,
-      password
+      email,
+      password,
+      rpassword
+      
     };
     try {
-      const response = await axios.post('/catalog/login/', data);
+      const response = await axios.post('/catalog/register/', data);
       console.log(response.data);
     } catch (error) {
       console.error(error);
@@ -31,6 +38,15 @@ function Login() {
         />
       </div>
       <div>
+        <label htmlFor="email">Email:</label>
+        <input
+          type="text"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+      <div>
         <label htmlFor="password">Password:</label>
         <input
           type="password"
@@ -39,9 +55,18 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <button type="submit">Login</button>
+      <div>
+        <label htmlFor="rpassword">Re-password:</label>
+        <input
+          type="text"
+          id="rpassword"
+          value={rpassword}
+          onChange={(e) => setRPassword(e.target.value)}
+        />
+      </div>
+      <button type="submit">Sign Up</button>
     </form>
   );
 }
 
-export default Login;
+export default Registerexample;

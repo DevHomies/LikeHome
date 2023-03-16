@@ -1,5 +1,5 @@
 import React, {useState, useEffect}from "react";
-
+import './home.css';
 
 const HomePage = () => {
     let [info, setInfo] = useState([])
