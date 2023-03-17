@@ -2,17 +2,17 @@ import './Navbar.css';
 import {FaBars} from "react-icons/fa";
 import {useState} from "react";
 
-//Navbar code inspired by https://www.youtube.com/watch?v=amf18mxNX18
+//Navbar and FaBars code inspired by https://www.youtube.com/watch?v=amf18mxNX18
 //Dropdown Menu code inspired by https://www.robinwieruch.de/react-dropdown/
 function Navbar() {
-
+    //Code inspired by https://www.robinwieruch.de/react-dropdown/
     const [open, setOpen] = useState(false);
     const handleOpen = () => {
         setOpen(!open);
     };
 
     //Open link after button clicked
-    //Code from https://stackoverflow.com/questions/8454510/open-url-in-same-window-and-in-same-tab
+    //Code inspired by https://stackoverflow.com/questions/8454510/open-url-in-same-window-and-in-same-tab
     const handleAccount = () => {
         setOpen(false);
         window.open("/#", "_self");
@@ -35,6 +35,7 @@ function Navbar() {
             <h3>LIKEHOME</h3>
 
             {/* The signedOut section is only shown when user is signed out */}
+            {/* Gives signed out user the option to sign up or login */}
             {/*
             <div className="signedOut">
                 <a href="/#">Sign Up</a>
@@ -44,6 +45,7 @@ function Navbar() {
             */}
 
             {/* The dropdown section is only shown when user is signed in */}
+            {/* Dropdown menu shows options for signed in users */}
             <div className="dropdown">
                 <FaBars className= "dropdownBtn" onClick={handleOpen}></FaBars>
                 {open ? (

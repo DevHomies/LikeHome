@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-/* Code from https://stackoverflow.com/questions/12591453/bold-font-in-h1-h2-h3-titles-92590 */
+/* font-weight css from https://stackoverflow.com/questions/12591453/bold-font-in-h1-h2-h3-titles-92590 */
 h1, h2, h3, h4, h5, h6 {
     font-weight:bolder;
 }
 
-/* Code from https://www.youtube.com/watch?v=amf18mxNX18 */
+/* css inspired by https://www.youtube.com/watch?v=amf18mxNX18 */
 *{
     padding: 0;
     margin: 0;
@@ -13,14 +13,14 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Code from https://www.youtube.com/watch?v=amf18mxNX18 */
+/* css inspired by https://www.youtube.com/watch?v=amf18mxNX18 */
 :root{
     --mainColor: #4C2C8E;
     --secondaryColor: #F6C851;
     --textColor: #FFFFFF;
 }
 
-/* Code from https://www.youtube.com/watch?v=amf18mxNX18 */
+/* Navbar header css inspired by https://www.youtube.com/watch?v=amf18mxNX18 */
 header {
     display: flex;
     align-items: center;
@@ -31,13 +31,13 @@ header {
     color: var(--textColor);
 }
 
-/* Code from https://www.robinwieruch.de/react-dropdown/ */
+/* Navbar dropdown position css inspired by https://www.robinwieruch.de/react-dropdown/ */
 header .dropdown {
     position: absolute;
     right: 30px;
 }
 
-/* Code from https://www.robinwieruch.de/react-dropdown/ */
+/* Navbar dropdown menu css inspired by https://www.robinwieruch.de/react-dropdown/ */
 header .menu {
     position: absolute;
     right: 0;
@@ -49,18 +49,18 @@ header .menu {
     width: 180px;
 }
 
-/* Code from https://www.robinwieruch.de/react-dropdown/ */
+/* Navbar dropdown menu element css inspired by https://www.robinwieruch.de/react-dropdown/ */
 header .menu > li {
     margin: 0;
     background-color: white;
 }
 
-/* Code from https://www.robinwieruch.de/react-dropdown/ */
+/* Navbar dropdown menu hover over element css inspired by https://www.robinwieruch.de/react-dropdown/ */
 header .menu > li:hover {
     background-color: lightgray;
 }
 
-/* Code from https://www.robinwieruch.de/react-dropdown/ */
+/* Navbar dropdown menu button css inspired by https://www.robinwieruch.de/react-dropdown/ */
 header .menu > li > button {
     width: 100%;
     height: 100%;
@@ -74,7 +74,7 @@ header .menu > li > button {
     font-size: 15px;
 }
 
-/* Code from https://www.youtube.com/watch?v=amf18mxNX18 */
+/* Navbar dropdown button css inspired by https://www.youtube.com/watch?v=amf18mxNX18 */
 header .dropdownBtn {
     padding: 5px;
     cursor: pointer;
@@ -87,7 +87,7 @@ header .dropdownBtn {
     font-size: 1.8rem;
 }
 
-/* Code from https://www.youtube.com/watch?v=amf18mxNX18 and https://www.robinwieruch.de/react-dropdown/ */
+/* Navbar signed out features inspired by https://www.youtube.com/watch?v=amf18mxNX18 and https://www.robinwieruch.de/react-dropdown/ */
 header .signedOut {
     position: absolute;
     right: 20px;
