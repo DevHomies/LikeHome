@@ -1,9 +1,16 @@
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
 
-function App() {
+import './App.css';
+import { HomePage, Login, Registerexample } from './pages';
+
+const App = () => {
   return (
     <div className="App">
-      <h1>HELLO WORLD!</h1>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Registerexample />} />
+      </Routes>
     </div>
   );
 }
