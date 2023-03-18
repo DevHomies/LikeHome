@@ -1,4 +1,7 @@
 import './amenities.css';
+import React, { useState } from 'react';
+
+
 export const amenitiesList = [
   {
     name: "Free Wi-Fi"
@@ -31,28 +34,35 @@ export const amenitiesList = [
     name: "Restaurant"
   }
 ];
-
-
-const Amenities = () =>  {
+export const starRatingList =[
+  {
+    label: '🌟',
+  },
+  {
+    label: '🌟🌟',
+  },
+  {
+    label: '🌟🌟🌟',
+  },
+  {
+    label: '🌟🌟🌟🌟',
+  },
+  {
+    label: '🌟🌟🌟🌟🌟',
+  }
+]
+ export const Amenities = () =>  {
   return (
     <div className="Amenities">
       <h3>Price</h3>
-        <div className="price-input">
-          <div className="field">
-          <span>Min</span>
-        <input type="number" className="input-min" value="100"></input>
-          </div>
-        </div>
-        <div className="price-input">
-          <div className="field">
-          <span>Max</span>
-        <input type="number" className="input-max" value="10000"></input>
-          </div>
-        </div>
-      
+       <div className="input-container">
+          <input type="number" name="$" placeholder="200" />
+          <input type="number" plceholder="$" />
+      </div>
+
       <h3>Amenities</h3>
       <ul className="amenities-list">
-        {amenitiesList.map(({name}, index) => {
+        {amenitiesList.map((name, index) => {
           return (
             <li key={index}>
               <div className ="amenities-list-item">
@@ -70,12 +80,55 @@ const Amenities = () =>  {
         })}
       </ul>
       
-      <h3>Tag Category</h3>
-        <input
-          type="checkbox"/>
-      <label htmlFor={`custom-checkbox`}>{"Tag"}</label>
+      <h3>Star Rating</h3>
+      <ul className="amenities-list">
+        {starRatingList.map(({label}, index) => {
+          return (
+            <li key={index}>
+              <div className ="amenities-list-item">
+                <div className="left-section">
+                  <input
+                    type="checkbox"
+                    name={starRatingList.map.label}
+                    value={label}
+                    />
+                    <label htmlFor={`custom-checkbox`}>{label}</label>
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
-export default Amenities;
+
+function ShowMoreLess({ amenitiesList, initialCount }) {
+  const [count, setCount] = useState(3);
+
+  const handleShowMore = () => {
+    setCount(count + 3); 
+  };
+
+  const handleShowLess = () => {
+    setCount(3); 
+  };
+
+  return (
+    <div>
+      {amenitiesList.slice(0, count).map((name, index) => (
+        <div key={index}>{name}</div>
+      ))}
+      {count < amenitiesList.length ? (
+        <button onClick={handleShowMore}>Show More</button>
+      ) : (
+        <button onClick={handleShowLess}>Show Less</button>
+      )}
+    </div>
+  );
+}
+
+export default ShowMoreLess;
+
+
 
