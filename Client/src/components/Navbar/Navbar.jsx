@@ -1,78 +1,71 @@
+import { useState } from "react";
 import './Navbar.css';
-import {FaBars} from "react-icons/fa";
-import {useState} from "react";
+
+// Import Link for page routing
+import { Link } from 'react-router-dom';
+
+// Import Icons
+import { IoMenuOutline, IoClose, IoPersonCircle } from "react-icons/io5";
 
 //Navbar and FaBars code inspired by https://www.youtube.com/watch?v=amf18mxNX18
 //Dropdown Menu code inspired by https://www.robinwieruch.de/react-dropdown/
 function Navbar() {
     //Code inspired by https://www.robinwieruch.de/react-dropdown/
+    // Handles dropdown menu
     const [open, setOpen] = useState(false);
     const handleOpen = () => {
         setOpen(!open);
     };
 
-    //Open link after button clicked
-    //Code inspired by https://stackoverflow.com/questions/8454510/open-url-in-same-window-and-in-same-tab
-    const handleAccount = () => {
-        setOpen(false);
-        window.open("/#", "_self");
-    };
-    const handleReservations = () => {
-        setOpen(false);
-        window.open("/#", "_self");
-    };
-    const handleTransaction = () => {
-        setOpen(false);
-        window.open("/#", "_self");
-    };
-    const handleLogout = () => {
-        setOpen(false);
-        window.open("/#", "_self");
-    };
+    // Placeholder for navbar state (logged in vs not)
+    const [loggedIn, setLoggedIn] = useState(false);
 
     return (
-        <header>
-            <h3>LIKEHOME</h3>
+        <header className="nav-header">
+            <Link to='/' className="nav-logo"><h1>LIKEHOME</h1></Link>
+            
+            { loggedIn ? 
+                /* The dropdown section is only shown when user is signed in */
+                <nav className="dropdown">
+                    <div className="dropdown-nav">
+                        { open ? 
+                            <IoClose className="dropdownBtn" onClick={handleOpen}></IoClose>
+                            :
+                            <IoMenuOutline className="dropdownBtn" onClick={handleOpen}></IoMenuOutline>
+                        }
+                        <IoPersonCircle className="profile-btn"></IoPersonCircle>
+                    </div>
+                    {open ? (
+                        <ul className="menu">
+                            <li className="menu-item">
+                                <Link to='/' className='menu-btn'>Account</Link>
+                            </li>
 
-            {/* The signedOut section is only shown when user is signed out */}
-            {/* Gives signed out user the option to sign up or login */}
-            {/*
-            <div className="signedOut">
-                <a href="/#">Sign Up</a>
-                <h7>|</h7>
-                <a href="/#">Login</a>
-            </div>
-            */}
+                            <li className="menu-item">
+                                <Link to='/' className='menu-btn'>Reservations</Link>
+                            </li>
 
-            {/* The dropdown section is only shown when user is signed in */}
-            {/* Dropdown menu shows options for signed in users */}
-            <div className="dropdown">
-                <FaBars className= "dropdownBtn" onClick={handleOpen}></FaBars>
-                {open ? (
-                    <ul className="menu">
-                        <li className="menu-item">
-                            <button onClick={handleAccount}>Account</button>
-                        </li>
-                        <li className="menu-item">
-                        <button onClick={handleReservations}>Reservations</button>
-                        </li>
-                        <li className="menu-item">
-                        <button onClick={handleTransaction}>Transaction History</button>
-                        </li>
-                        <li className="menu-item">
-                        <button onClick={handleLogout}>Logout</button>
-                        </li>
-                    </ul>
-                ) : null}
-            </div>
+                            <li className="menu-item">
+                                <Link to='/' className='menu-btn'>Transaction History</Link>
+                            </li>
+                            <hr />
+                            <li className="menu-item">
+                                <Link to='/' className='menu-btn'>Logout</Link>
+                            </li>
+                        </ul>
+                        ) : null
+                    }
+                </nav>
+                :
+                /* The signedOut section is only shown when user is signed out */
+                <nav className="signedOut">
+                    <Link to='/' className="signedOut-btn">Sign Up</Link>
+                    <h7>|</h7>
+                    <Link to='/' className="signedOut-btn">Login</Link>
+                </nav>
+            }
         </header>
     );
 }
-
-//Add this line to App.js: import Navbar from "./components/Navbar/Navbar";
-//Let App.js return this:
-//  <React.Fragment>
-//      <Navbar/>
-//  </React.Fragment>
 
 export default Navbar;
