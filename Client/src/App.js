@@ -1,14 +1,19 @@
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import { Amenities } from './components';
+import { Navbar } from './components';
+import { HomePage, Login, Registerexample } from './pages';
 
-
-export default function App() {
+const App = () => {
   return (
     <div className="App">
-      <h1>Hello World!</h1>
-      <Amenities/>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Registerexample />} />
+      </Routes>
     </div>
   );
 }
 
-
+export default App;

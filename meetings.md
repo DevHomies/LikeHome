@@ -22,6 +22,8 @@
 	- Got started on the backlog
 	
 ### 2023-03-09 at 10:15 pm
-- 
+- All team member attended the meeting
 - Team updates
-	- 
+	- Completed the Backlog, Sprint, and Release planning
+	- Delegated tasks to every member
+	- Coding has begun
