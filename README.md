@@ -21,6 +21,7 @@ A mini clone of hotels.com
   - If not done already, install the python dependencies
     - `pip install -r requirements.txt`
 - Move into the Server directory (cd Server)
+- Run npm run build in the CLIENT folder before running the python server
 - To run the program
   - > python manage.py runserver
 - If the program having ERROR about "SECRET_KEY..."
