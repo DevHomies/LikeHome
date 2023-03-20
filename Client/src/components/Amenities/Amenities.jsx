@@ -53,17 +53,15 @@ export const starRatingList =[
 ];
 
  export const Amenities = () =>  {
-  // 1st Edit: Have functions within the Functional Component!
   const [count, setCount] = useState(3);
 
   const handleShowMore = () => {
-    setCount(count + 3);
+    setCount(count + 7);
   }
 
   const handleShowLess = () => {
-    setCount(count - 3);
+    setCount(count - 7);
   }
-  // End of 1st Edit
 
   return (
     <div className="Amenities">
@@ -81,36 +79,21 @@ export const starRatingList =[
       </div>
 
       <h3>Amenities</h3>
-      <ul className="amenities-list">
-        {amenitiesList.map(({name}, index) => {
-          return (
-            <li key={index}>
-              <div className ="amenities-list-item">
-                <div className="left-section">
-                  <input
-                    type="checkbox"
-                    name='custom-checkbox'
-                    value={name}
-                  />
-                  <label htmlFor='custom-checkbox'>{name}</label>
-                </div>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-
-      {/* 2nd Edit: Had to add the extra {} around name in the params and moved into the functional component */}
       {amenitiesList.slice(0, count).map(({name}, index) => (
-        <div key={index}>{name}</div>
+           <div className="left-section">
+            <input
+                type="checkbox"
+                name='custom-checkbox'
+                value={name}
+                />
+            <label htmlFor='custom-checkbox'>{name}</label>
+          </div>  
       ))}
-
-      {count < amenitiesList.length ? (
+     {count < amenitiesList.length ? (
         <button onClick={handleShowMore}>Show More</button>
       ) : (
         <button onClick={handleShowLess}>Show Less</button>
       )}
-      {/* End of 2nd Edit */}
 
       <h3>Star Rating</h3>
       <ul className="amenities-list">
@@ -118,7 +101,7 @@ export const starRatingList =[
           return (
             <li key={index}>
               <div className ="amenities-list-item">
-                <div className="left-section">
+                <div className="left-section"> 
                   <input
                     type="checkbox"
                     name={starRatingList.map.label}
@@ -134,6 +117,4 @@ export const starRatingList =[
     </div>
   ); 
 }
-
-// 3rd Edit: You accidently REPLACED Amenities with the new function you made, So the entire component stopped being rendered
 export default Amenities;

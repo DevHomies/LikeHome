@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import { Navbar } from './components';
+import { Amenities } from './components';
 import { HomePage, Login, Registerexample } from './pages';
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Registerexample />} />
       </Routes>
+      <Amenities />
     </div>
   );
 }

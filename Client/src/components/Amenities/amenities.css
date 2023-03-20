@@ -7,6 +7,8 @@
   padding: 1rem;
   max-width: 300px;
   text-align: left;
+  margin-top: 50px;
+  margin-bottom: 10px;
 }
 
 /* 2nd Edit: You forgot to remove the numbers from the list
@@ -15,11 +17,16 @@
 .amenities-list {
   list-style: none;
   padding: 0;
+  margin-top: 10px;
+  margin-bottom: 80px;
+  
 }
 
 .amenities-list li {
   margin-bottom: 0.5rem;
   text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .field {
@@ -29,29 +36,38 @@
   text-align: left;
  
 }
+.left-section {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
-/* 3rd Edit: The input box for $$$ 
-* - I got you started with the css, finish up with your own styling :)
-*/
 .input-container {
-  max-width: 233px;
+  max-width: 220px;
+  height: 55px;
   display: flex;
   align-items: center;
   gap: 1rem;
+  padding: 100;
 
   justify-content: left;
-  border-radius: 13px;
+  border-radius: 10px;
   padding: 0 12px; 
-  border: 1px solid var(--dark-grey);
+  border: 1px solid var(--grey);
+  margin-top: 20px;
+  margin-bottom: 60px;
 }
 
 .input-line {
-  width: 2px;
-  height: 44px;
-  background-color: #D9D9D9;
+  width: 1px;
+  height: 35px;
+  background-color: #b9b2b2;
 }
 
 .input-field {
+  padding-top: 10px;
+  padding-bottom: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -64,7 +80,7 @@
   text-align: left;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 60px) {
   .amenities-list {
     width: 90%;
   }
