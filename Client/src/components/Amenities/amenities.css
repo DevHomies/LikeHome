@@ -1,19 +1,9 @@
-/* 1st Edit: You forgot to capitalize the a: .amenities -> .Amenities
-* - Added padding so its not touching the screen
-* - Adjusted the overall SIZE of the amenities (can be changed)
-* - Made text-align left here so it affects everything in this component
-*/
 .Amenities {
   padding: 1rem;
   max-width: 300px;
   text-align: left;
-  margin-top: 50px;
-  margin-bottom: 10px;
 }
 
-/* 2nd Edit: You forgot to remove the numbers from the list
-* - list-style: left --> none
-*/
 .amenities-list {
   list-style: none;
   padding: 0;
@@ -36,6 +26,7 @@
   text-align: left;
  
 }
+
 .left-section {
   list-style: none;
   padding: 0;
@@ -45,22 +36,19 @@
 
 .input-container {
   max-width: 220px;
-  height: 55px;
+  height: 60px;
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 100;
 
   justify-content: left;
   border-radius: 10px;
   padding: 0 12px; 
   border: 1px solid var(--grey);
-  margin-top: 20px;
-  margin-bottom: 60px;
 }
 
 .input-line {
-  width: 1px;
+  width: 3px;
   height: 35px;
   background-color: #b9b2b2;
 }
@@ -72,12 +60,28 @@
   flex-direction: column;
 }
 
+.input-field label {
+  font-size: 0.875rem;
+  line-height: 1;
+  margin-top: 0.5rem;
+}
+
 .input-field input {
   width: 100%;
   height: 30px;
   border: none;
   outline: none;
   text-align: left;
+}
+
+/* NOTE: Edit the spacing b/w Price and Amenities here */
+.amenities-container {
+  margin-top: 2rem;
+}
+
+/* NOTE: Edit the spacing b/w Amenities and Star Rating here */
+.star-container {
+  margin-top: 2rem;
 }
 
 @media screen and (max-width: 60px) {

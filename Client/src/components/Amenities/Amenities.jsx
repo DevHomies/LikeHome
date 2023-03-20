@@ -78,42 +78,46 @@ export const starRatingList =[
           </div>
       </div>
 
-      <h3>Amenities</h3>
-      {amenitiesList.slice(0, count).map(({name}, index) => (
-           <div className="left-section">
-            <input
-                type="checkbox"
-                name='custom-checkbox'
-                value={name}
-                />
-            <label htmlFor='custom-checkbox'>{name}</label>
-          </div>  
-      ))}
-     {count < amenitiesList.length ? (
+      <div className='amenities-container'>
+        <h3>Amenities</h3>
+        {amenitiesList.slice(0, count).map(({name}, index) => (
+          <div className="left-section">
+              <input
+                  type="checkbox"
+                  name='custom-checkbox'
+                  value={name}
+                  />
+              <label htmlFor='custom-checkbox'>{name}</label>
+            </div>  
+        ))}
+      {count < amenitiesList.length ? (
         <button onClick={handleShowMore}>Show More</button>
-      ) : (
-        <button onClick={handleShowLess}>Show Less</button>
-      )}
+        ) : (
+          <button onClick={handleShowLess}>Show Less</button>
+        )}
+      </div>
 
-      <h3>Star Rating</h3>
-      <ul className="amenities-list">
-        {starRatingList.map(({label}, index) => {
-          return (
-            <li key={index}>
-              <div className ="amenities-list-item">
-                <div className="left-section"> 
-                  <input
-                    type="checkbox"
-                    name={starRatingList.map.label}
-                    value={label}
-                    />
-                    <label htmlFor={`custom-checkbox`}>{label}</label>
+      <div className='star-container'>
+        <h3>Star Rating</h3>
+        <ul className="amenities-list">
+          {starRatingList.map(({label}, index) => {
+            return (
+              <li key={index}>
+                <div className ="amenities-list-item">
+                  <div className="left-section"> 
+                    <input
+                      type="checkbox"
+                      name={starRatingList.map.label}
+                      value={label}
+                      />
+                      <label htmlFor={`custom-checkbox`}>{label}</label>
+                  </div>
                 </div>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   ); 
 }
