@@ -72,13 +72,13 @@
   text-align: left;
 }
 
-.amenities-container {
+/* .amenities-container {
   margin-top: 2rem;
 }
 
 .star-container {
   margin-top: 2rem;
-}
+} */
 
 @media screen and (max-width: 60px) {
   .amenities-list {
