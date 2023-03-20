@@ -1,0 +1,49 @@
+.page {
+    padding: 20px;
+}
+.hotel-grid {
+    min-width: 1000px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr [row-start]);
+    grid-template-columns: repeat(3, 1fr [col-start]);
+    justify-content: space-evenly;
+    justify-items: center;
+    grid-gap: 50px;
+    margin-left: 30px;
+}
+
+
+@media (max-width: 1100px) {
+    .hotel-grid {
+        grid-template-rows: repeat(4, 1fr [row-start]);
+        grid-template-columns: repeat(2, 1fr [col-start]);
+        min-width: 110px;
+        
+    }
+}
+
+@media (max-width: 700px) {
+    .hotel-grid {
+        grid-template-rows: repeat(9, 1fr [row-start]);
+        grid-template-columns: repeat(1, 1fr [col-start]);
+        min-width: 700px;
+        
+    }
+}
+
+.layout {
+    display: grid;
+    grid-template-rows: [row1-start] 1fr;
+    grid-template-columns: [row1-start] 1fr [row1-end row2-start] 10fr [row2-end];
+    align-content: center;
+}
+
+.sort-section-child{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.page {
+    margin-left: 10%;
+    margin-right: 10%;
+}
