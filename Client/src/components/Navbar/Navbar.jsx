@@ -59,9 +59,9 @@ function Navbar() {
                 :
                 /* The signedOut section is only shown when user is signed out */
                 <nav className="signedOut">
-                    <Link to='/' className="signedOut-btn">Sign Up</Link>
+                    <Link to='/register' className="signedOut-btn">Sign Up</Link>
                     <h7>|</h7>
-                    <Link to='/' className="signedOut-btn">Login</Link>
+                    <Link to='/login' className="signedOut-btn">Login</Link>
                 </nav>
             }
         </header>
