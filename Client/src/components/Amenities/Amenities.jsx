@@ -84,10 +84,11 @@ export const starRatingList =[
            <div className="left-section">
             <input
                 type="checkbox"
-                name='custom-checkbox'
+                name='amenitiesList.map.name'
                 value={name}
+                id={name}
                 />
-            <label htmlFor='custom-checkbox'>{name}</label>
+            <label htmlFor={name}>{name}</label>
           </div>  
       ))}
      {count < amenitiesList.length ? (
@@ -109,8 +110,9 @@ export const starRatingList =[
                     type="checkbox"
                     name={starRatingList.map.label}
                     value={label}
+                    id={label}
                     />
-                    <label htmlFor={starRatingList.map.label}>{label}</label>
+                    <label htmlFor={label}>{label}</label>
                 </div>
               </div>
             </li>
