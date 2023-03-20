@@ -78,6 +78,7 @@ export const starRatingList =[
           </div>
       </div>
 
+      <div className='amenities-container'>
       <h3>Amenities</h3>
       {amenitiesList.slice(0, count).map(({name}, index) => (
            <div className="left-section">
@@ -94,7 +95,9 @@ export const starRatingList =[
       ) : (
         <button onClick={handleShowLess}>Show Less</button>
       )}
+    </div>
 
+    <div className='star-container'>
       <h3>Star Rating</h3>
       <ul className="amenities-list">
         {starRatingList.map(({label}, index) => {
@@ -107,13 +110,14 @@ export const starRatingList =[
                     name={starRatingList.map.label}
                     value={label}
                     />
-                    <label htmlFor={`custom-checkbox`}>{label}</label>
+                    <label htmlFor={starRatingList.map.label}>{label}</label>
                 </div>
               </div>
             </li>
           );
         })}
       </ul>
+    </div>
     </div>
   ); 
 }

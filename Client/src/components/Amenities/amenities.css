@@ -1,8 +1,4 @@
-/* 1st Edit: You forgot to capitalize the a: .amenities -> .Amenities
-* - Added padding so its not touching the screen
-* - Adjusted the overall SIZE of the amenities (can be changed)
-* - Made text-align left here so it affects everything in this component
-*/
+
 .Amenities {
   padding: 1rem;
   max-width: 300px;
@@ -10,10 +6,6 @@
   margin-top: 50px;
   margin-bottom: 10px;
 }
-
-/* 2nd Edit: You forgot to remove the numbers from the list
-* - list-style: left --> none
-*/
 .amenities-list {
   list-style: none;
   padding: 0;
@@ -78,6 +70,14 @@
   border: none;
   outline: none;
   text-align: left;
+}
+
+.amenities-container {
+  margin-top: 2rem;
+}
+
+.star-container {
+  margin-top: 2rem;
 }
 
 @media screen and (max-width: 60px) {
