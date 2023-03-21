@@ -1,0 +1,17 @@
+.home-container {
+    background-image: linear-gradient(to right, #4c2c8e 45%, #6137bd
+    );
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    display: relative;
+    margin: auto;
+    padding: 0;
+    height: 1300px;
+
+}
+
+
+@media screen and (min-width: 1366px) {
+
+}

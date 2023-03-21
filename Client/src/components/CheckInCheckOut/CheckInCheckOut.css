@@ -1,0 +1,56 @@
+.WholeCalendarContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.SubContainer { 
+    width: 320px;
+    height: 88px;
+    border: 1.5px solid #C2C6CC;
+    border-radius: 15px;
+    position: relative;
+    text-align: center;
+}
+
+
+input.inputBox {
+    font-size: 21px;
+    border-radius: 5px;
+    border: transparent;
+    color: #C2C6CC;
+    text-align: center;
+    width: 100%;
+}
+
+.calendarElement {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1.5px solid #484848;
+    z-index: 999;
+}
+
+.CheckIn p {
+    width: 50%;
+    float: left;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 3px;
+}
+
+.CheckOut p {
+    width: 50%;
+    float: left;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 3px;
+    
+}
+

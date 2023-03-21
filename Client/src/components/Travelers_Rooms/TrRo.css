@@ -1,0 +1,18 @@
+.Wrap {
+    width: 320px;
+    height: 88px;
+    border-color:#C2C6CC;
+    border-radius: 15px 15px 15px 15px;
+    border-width: 1.5px;
+    border-style: solid;
+    display: flex;
+    position: "absolute";
+}
+
+.TrRoContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}

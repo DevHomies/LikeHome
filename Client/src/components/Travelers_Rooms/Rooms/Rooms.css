@@ -1,0 +1,27 @@
+.RoWrap {
+    width: 160px;
+    height: 88px;
+    border-radius: 0px 15px 15px 0px;
+    border-width: 1.5px;
+    border-color: transparent;
+    border-style: solid;
+    font-size: 18px;
+  }
+  
+  .RoWrap label {
+    font-weight: 600;
+    display: block;
+    padding-top: 15px;
+    font-size: 18px;
+
+  }
+  select {
+    width: 60px;
+    height: 44px;
+    text-align: left;
+    border-radius: 15px 15px 15px 15px;
+    border-color: transparent;
+    font-size: 21px;
+    color: transparent;
+  }
+  

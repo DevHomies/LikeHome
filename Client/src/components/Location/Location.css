@@ -1,0 +1,45 @@
+.WholeLocationContainer {
+  position: relative;
+  display:flex;
+  justify-content: center;
+  padding-top: 30px;
+  padding-bottom: 5px;
+
+}
+
+.subContainer {
+  width: 320px;
+  height: 88px;
+  border: 1.5px solid #C2C6CC;
+  border-radius: 15px;
+  position: relative;
+  text-align: center;
+}
+
+
+.subContainer p {
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 3px;
+}
+
+::placeholder {
+  font-size: 21px;
+  border-radius: 3px;
+  border: transparent;
+  color: #C2C6CC;
+  text-align: center;
+  font: bolder;
+}
+
+div input {
+  font-size: 21px;
+  border-radius: 3px;
+  border: transparent;
+  color: #C2C6CC;
+  text-align: left;
+  font: bolder;
+  width: 85%;
+}
+

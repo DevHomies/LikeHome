@@ -1,6 +1,7 @@
 import React, {useState, useEffect}from "react";
-import { Navbar } from '../../components';
-import './home.css';
+import { Navbar, Footer,SearchBar } from '../../components';
+import './HomePage.css';
+
 
 const HomePage = () => {
     // let [info, setInfo] = useState([])
@@ -21,11 +22,13 @@ const HomePage = () => {
         <>
             <Navbar />
             <div className="home-container">
-                <h1>HOME PAGE</h1>
+                <img src= '/assets/images/LikeHomePage.png' />
+                <SearchBar />
             </div>
+            <Footer />
         </>
     )
 
 }
 
-export default HomePage
+export default HomePage;

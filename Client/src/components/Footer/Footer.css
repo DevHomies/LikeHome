@@ -1,0 +1,14 @@
+.FeetLoverContainer {
+    background-color: red;
+    /*background-image: linear-gradient(to right, #4c2c8e 45%, #6137bd);*/
+    text-align: center;
+    width: auto;
+    height: 210px;
+    color: var(--white)
+}
+
+
+.foot-logo {
+    text-decoration: none;
+    color: var(--white);
+}

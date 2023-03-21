@@ -11,7 +11,7 @@
     height: 70px;
     padding: 0 4.75rem;
 
-    background-color: var(--purple);
+    background-image: linear-gradient(to bottom right, #4c2c8e 65%, #5833a8);
     color: var(--white);
 }
 
