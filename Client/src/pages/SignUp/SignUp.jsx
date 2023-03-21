@@ -6,13 +6,15 @@ import './signup.css';
 import { FaGoogle, FaFacebookF } from 'react-icons/fa';
 
 // Import Link for page routing
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 function Registerexample() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rpassword, setRPassword] = useState('');
+  
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +27,11 @@ function Registerexample() {
     };
     try {
       const response = await axios.post('/catalog/register/', data);
-      console.log(response.data);
+      if (response.data.success){
+        navigate('/login/');
+      } else{
+        console.log('User can not be create');
+      }
     } catch (error) {
       console.error(error);
     }
@@ -89,6 +95,19 @@ function Registerexample() {
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div className='form-group'>
+              <div className='form-group-inputs'>
+                <label htmlFor="rpassword">re-Password</label>
+                <input
+                  placeholder='***************'
+                  type="password"
+                  id="rpassword"
+                  value={rpassword}
+                  onChange={(e) => setRPassword(e.target.value)}
                 />
               </div>
             </div>

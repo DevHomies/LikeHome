@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './login.css';
 
@@ -7,9 +8,13 @@ import { FaGoogle, FaFacebookF, FaEnvelope, FaKey } from 'react-icons/fa';
 // Import Link for page routing
 import { Link } from 'react-router-dom';
 
+export var authlogin = false;
+
+
 function Login() {
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState('');  
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,13 +24,20 @@ function Login() {
     };
     try {
       const response = await axios.post('/catalog/login/', data);
-      console.log(response.data);
+      // console.log(response.data);
+      authlogin = response.data.success
+      if (authlogin){
+        navigate('/');
+      } else{
+        console.log('User no find');
+      }
     } catch (error) {
       console.error(error);
     }
   };
 
   return (
+    
     <div className='login-container'>
       <h1>Welcome back.</h1>
 
