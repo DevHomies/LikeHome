@@ -1,4 +1,5 @@
 import React, {useState, useEffect}from "react";
+import { Navbar } from '../../components';
 import './home.css';
 
 const HomePage = () => {
@@ -17,9 +18,12 @@ const HomePage = () => {
     // }
 
     return (
-        <div className="home-container">
-            <h1>HOME PAGE</h1>
-        </div>
+        <>
+            <Navbar />
+            <div className="home-container">
+                <h1>HOME PAGE</h1>
+            </div>
+        </>
     )
 
 }
