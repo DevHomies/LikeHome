@@ -37,7 +37,7 @@ function Login() {
   };
 
   return (
-    
+
     <div className='login-container'>
       <h1>Welcome back.</h1>
 
@@ -60,7 +60,6 @@ function Login() {
           </div>
 
           <p className={`err-prompt ${err ? '' : 'hide'}`}>That account does not exist!</p>
-
           <form onSubmit={handleSubmit} className='login-form'>
             <div className='form-group'>
               <FaEnvelope className='form-icons'/>

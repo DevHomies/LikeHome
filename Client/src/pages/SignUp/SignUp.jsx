@@ -6,7 +6,7 @@ import './signup.css';
 import { FaGoogle, FaFacebookF } from 'react-icons/fa';
 
 // Import Link for page routing
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Registerexample() {
   const [username, setUsername] = useState('');
