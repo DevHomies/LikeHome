@@ -13,6 +13,9 @@ function Registerexample() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rpassword, setRPassword] = useState('');
+
+  const [errEmail, setErrEmail] = useState(false);
+  const [errPass, setErrPass] = useState(false);
   
   const navigate = useNavigate();
 
@@ -30,7 +33,11 @@ function Registerexample() {
       if (response.data.success){
         navigate('/login/');
       } else{
-        console.log('User can not be create');
+        if (password !== rpassword) {
+          setErrPass(true);
+        } else {
+          setErrEmail(true);
+        }
       }
     } catch (error) {
       console.error(error);
@@ -73,6 +80,7 @@ function Registerexample() {
               </div>
             </div>
 
+            <p className={`err-prompt ${errEmail ? '' : 'hide'}`}>The email is taken!</p>
             <div className='form-group signup-email'>
               <div className='form-group-inputs'>
                 <label htmlFor="email">Email</label>
@@ -86,6 +94,7 @@ function Registerexample() {
               </div>
             </div>
 
+            <p className={`err-prompt ${errPass ? '' : 'hide'}`}>The passwords do not match!</p>
             <div className='form-group'>
               <div className='form-group-inputs'>
                 <label htmlFor="password">Password</label>
@@ -99,7 +108,7 @@ function Registerexample() {
               </div>
             </div>
 
-            <div className='form-group'>
+            <div className='form-group signup-rpass'>
               <div className='form-group-inputs'>
                 <label htmlFor="rpassword">re-Password</label>
                 <input

@@ -64,6 +64,19 @@
     margin: 0 1.68rem;
 }
 
+.err-prompt {
+    color: red;
+    text-align: center;
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    animation: shake 0.3s ease-in-out;
+}
+
+.hide {
+    display: none;
+}
+
 .login-form {
     display: flex;
     flex-direction: column;
@@ -168,5 +181,27 @@
 
     .login-register {
         font-size: 0.8rem;
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(5px);
+    }
+
+    50% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+
+    100% {
+        transform: translateX(0);
     }
 }

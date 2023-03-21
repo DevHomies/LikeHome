@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './login.css';
@@ -10,10 +10,10 @@ import { Link } from 'react-router-dom';
 
 export var authlogin = false;
 
-
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');  
+  const [err, setErr] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -29,7 +29,7 @@ function Login() {
       if (authlogin){
         navigate('/');
       } else{
-        console.log('User no find');
+        setErr(true);
       }
     } catch (error) {
       console.error(error);
@@ -58,6 +58,8 @@ function Login() {
             <p>OR</p>
             <hr />
           </div>
+
+          <p className={`err-prompt ${err ? '' : 'hide'}`}>That account does not exist!</p>
 
           <form onSubmit={handleSubmit} className='login-form'>
             <div className='form-group'>
@@ -90,7 +92,7 @@ function Login() {
 
             <div className='info-memory'>
               <div>
-                <input type="checkbox" name="remember" />
+                <input type="checkbox" name="remember" id='remember' />
                 <label htmlFor='remember'>Remember</label>
               </div>
 
