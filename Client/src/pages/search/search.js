@@ -33,6 +33,7 @@ function Search(props) {
   return (
     <section>
       <div className = "page">
+      <Navbar />
         <div className = "sort-section"> 
           <h1 className = "sort-section-child"> 123 results shown in San Francisco, CA</h1>
           <h2 className = "sort-section-child"> <Sort sortBy = {sortBy} handleSortBy = {setSortBy} /> </h2>
