@@ -21,11 +21,19 @@ const HomePage = () => {
     return (
         <>
             <Navbar />
-            <div className="home-container">
+            <div className="header-container">
+                <div className="BigHomepageText">
+                    {/*
+                    <h1>Find A Hotel</h1>
+                    <h2>Anytime. Anyplace. Anywhere.</h2>
+                    */}
+                </div>
                 <img src= '/assets/images/LikeHomePage.png' />
                 <SearchBar />
             </div>
-            <Footer />
+            <div className="body-container">
+            </div>
+            {/*<Footer />*/}
         </>
     )
 

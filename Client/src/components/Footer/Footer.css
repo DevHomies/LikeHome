@@ -1,14 +1,50 @@
 .FeetLoverContainer {
-    background-color: red;
+    background-color: darkcyan;
     /*background-image: linear-gradient(to right, #4c2c8e 45%, #6137bd);*/
     text-align: center;
     width: auto;
-    height: 210px;
-    color: var(--white)
+    color: var(--white);
+    height: 200px;
+     
 }
-
 
 .foot-logo {
     text-decoration: none;
     color: var(--white);
+}
+.compLink {
+    text-decoration: none;
+    color: var(--white);
+}
+.HCLink {
+    text-decoration: none;
+    color: var(--white);
+}
+.CILink {
+    text-decoration: none;
+    color: var(--white);
+}
+
+.Col0 {
+    background-color: gray;
+    float: left;
+    width: 40%;
+}
+
+.Col1 {
+    background-color: orange;
+    float: left;
+    width: 20%;
+}
+
+.Col2 {
+    background-color: green;
+    float: left;
+    width: 20%;
+}
+
+.Col3 {
+    background-color: blue;
+    float: left;
+    width: 20%;
 }

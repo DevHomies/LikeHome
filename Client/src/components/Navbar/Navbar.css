@@ -3,7 +3,6 @@
 * https://www.youtube.com/watch?v=amf18mxNX18 
 */
 .nav-header {
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -11,8 +10,12 @@
     height: 70px;
     padding: 0 4.75rem;
 
-    background-image: linear-gradient(to bottom right, #4c2c8e 65%, #5833a8);
+    background-image: linear-gradient(to right, #4c2c8e 45%, 
+    #6137bd, #8d77cb, #d6baf1);
     color: var(--white);
+    position: sticky;
+    top:0;
+    z-index: 99999;
 }
 
 .nav-logo {
