@@ -1,8 +1,8 @@
 .page {
     padding: 20px;
 }
+
 .hotel-grid {
-    min-width: 1000px;
     display: grid;
     grid-template-rows: repeat(3, 1fr [row-start]);
     grid-template-columns: repeat(3, 1fr [col-start]);
@@ -22,11 +22,10 @@
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
     .hotel-grid {
         grid-template-rows: repeat(9, 1fr [row-start]);
         grid-template-columns: repeat(1, 1fr [col-start]);
-        min-width: 700px;
         
     }
 }

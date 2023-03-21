@@ -2,7 +2,13 @@ import './HotelPreview.css';
 import '../../index.css';
 
 function HotelPreview (props) {
-    const details = props.details.map((detail) => <li>{detail}</li>)
+    const details = props.details.map(
+        (detail, index) => { 
+            if ( index < 2) {
+            return (<li>{detail}</li>);
+            }
+    }
+        )
     return (
         <div>
             <div className='container'>
