@@ -5,6 +5,7 @@
     gap: 10rem;
     padding: 5rem 0;
     height: 100vh;
+    position: relative;
 }
 
 .login-container h1 {

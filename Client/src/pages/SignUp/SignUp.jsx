@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import './signup.css';
 
-import { FaGoogle, FaFacebookF } from 'react-icons/fa';
+import { FaGoogle, FaFacebookF, FaHome } from 'react-icons/fa';
 
 // Import Link for page routing
 import { Link, useNavigate } from 'react-router-dom';
@@ -46,6 +46,7 @@ function Registerexample() {
 
   return (
     <div className='signup-container'>
+      <Link to='/' className='home-btn'><FaHome/></Link>
       <h1><span>Welcome to</span> LikeHome.</h1>
       
       <div className='box'>

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './login.css';
 
-import { FaGoogle, FaFacebookF, FaEnvelope, FaKey } from 'react-icons/fa';
+import { FaGoogle, FaFacebookF, FaEnvelope, FaKey, FaHome } from 'react-icons/fa';
 
 // Import Link for page routing
 import { Link } from 'react-router-dom';
@@ -39,6 +39,7 @@ function Login() {
   return (
 
     <div className='login-container'>
+      <Link to='/' className='home-btn'><FaHome/></Link>
       <h1>Welcome back.</h1>
 
       <div className='box'>
