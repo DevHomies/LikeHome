@@ -33,7 +33,7 @@ const HomePage = () => {
             </div>
             <div className="body-container">
             </div>
-            {/*<Footer />*/}
+            <Footer />
         </>
     )
 

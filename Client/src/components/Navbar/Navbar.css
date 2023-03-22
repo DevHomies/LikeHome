@@ -10,8 +10,11 @@
     height: 70px;
     padding: 0 4.75rem;
 
+    /*
     background-image: linear-gradient(to right, #4c2c8e 45%, 
     #6137bd, #8d77cb, #d6baf1);
+    */
+    background-color: #4c2c8e;
     color: var(--white);
     position: sticky;
     top:0;

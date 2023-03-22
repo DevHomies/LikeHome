@@ -39,11 +39,6 @@
     font-weight: italic;
 }
 
-.img {
-    max-width: 1712px;
-    min-height: 882px;
-}
-
 .body-container {
     background-image: linear-gradient(to right, #4c2c8e 45%, 
     #6137bd, #8d77cb, #d6baf1);
@@ -54,8 +49,14 @@
 }
 
 @media screen and (max-width: 1712px) {
-    .img {
-        size-adjust: 75%;
+    img {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    img {
+        display: none;
     }
 }
 
