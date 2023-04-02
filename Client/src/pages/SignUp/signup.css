@@ -9,6 +9,7 @@
     gap: 10rem;
     padding-top: 5rem;
     height: 100vh;
+    position: relative;
 }
 
 .signup-container h1 {
@@ -27,6 +28,10 @@
     margin-bottom: 1rem;
 }
 
+.signup-rpass {
+    margin-top: 1rem;
+}
+
 .signup-button {
     margin: 24px 0;
     width: 100%;
@@ -36,6 +41,14 @@
 .signup-button:hover {
     transform: translateY(-5px);
     filter: drop-shadow(0 5px 0 var(--dark-grey));
+}
+
+.home-btn {
+    position: absolute;
+    color: white;
+    left: 1rem;
+    top: 1rem;
+    font-size: 3rem;
 }
 
 @media screen and (max-width: 1350px) {

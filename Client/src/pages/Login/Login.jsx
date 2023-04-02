@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './login.css';
 
-import { FaGoogle, FaFacebookF, FaEnvelope, FaKey } from 'react-icons/fa';
+import { FaGoogle, FaFacebookF, FaEnvelope, FaKey, FaHome } from 'react-icons/fa';
 
 // Import Link for page routing
 import { Link } from 'react-router-dom';
 
+export var authlogin = false;
+
 function Login() {
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState('');  
+  const [err, setErr] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,14 +24,22 @@ function Login() {
     };
     try {
       const response = await axios.post('/catalog/login/', data);
-      console.log(response.data);
+      // console.log(response.data);
+      authlogin = response.data.success
+      if (authlogin){
+        navigate('/');
+      } else{
+        setErr(true);
+      }
     } catch (error) {
       console.error(error);
     }
   };
 
   return (
+
     <div className='login-container'>
+      <Link to='/' className='home-btn'><FaHome/></Link>
       <h1>Welcome back.</h1>
 
       <div className='box'>
@@ -47,6 +60,7 @@ function Login() {
             <hr />
           </div>
 
+          <p className={`err-prompt ${err ? '' : 'hide'}`}>That account does not exist!</p>
           <form onSubmit={handleSubmit} className='login-form'>
             <div className='form-group'>
               <FaEnvelope className='form-icons'/>
@@ -78,7 +92,7 @@ function Login() {
 
             <div className='info-memory'>
               <div>
-                <input type="checkbox" name="remember" />
+                <input type="checkbox" name="remember" id='remember' />
                 <label htmlFor='remember'>Remember</label>
               </div>
 
