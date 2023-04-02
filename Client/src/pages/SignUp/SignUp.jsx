@@ -3,16 +3,21 @@ import axios from 'axios';
 
 import './signup.css';
 
-import { FaGoogle, FaFacebookF } from 'react-icons/fa';
+import { FaGoogle, FaFacebookF, FaHome } from 'react-icons/fa';
 
 // Import Link for page routing
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Registerexample() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rpassword, setRPassword] = useState('');
+
+  const [errEmail, setErrEmail] = useState(false);
+  const [errPass, setErrPass] = useState(false);
+  
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +30,15 @@ function Registerexample() {
     };
     try {
       const response = await axios.post('/catalog/register/', data);
-      console.log(response.data);
+      if (response.data.success){
+        navigate('/login/');
+      } else{
+        if (password !== rpassword) {
+          setErrPass(true);
+        } else {
+          setErrEmail(true);
+        }
+      }
     } catch (error) {
       console.error(error);
     }
@@ -33,6 +46,7 @@ function Registerexample() {
 
   return (
     <div className='signup-container'>
+      <Link to='/' className='home-btn'><FaHome/></Link>
       <h1><span>Welcome to</span> LikeHome.</h1>
       
       <div className='box'>
@@ -67,6 +81,7 @@ function Registerexample() {
               </div>
             </div>
 
+            <p className={`err-prompt ${errEmail ? '' : 'hide'}`}>The email is taken!</p>
             <div className='form-group signup-email'>
               <div className='form-group-inputs'>
                 <label htmlFor="email">Email</label>
@@ -80,6 +95,7 @@ function Registerexample() {
               </div>
             </div>
 
+            <p className={`err-prompt ${errPass ? '' : 'hide'}`}>The passwords do not match!</p>
             <div className='form-group'>
               <div className='form-group-inputs'>
                 <label htmlFor="password">Password</label>
@@ -89,6 +105,19 @@ function Registerexample() {
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div className='form-group signup-rpass'>
+              <div className='form-group-inputs'>
+                <label htmlFor="rpassword">re-Password</label>
+                <input
+                  placeholder='***************'
+                  type="password"
+                  id="rpassword"
+                  value={rpassword}
+                  onChange={(e) => setRPassword(e.target.value)}
                 />
               </div>
             </div>

@@ -1,11 +1,14 @@
 import { useState } from "react";
 import './Navbar.css';
+import axios from 'axios';
 
 // Import Link for page routing
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 // Import Icons
 import { IoMenuOutline, IoClose, IoPersonCircle } from "react-icons/io5";
+
+import { authlogin } from "../../pages/Login/Login";
 
 //Navbar and FaBars code inspired by https://www.youtube.com/watch?v=amf18mxNX18
 //Dropdown Menu code inspired by https://www.robinwieruch.de/react-dropdown/
@@ -18,7 +21,16 @@ function Navbar() {
     };
 
     // Placeholder for navbar state (logged in vs not)
-    const [loggedIn, setLoggedIn] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(authlogin);
+
+    const navigate = useNavigate();
+    const logout_handle = async () => {
+        const response = await axios.get('/catalog/logout/');
+        if (response.data.success){
+            authlogin = false
+            navigate('login/');
+        }
+    }
 
     return (
         <header className="nav-header">
@@ -50,7 +62,7 @@ function Navbar() {
                             </li>
                             <hr />
                             <li className="menu-item">
-                                <Link to='/' className='menu-btn'>Logout</Link>
+                                <button onClick={logout_handle} className='menu-btn'>Logout</button>
                             </li>
                         </ul>
                         ) : null
