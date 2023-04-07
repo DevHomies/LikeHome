@@ -6,17 +6,13 @@ import { HomePage, Login, Registerexample, AccountPage,
 const App = () => {
   return (
     <div className="App">
-      <AccountPage />
-      <CurrentReservations />
-      <HomePage />
-      {/*
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Registerexample />} />
         <Route path='/account' element={<AccountPage/>} />
+        <Route path='/UserReservations' element={<CurrentReservations/>} />
       </Routes> 
-        */}
     </div>
   );
 }
