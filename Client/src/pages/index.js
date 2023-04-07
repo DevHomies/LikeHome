@@ -3,3 +3,5 @@
 export { default as HomePage } from './HomePage/HomePage'
 export { default as Login } from './Login/Login';
 export { default as Registerexample } from './SignUp/SignUp';
+export { default as AccountPage } from './AccountPage/AccountPage';
+export { default as CurrentReservations } from './CurrentReservations/CurrentReservations';

@@ -31,8 +31,6 @@ const Footer = () => {
                      
                         <p><Link to='/' className='HCLink'>Find a Property</Link></p>
                     
-                        <p><Link to='/' className='HCLink'>How to Host?</Link></p>
-                    
                         <p><Link to='/' className='HCLink'>Why Us?</Link></p>
                     
                         <p><Link to='/' className='HCLink'>FAQs</Link></p>
@@ -49,8 +47,7 @@ const Footer = () => {
                     {/*Oprah's email*/}
                         <p><Link to='/' className='CILink'>Email: harpo@interaccess.com</Link></p>
                     
-                        <p><Link to='/' className='CILink'>Location: 3221 S White Rd, 
-                        San Jose, CA 95148</Link></p>
+                        <p><Link to='/' className='CILink'>Location: 3221 S White Rd, San Jose, CA 95148</Link></p>
                     
                         <p><Link to='/' className='CILink'>SM links coming soon!</Link></p>
                     
@@ -60,7 +57,7 @@ const Footer = () => {
 
             <hr ></hr>
             <div className="Copyrights">
-                <p>@ {new Date().getFullYear()} DevHomies | 
+                <p>@ {new Date().getFullYear()} DevHomies Design | 
                         All rights reserved</p>
             </div>
         </div>

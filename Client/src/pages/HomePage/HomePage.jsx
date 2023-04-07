@@ -23,16 +23,15 @@ const HomePage = () => {
             <Navbar />
             <div className="header-container">
                 <div className="BigHomepageText">
-                    {/*
-                    <h1>Find A Hotel</h1>
-                    <h2>Anytime. Anyplace. Anywhere.</h2>
-                    */}
+                    <p id= "Title"> Find A Hotel</p>
+                    <p id= "subtext">Anytime. Anyplace. <font color = "#F6C851">Anywhere.</font></p>
                 </div>
-                <img src= '/assets/images/LikeHomePage.png' />
+                <img src= '/assets/images/LHbackground.png'/>
                 <SearchBar />
             </div>
+            {/*
             <div className="body-container">
-            </div>
+            </div>*/}
             <Footer />
         </>
     )

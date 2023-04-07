@@ -18,4 +18,21 @@
   padding-bottom: 50px;
 
 }
-  
+
+@media screen and (max-width: 1740px) {
+  .SBcontainer {
+    top: 30%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .SBcontainer {
+    top: 20%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .SBcontainer {
+      top: 15%;
+  }
+}

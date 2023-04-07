@@ -2,14 +2,18 @@
     background-color: #4c2c8e;
     /*background-image: linear-gradient(to right, #4c2c8e 45%, #6137bd);*/
     color: var(--white);
-    text-align: center;
-     
+    text-align: left;
+
 }
 
 .columns {
-    height: 300px;
+    height: 225px;
+    width: 100%;
     display: inline-block;
+    text-shadow: 0px 10px 5px #1e1239;
+    overflow-wrap: break-word;
 }
+
 
 .foot-logo {
     text-decoration: none;
@@ -33,26 +37,24 @@
     float: left;
     width: 30%;
     padding-top: 25px;
-    padding-left: 0;
+    padding-left: 5rem;
 }
-
 
 .Col1 {
     float: left;
-    width: 23%;
+    width: 18%;
     padding: 35px;
-    padding-left: 25px;
 }
 
 .Col2 {
     float: left;
-    width: 23%;
+    width: 18%;
     padding: 35px;
 }
 
 .Col3 {
     float: left;
-    width: 24%;
+    width: 18%;
     padding: 35px;
 }
 
@@ -60,13 +62,57 @@
     text-align: left;
     padding: 15px;
     padding-left: 25px;
+    text-shadow: 0px 10px 5px #1e1239;
 
 }
 
-p {
+.columns p {
+    padding-top: 5px;
     white-space: nowrap;
+    padding-bottom: 5px;
   }
 
-h1 {
-    font-size: 50px;
+.Col0 h1 {
+    font-size: 2em;
+}
+
+.Col0 p {
+    font-size: 15px;
+    font-style: italic;
+}
+
+
+@media screen and (max-width: 950px) {
+
+    .columns {
+        height: 275px;
+    }
+
+    .Col0 {
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        padding-top: 15px;
+    }
+
+    .Col0 h1 {
+        font-size: 1.5rem;
+    }
+    
+    .Col0 p {
+        font-size: 12px;
+        font-style: italic;
+    }
+
+    .Col1, .Col2, .Col3 {
+        width: 33%;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .Copyrights {
+        text-align: center;
+        font-size: 12px;
+    }
+
 }
