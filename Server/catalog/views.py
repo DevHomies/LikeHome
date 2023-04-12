@@ -3,12 +3,14 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout
 from catalog import models
-from catalog.utils import getInfolist, getLoginInfo,getRegister
+from catalog.utils import getInfolist, getLoginInfo,getRegister, logout_user
 
 from catalog.serializers import catalogSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework.serializers import Serializer
+from django.http import HttpResponse, JsonResponse
+
 
 from catalog import serializers
 
@@ -16,6 +18,24 @@ from catalog import serializers
 def getRoutes(request):
 
     routes = [
+        {
+            'Endpoint': '/catalog/',
+            'method': 'GET',
+            'body': None,
+            'description': ''
+        },
+        {
+            'Endpoint': '/catalog/login/',
+            'method': 'POST',
+            'body': {'body': ""},
+            'description': 'log in user'
+        },
+        {
+            'Endpoint': '/catalog/register/',
+            'method': 'POST',
+            'body': {'body': ""},
+            'description': 'log in user'
+        },
         
     ]
     return Response(routes)
@@ -25,18 +45,20 @@ def getInfo(request):
     if request.method == 'GET':
         return getInfolist(request)
 
-@api_view(['POST'])
-def loginview(reuqest):
-    if reuqest.method == 'POST':
-        return getLoginInfo(reuqest)
-
-
+@api_view(['POST', 'GET'])
+def loginview(request):
+    if request.method == 'POST':
+        return getLoginInfo(request)
+    
 @api_view(['POST'])
 def registerview(request):
     if request.method == 'POST':
         return getRegister(request)
 
-
+@api_view(['GET'])
+def logout_view(request):
+    if request.method == 'GET':
+        return logout_user(request)
 # ------------------------------------------------------------------------HTML------------------------------------
 """
 # Create your views here.
