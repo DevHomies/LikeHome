@@ -3,3 +3,4 @@
 export { default as HomePage } from './Home/Home';
 export { default as Login } from './Login/Login';
 export { default as Registerexample } from './SignUp/SignUp';
+export { default as CancelReserve } from './Cancel Reservation/CancelReserve';
