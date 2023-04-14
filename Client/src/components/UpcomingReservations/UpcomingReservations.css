@@ -57,3 +57,11 @@
     background-color: #4C2C8E;
     color: white;
 }
+
+.UREditButton button:hover,
+.URCancelButton button:hover {
+    background-color: #351f63;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+}

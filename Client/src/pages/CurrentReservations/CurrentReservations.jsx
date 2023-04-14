@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import { Navbar, Footer, UpcomingReservations, PastReservations } from '../../components'; 
+import { Navbar, Footer, UpcomingReservations, 
+    PastReservations, EditReservations } from '../../components'; 
 import './CurrentReservations.css';
 
 const CurrentReservations = () => { 
