@@ -7,4 +7,6 @@ export { default as Location } from './Location/Location';
 export { default as Rooms } from './Travelers_Rooms/Rooms/Rooms';
 export { default as Travelers } from './Travelers_Rooms/Travelers/Travelers';
 export { default as TrRo } from './Travelers_Rooms/TrRo';
-export { default as SearchBar } from './SearchBar/SearchBar'
+export { default as SearchBar } from './SearchBar/SearchBar';
+export { default as UpcomingReservations } from './UpcomingReservations/UpcomingReservations';
+export { default as PastReservations } from './PastReservations/PastReservations';

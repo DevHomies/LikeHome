@@ -59,6 +59,17 @@
     color: gray;
 }
 
+.AccountLinks:hover {
+    color: #7056a5;
+}
+
+.AccountLinks:focus {
+    color: #4C2C8E;
+}
+
+.AccountLinks:target {
+    color: #4C2C8E;
+}
 
 .InputFieldContainer {
     padding: 2.5%;

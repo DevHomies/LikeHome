@@ -51,7 +51,6 @@ const CheckInCheckOut = () => {
 
   return (
     <div className="WholeCalendarContainer">
-
       <div className="SubContainer">
         <div class="CheckIn">
           <p>Check In</p>
@@ -74,9 +73,11 @@ const CheckInCheckOut = () => {
                       editableDateInputs={true}
                       moveRangeOnFirstSelection={false}
                       ranges={range}
-                      months={1}
-                      direction="vertical"
+                      months={2}
+                      direction="horizontal"
                       className="calendarElement" 
+                      minDate={new Date()}
+                      maxDate={addDays(new Date(), 31)}
                       />
                     }
             </div>  

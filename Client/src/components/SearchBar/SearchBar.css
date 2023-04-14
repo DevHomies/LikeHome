@@ -19,6 +19,33 @@
 
 }
 
+.SearchButton {
+  background-color: #F6C851;
+  border: none;
+  color: black;
+  width: 320px;
+  height: 88px;
+  text-align: center;
+  border: 1.5px solid #C2C6CC;
+  border-radius: 15px;
+  position: relative;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.SearchButton:hover {
+background-color: #c5a041;
+font-size: 35px;
+cursor: pointer;
+}
+
+.YellowSearchButton {
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+
+
 @media screen and (max-width: 1740px) {
   .SBcontainer {
     top: 30%;

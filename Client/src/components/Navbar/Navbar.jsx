@@ -50,11 +50,11 @@ function Navbar() {
                     {open ? (
                         <ul className="menu">
                             <li className="menu-item">
-                                <Link to='/' className='menu-btn'>Account</Link>
+                                <Link to='/account' className='menu-btn'>Account</Link>
                             </li>
 
                             <li className="menu-item">
-                                <Link to='/' className='menu-btn'>Reservations</Link>
+                                <Link to='/UserReservations' className='menu-btn'>Reservations</Link>
                             </li>
 
                             <li className="menu-item">
