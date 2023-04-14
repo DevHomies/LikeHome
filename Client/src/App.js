@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
-
 import './App.css';
-import { HomePage, Login, Registerexample } from './pages';
+import { HomePage, Login, Registerexample, AccountPage, 
+        CurrentReservations, EditReservations} from './pages';
 
 const App = () => {
   return (
@@ -10,7 +10,10 @@ const App = () => {
         <Route path='/' element={<HomePage />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Registerexample />} />
-      </Routes>
+        <Route path='/account' element={<AccountPage/>} />
+        <Route path='/UserReservations' element={<CurrentReservations/>} />
+        <Route path='/EditReservations' element={<EditReservations/>} />
+      </Routes> 
     </div>
   );
 }

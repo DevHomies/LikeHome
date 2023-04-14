@@ -1,0 +1,65 @@
+.searchBlock {
+    width: 420px;
+    height: 458px;
+    border: 3.5px solid #4c2c8e;
+    border-radius: 52px;
+    position: relative;
+    background-color: white;
+    box-shadow: 0px 10px 5px #1e1239;
+  }
+
+.SBcontainer {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  position: absolute;
+  top: 35%;
+  padding-bottom: 50px;
+
+}
+
+.SearchButton {
+  background-color: #F6C851;
+  border: none;
+  color: black;
+  width: 320px;
+  height: 88px;
+  text-align: center;
+  border: 1.5px solid #C2C6CC;
+  border-radius: 15px;
+  position: relative;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.SearchButton:hover {
+background-color: #c5a041;
+font-size: 35px;
+cursor: pointer;
+}
+
+.YellowSearchButton {
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+
+
+@media screen and (max-width: 1740px) {
+  .SBcontainer {
+    top: 30%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .SBcontainer {
+    top: 20%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .SBcontainer {
+      top: 15%;
+  }
+}

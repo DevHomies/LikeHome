@@ -1,0 +1,152 @@
+.AccountPageContainer {
+    width: 100%;
+    height: 800px;
+    padding-top: 150px;
+}
+
+.RewardBox {
+    width: 1150px;
+    height: 50px;
+    background-color: #F6F6F6;
+    box-shadow: 0px 4px 5px 1.5px #1e1239;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.RewardBox p {
+    color: #1e1239;
+    font-size: 25px;
+    font-weight: 700;
+    padding-top: 10px;
+    padding-left: 15px;
+}
+
+.RewardStripContainer {
+    padding-bottom: 2.5%;
+}
+
+.BoxContainer {
+    width: 1150px;
+    height: 350px;
+    background-color: #F6F6F6;
+    box-shadow: 0px 4px 5px 1.5px #1e1239;
+    border-radius: 10px;
+    margin: auto;
+    display: block;
+}
+
+
+.AccountLinkPages {
+    height: 100%;
+    width: 25%;
+    border-right: 2px solid #C2C6CC;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 10px 0px 0px 0px;
+    padding-top: 50px;
+}
+
+.AccountLinkPages p {
+    padding-bottom: 20px;
+    font-size: 20px;
+    text-align: left;
+    padding-left: 50px;
+    font-weight: 700;
+}
+
+.AccountLinks {
+    text-decoration: none;
+    color: gray;
+}
+
+.AccountLinks:hover {
+    color: #7056a5;
+}
+
+.AccountLinks:focus {
+    color: #4C2C8E;
+}
+
+.AccountLinks:target {
+    color: #4C2C8E;
+}
+
+.InputFieldContainer {
+    padding: 2.5%;
+    width: 70%;
+    height: 100%;
+    border-radius: 0px 10px 0px 0px;
+}
+
+.InputFieldContainer p, .ContactInfo p {
+    color: gray;
+    font-size: 18px;
+    font-weight: 650;
+    padding-left: 10px;
+}
+
+.UserName {
+    width: 100%;
+    height: 50%;
+    align-items: center;
+    display: flex;
+}
+
+.ContactInfo {
+    width: 100%;
+    height: 50%;
+    top: -50%;
+    align-items: center;
+    display: flex;
+}
+
+.First, .Last, .Email, .Phone {
+    width: 50%;
+}
+
+div input {
+    width: 80%;
+    height: 40px;
+    text-align: left;
+    font: bolder;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+::placeholder {
+    font-size: 18px;
+    color: gray;
+    text-align: center;
+    font: bolder;
+  }
+
+.SaveChangesButton button {
+    background-color: #F6C851;
+    color: black;
+    width: 215px;
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.SaveChangesButton {
+    text-align: right;
+    padding-right: 5%;
+}
+
+
+.TopContainer {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    border-radius: 10px 10px 0px 0px;
+
+}
+.BotContainer {
+    height: 30%;
+    width: 100%;
+    border-radius: 0px 0px 10px 10px;
+}
+

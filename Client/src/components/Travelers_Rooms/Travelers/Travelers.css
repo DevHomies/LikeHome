@@ -1,0 +1,29 @@
+.TrWrap {
+    width: 160px;
+    height: 88px;
+    border-radius: 15px 0px 0px 15px;
+    border-width: 1.5px;
+    border-color: transparent;
+    border-style: solid;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .TrWrap label {
+    font-weight: 600;
+    display: block;
+    padding-top: 15px;
+    font-size: 18px;
+
+  }
+  
+  select {
+    width: 60px;
+    height: 44px;
+    text-align: left;
+    border-radius: 15px 15px 15px 15px;
+    border-color: transparent;
+    font-size: 21px;
+    color: #C2C6CC;
+  }
+  
