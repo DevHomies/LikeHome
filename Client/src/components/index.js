@@ -2,7 +2,6 @@
 export { Amenities } from './Amenities/Amenities';
 export { default as ShowMoreLess } from './Amenities/Amenities';
 export { default as Navbar } from './Navbar/Navbar';
-export { default as Navbar } from './Navbar/Navbar';
 export { default as Footer } from './Footer/Footer';
 //Smaller, broken-down components below are for the big search component on the home page :)
 export { default as CheckInCheckOut } from './CheckInCheckOut/CheckInCheckOut';
