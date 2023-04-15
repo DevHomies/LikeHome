@@ -1,0 +1,115 @@
+.header-container {
+    background-image: linear-gradient(to right, #4c2c8e 45%,
+            #6137bd, #8d77cb, #d6baf1);
+    /*background-position: 0px 0px;
+    background-repeat: repeat-x;
+    animation: color 5s linear infinite;
+    overflow: hidden;*/
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    display: relative;
+    margin: auto;
+    padding-top: 10px;
+    height: 1300px;
+}
+
+.BigHomepageText #Title {
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    font-weight: bold;
+    font-size: 140px;
+    width: 100%;
+    top: 13%;
+    letter-spacing: 0.5px;
+    color: white;
+    text-shadow: 0px 10px 5px #1e1239;;
+}
+
+.BigHomepageText #subtext {
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 50px;
+    width: 100%;
+    top: 25.5%;
+    letter-spacing: 0.5px;
+    color: white;
+    text-shadow: 0px 10px 5px #1e1239;
+}
+
+.body-container {
+    background-image: linear-gradient(to right, #4c2c8e 45%, 
+    #6137bd, #8d77cb, #d6baf1);
+    /*background-position: 0px 0px;
+    background-repeat: repeat-x;
+    animation: color 5s linear infinite;*/
+    height: 1300px;
+}
+
+@media screen and (max-width: 1740px) {
+    .header-container img {
+        display: none;
+    }
+
+    .header-container {
+        height: 1000px;
+    }
+
+    .BigHomepageText #Title {
+        top: 10%;
+        font-size: 120px;
+    }
+
+    .BigHomepageText #subtext {
+        top: 23%;
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .header-container {
+      height: 700px;
+    }
+
+    .BigHomepageText #Title {
+        top: 3%;
+        font-size: 80px;
+    }
+
+    .BigHomepageText #subtext {
+        top: 15%;
+        font-size: 20px;
+    }
+  }
+  
+@media screen and (max-width: 550px) {
+    .header-container {
+        height: 600px;
+    }
+
+    .BigHomepageText #Title {
+        top: 0%;
+        font-size: 60px;
+    }
+
+    .BigHomepageText #subtext {
+        top: 10.5%;
+        font-size: 15px;
+    }
+}
+
+/*@keyframes color {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position:100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}*/
