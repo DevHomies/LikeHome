@@ -1,115 +1,98 @@
 .header-container {
-    background-image: linear-gradient(to right, #4c2c8e 45%,
-            #6137bd, #8d77cb, #d6baf1);
-    /*background-position: 0px 0px;
-    background-repeat: repeat-x;
-    animation: color 5s linear infinite;
-    overflow: hidden;*/
+    position: relative;
     text-align: center;
     justify-content: center;
     position: relative;
-    display: relative;
-    margin: auto;
-    padding-top: 10px;
-    height: 1300px;
+    margin-bottom: 7rem;
+    padding-bottom: 2.2rem;
 }
 
-.BigHomepageText #Title {
-    justify-content: center;
-    text-align: center;
+.header-bg {
+    min-width: 2100px;
+    height: 100%;
+    background-image: url('../../assets/LHbackground.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top -4rem;
     position: absolute;
-    font-weight: bold;
-    font-size: 140px;
-    width: 100%;
-    top: 13%;
-    letter-spacing: 0.5px;
-    color: white;
-    text-shadow: 0px 10px 5px #1e1239;;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.BigHomepageText #subtext {
-    justify-content: center;
-    text-align: center;
+.header-bg2 {
+    z-index: -1;
     position: absolute;
-    font-weight: bold;
-    font-style: italic;
-    font-size: 50px;
     width: 100%;
-    top: 25.5%;
+    height: 100%;
+    background: radial-gradient(51.16% 155.46% at 100% 122.31%, #683BC9 0%, #4C2C8E 100%);
+}
+
+.header-text {
+    margin-bottom: 3rem;
+    padding-top: 3.2rem;
+}
+
+.header-text p:first-of-type {
+    justify-content: center;
+    font-weight: bold;
+    font-size: 8.75rem;
     letter-spacing: 0.5px;
     color: white;
     text-shadow: 0px 10px 5px #1e1239;
 }
 
-.body-container {
-    background-image: linear-gradient(to right, #4c2c8e 45%, 
-    #6137bd, #8d77cb, #d6baf1);
-    /*background-position: 0px 0px;
-    background-repeat: repeat-x;
-    animation: color 5s linear infinite;*/
-    height: 1300px;
+.header-text p:nth-of-type(2) {
+    justify-content: center;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 40px;
+    letter-spacing: 0.5px;
+    color: white;
+}
+
+/* For 2k screens and up */
+@media screen and (min-width: 1921px) {
+    .header-container {
+        margin-bottom: 15rem;
+        padding-bottom: 3rem;
+    }
+
+    .header-bg {
+        background-position: center top 55%;
+    }
 }
 
 @media screen and (max-width: 1740px) {
-    .header-container img {
-        display: none;
-    }
-
-    .header-container {
-        height: 1000px;
-    }
-
-    .BigHomepageText #Title {
-        top: 10%;
+    .header-text p:first-of-type {
         font-size: 120px;
     }
 
-    .BigHomepageText #subtext {
-        top: 23%;
+    .header-text p:nth-of-type(2) {
         font-size: 30px;
     }
 }
 
 @media screen and (max-width: 950px) {
-    .header-container {
-      height: 700px;
-    }
-
-    .BigHomepageText #Title {
-        top: 3%;
+    .header-text p:first-of-type {
         font-size: 80px;
     }
 
-    .BigHomepageText #subtext {
-        top: 15%;
+    .header-text p:nth-of-type(2) {
         font-size: 20px;
     }
   }
   
 @media screen and (max-width: 550px) {
     .header-container {
-        height: 600px;
+        margin-bottom: 0;
     }
 
-    .BigHomepageText #Title {
-        top: 0%;
+    .header-text p:first-of-type {
         font-size: 60px;
     }
 
-    .BigHomepageText #subtext {
-        top: 10.5%;
+    .header-text p:nth-of-type(2) {
         font-size: 15px;
     }
 }
-
-/*@keyframes color {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position:100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}*/

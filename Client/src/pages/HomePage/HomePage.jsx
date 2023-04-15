@@ -1,7 +1,6 @@
-import React, {useState, useEffect}from "react";
+import React, { useState, useEffect }from "react";
 import { Navbar, Footer,SearchBar } from '../../components';
 import './HomePage.css';
-
 
 const HomePage = () => {
     // let [info, setInfo] = useState([])
@@ -22,16 +21,15 @@ const HomePage = () => {
         <>
             <Navbar />
             <div className="header-container">
-                <div className="BigHomepageText">
-                    <p id= "Title"> Find A Hotel</p>
-                    <p id= "subtext">Anytime. Anyplace. <font color = "#F6C851">Anywhere.</font></p>
+                <div className="header-bg"></div>
+                <div className="header-bg2"></div>
+                <div className="header-text">
+                    <p> Find A Hotel</p>
+                    <p>Anytime. <font color ="#F6C851">Anywhere.</font></p>
                 </div>
-                <img src= '/assets/images/LHbackground.png'/>
+                {/* <img src='/assets/images/LHbackground.png' alt='bg'/> */}
                 <SearchBar />
             </div>
-            {/*
-            <div className="body-container">
-            </div>*/}
             <Footer />
         </>
     )
