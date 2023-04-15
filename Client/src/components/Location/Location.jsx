@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import "./Location.css";
-import SearchBar from "../SearchBar/SearchBar";
 
 const Location = () => {
   const [location, setlocation] = useState("");
@@ -14,7 +13,7 @@ const Location = () => {
           required
           value={location}
           onChange={(e) => setlocation(e.target.value)}
-          placeholder='Ex: Santa Clara, San Francisco..' />
+          placeholder='Santa Clara, San Francisco..' />
       </div>
     </div>
   );
