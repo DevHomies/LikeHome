@@ -4,11 +4,12 @@
     justify-content: center;
     position: relative;
     margin-bottom: 7rem;
-    padding-bottom: 2.2rem;
+    padding-bottom: 2rem;
 }
 
 .header-bg {
     min-width: 2100px;
+    width: 110%;
     height: 100%;
     background-image: url('../../assets/LHbackground.png');
     background-repeat: no-repeat;
@@ -30,7 +31,7 @@
 
 .header-text {
     margin-bottom: 3rem;
-    padding-top: 3.2rem;
+    padding-top: 1rem;
 }
 
 .header-text p:first-of-type {
@@ -55,7 +56,6 @@
 @media screen and (min-width: 1921px) {
     .header-container {
         margin-bottom: 15rem;
-        padding-bottom: 3rem;
     }
 
     .header-bg {
