@@ -6,11 +6,9 @@ function TrRo() {
 
     return (
     <div className="TrRoContainer">
-        <div className="Wrap">
-          <Travelers />
-          <hr/>         
-          <Rooms />
-        </div>
+      <Travelers />
+      <hr/>         
+      <Rooms />
     </div>
     )
 }

@@ -6,22 +6,21 @@
     border-color: transparent;
     border-style: solid;
     font-size: 18px;
-  }
-  
-  .RoWrap label {
-    font-weight: 600;
-    display: block;
-    padding-top: 15px;
-    font-size: 18px;
+}
 
-  }
-  select {
-    width: 60px;
-    height: 44px;
-    text-align: left;
-    border-radius: 15px 15px 15px 15px;
-    border-color: transparent;
-    font-size: 21px;
-    color: #C2C6CC;
-  }
-  
+.RoWrap label {
+  font-weight: 600;
+  display: block;
+  padding-top: 15px;
+  font-size: 18px;
+}
+
+.RoWrap select {
+  font-size: 21px;
+  width: 50%;
+  padding: 0 1rem;
+  background-color: transparent;
+  color: var(--black);
+  border: none;
+  margin-top: 5px;
+}
