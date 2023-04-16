@@ -5,10 +5,11 @@
     border-width: 2px;
     border-style:solid;
     border-color: var(--grey);
-    margin-left: 100px;
     padding: 5px 10px 10px 10px;
     border-radius: 10px;
     background-color: white;
+    text-align: left;
+    font-weight: 600;
 }
 
 .box-highlighted {
@@ -18,7 +19,6 @@
 }
 
 
-
 text {
     color: var(--grey);
     display: inline-block;
@@ -26,7 +26,7 @@ text {
 }
 
 .sort-by {
-    font-size: 14px;
+    font-size: 0.8rem;
     color: var(--dark-grey);
     display: block;
     user-select: none;
@@ -37,14 +37,13 @@ text {
     color: var(--grey);
     display: inline-block;
     position: relative;
-    left: 100px;
 }
 
 .items {
+    padding-left: 0px;
     position: relative;
     z-index: 1;
-    right: 40px;
-    top: 10px;
+    bottom: 15px;
     width: 300px;
 }
 .sort-item {
@@ -63,4 +62,10 @@ text {
 
 .hidden {
     display:none;
+}
+
+@media (width <= 486px) {
+    .box {
+        width: 100%;
+    }
 }

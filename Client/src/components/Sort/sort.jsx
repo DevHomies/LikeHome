@@ -10,12 +10,11 @@ function Sort(props) {
             <div class = "sort-by"> Sort by </div>
             <text> {props.sortBy} </text>
             <div className="icon"><IoMdArrowDropdown/></div>
-
-
-            <div className = {visible? "items":"hidden"}>
-                <ul>
-                    <DropDownItem handleSortBy = {props.handleSortBy} name = "Recommended"/>
-                    <DropDownItem handleSortBy = {props.handleSortBy} name = "Price"/>
+            <div >
+                <ul className = {visible? "items":"hidden"}>
+                    {props.options.map((option, index) => {
+                        return <DropDownItem handleSortBy = {props.handleSortBy} name = {option} />
+                    })}
                 </ul>
             </div>
             
