@@ -1,7 +1,6 @@
-// import React, {useState, useEffect}from "react";
-// import { Navbar } from '../../components';
 import './cancelReserve.css';
-import React from "react"
+import React from "react";
+import { FaArrowRight} from 'react-icons/fa';
 const CancelReserve = () => {
   return (
     <div>
@@ -21,10 +20,11 @@ const CancelReserve = () => {
           <div className='container1'>
             <div className="label1">Hotel1</div>
             <div className="label2">Check In : 01/01/2023</div>
-            <div className="label3">Travelers: </div>
+            <div className="label3">Travelers: 4</div>
           </div>
 
           <div className="label4">Check Out : 01/02/2023</div>
+          <div className="arrow"> <FaArrowRight size={32} color="red" className="custom-icon" /></div>
 
           <div className='container3'>
             <div className="label5">Original Sale: $100</div>
@@ -34,9 +34,12 @@ const CancelReserve = () => {
           </div>
         </div>
 
-        <div className="image"></div>
         <div className="arrow-right"></div>
-        <div className="image-container"></div>
+        <div className="image">
+        <img style = {{ width: 200, height: 180 }} 
+                        src = '/assets/images/dummyRoom.png' alt="" />
+      
+        </div>
         
     </div>
 )
