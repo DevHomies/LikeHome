@@ -1,5 +1,6 @@
 
 .Amenities {
+  user-select: none;
   padding: 1rem;
   max-width: 300px;
   text-align: left;
@@ -37,6 +38,7 @@
 }
 
 .input-container {
+  background-color: white;
   max-width: 220px;
   height: 55px;
   display: flex;
@@ -49,7 +51,12 @@
   padding: 0 12px; 
   border: 1px solid var(--grey);
   margin-top: 20px;
-  margin-bottom: 60px;
+  margin-bottom: 10px;
+}
+
+.input-container.focus {
+  border: 2px solid var(--purple);
+  filter: drop-shadow(0px 0px 3px var(--purple));
 }
 
 .input-line {
@@ -74,12 +81,58 @@
 }
 
 .amenities-container {
+  user-select: none;
   margin-top: 2rem;
 }
 
 .star-container {
+  user-select: none;
   margin-top: 2rem;
 }
+
+.toggle {
+  padding: 5px 15px 5px 15px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid var(--dark-grey);
+  outline: none;
+}
+
+.toggle:hover {
+  background-color: var(--light-grey);
+}
+
+.submit-container {
+  position: relative;
+}
+
+.button {
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 5px;
+  background-color: white;
+  border: 1px solid var(--purple);
+  color: var(--purple);
+}
+
+.button:hover{
+  background-color: var(--light-grey);
+}
+
+.hidden {
+  display: none;
+}
+
+.upperBound:focus {
+  border-color: var(--purple);
+}
+
+.pay-range-container {
+  margin-bottom: 50px;
+}
+
 
 @media screen and (max-width: 60px) {
   .amenities-list {

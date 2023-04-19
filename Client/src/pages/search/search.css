@@ -9,6 +9,8 @@
     justify-content:space-evenly;
     justify-items: center;
     grid-gap: 10px;
+    z-index: 5;
+    position: relative;
 }
 
 .showAnemities {
