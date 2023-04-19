@@ -6,3 +6,4 @@ export { default as Registerexample } from './SignUp/SignUp';
 export { default as AccountPage } from './AccountPage/AccountPage';
 export { default as CurrentReservations } from './CurrentReservations/CurrentReservations';
 export { default as EditReservations } from './EditReservations/EditReservations';
+export { default as DetailsPage } from './DetailsPage/DetailsPage';

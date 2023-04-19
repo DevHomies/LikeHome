@@ -1,0 +1,108 @@
+.ImageColumns {
+    column-count: 2;
+    display: flex;
+    padding-left: 20px;
+    padding-top: 50px;
+    padding-right: 20px;
+    padding-bottom: 50px;
+    justify-content: space-between;
+}
+.MainHotelImage {
+    width: 65%;
+}
+.MainHotelImage > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5%;
+    object-fit: cover;
+    aspect-ratio: 6 / 3;
+}
+.OtherHotelImages {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
+    width: 40%;
+    padding-left: 10px;
+}
+.OtherHotelImages > img {
+    width: 100%;
+    height: 100%;
+    margin: 1%;
+    border-radius: 10%;
+    object-fit: cover;
+}
+.FocusImage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.FocusImage > img {
+    max-width: 80%;
+    max-height: 80%;
+}
+.FocusImageClose {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.ColumnInfo {
+    column-count: 2;
+    display: flex;
+}
+.HotelInfo {
+    margin: 0;
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    list-style-position: inside;
+    overflow: hidden;
+    width: 1200px;
+    object-fit: cover;
+}
+.hotelAddress, .hotelDescription {
+    color: #9A9A9A;
+    font-weight: normal;
+}
+.nameAndAddress {
+    padding-bottom: 50px;
+}
+.nameAndAddress h1:first-child {
+    margin-bottom: 10px;
+}
+.descriptionWithTitle h2:first-child {
+    margin-bottom: 30px;
+}
+.descriptionWithTitle h3:last-child {
+    margin-bottom: 50px;
+}
+.amenities {
+    margin-bottom: 80px;
+}
+.amenities > h2 {
+    margin-bottom: 30px;
+}
+.amenitieAttributes > ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 60%;
+}
+.amenitieAttributes > ul > h3 {
+    font-weight: normal;
+    text-align: left;
+    margin: 0;
+    width: 48%;
+    margin-bottom: 10px;
+}
