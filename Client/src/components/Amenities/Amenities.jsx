@@ -104,6 +104,7 @@ export const starRatingList =[
                     name={starRatingList.map.label}
                     value={label}
                     id={label}
+                    onChange = {() => props.handleOnChangeStars(index)}
                     />
                     <label htmlFor={label}>{label}</label>
                 </div>

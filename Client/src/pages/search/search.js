@@ -13,8 +13,9 @@ import { useState, useEffect } from "react";
 // For now (before everything is integrated), everything mentioned above is handled with the test input below
 
 // Functionality-wise
-// 4. Amenities invalid input handling
+// 4. Amenities component invalid input handling
 // 5. Import michael's check/in/out + travlers/rooms components at the top
+// 6. Route HotelPreview component to details page
 
 const location = "San Jose, CA";
 const amenitiesList = [
@@ -57,6 +58,7 @@ const hotels = [
     details: ["Free Wi-Fi", "Pool", "Kitchen", "Spa", "Restaurants"],
     price: 100,
     img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
+    rating: 1,
   },
   {
     title: "Another Hotel",
@@ -64,6 +66,7 @@ const hotels = [
     details: ["Free Wi-Fi", "Pool"],
     price: 230,
     img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
+    rating: 4,
   },
   {
     title: "Pee Hotel",
@@ -71,6 +74,7 @@ const hotels = [
     details: ["Free Wi-Fi", "Kitchen"],
     price: 100,
     img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
+    rating: 4,
   },
   {
     title: "Poop Hotel",
@@ -78,6 +82,7 @@ const hotels = [
     details: ["Free Wi-Fi", "Pool", "Kitchen"],
     price: 123,
     img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
+    rating: 5,
   },
 ];
 
@@ -95,6 +100,7 @@ function Search(props) {
       return [item.name, false];
     })
   );
+  const [starsState, setStarsState] = useState([false,false,false,false,false]);
 
   // Update price range state
   function handleOnChangePrice(minimum, maximum) {
@@ -104,6 +110,18 @@ function Search(props) {
     if (maximum == "") setMaximum(null);
     else setMaximum(maximum);
   }
+
+  function handleOnChangeStars(position) {
+    // Update only selected position
+    const updatedStarsState = starsState.map((item, index) =>
+      // If current element is selected position, then return the same element except with a switched boolean state
+      // This is implemented as an array of item[0]-- the name of the star-- and !item[1]-- the switched version of the original boolean state
+      index === position ? !item : item
+    );
+
+    setStarsState(updatedStarsState);
+  }
+
   // Update state based on which filters are selected
   function handleOnChangeFilters(position) {
     // Update only selected position
@@ -122,6 +140,24 @@ function Search(props) {
       // Do not include hotels that are outside of price range
       if (minimum != null && minimum > hotel.price) return result;
       if (maximum != null && hotel.price > maximum) return result;
+
+      // Do not include hotels that do not have the star-rating
+      let ratingSelected = false;  
+      
+      // Check if user has selected a rating
+      for (let i = 0; i < starsState.length; i++) {
+        if (starsState[i] == true) {
+          ratingSelected = true;
+          break;
+        }
+      }
+
+      // If user has selected at least one rating, the hotel's rating must be selected for the hotel to be rendered
+      if (ratingSelected) {
+        if (starsState[hotel.rating-1] == false) {
+          return result;
+        }
+      }
 
       // Do not include hotels that do not have selected filters
       for (const filter of filtersState) {
@@ -159,6 +195,7 @@ function Search(props) {
             details={hotel.details}
             price={hotel.price}
             img={hotel.img}
+            rating={hotel.rating}
           />
         </div>
       );
@@ -167,11 +204,12 @@ function Search(props) {
     setHotelCount(newHotels.length); // Update counter for number of hotels
     return newHotels;
   }
-  // Render hotels based on filters
 
+
+  // Re-Render hotels if filters, sort, minimum/maximum price, or rating is changed
   useEffect(() => {
     setDisplayHotels(hotelPreviews());
-  }, [filtersState, sortBy, minimum, maximum]);
+  }, [filtersState, sortBy, minimum, maximum, starsState]);
 
   return (
     <section>
@@ -199,6 +237,7 @@ function Search(props) {
                 items={amenitiesList}
                 handleOnChangeFilters={handleOnChangeFilters}
                 handleOnChangePrice={handleOnChangePrice}
+                handleOnChangeStars={handleOnChangeStars}
               />
             </div>
             <div className="showAnemities"> Edit Filters </div>

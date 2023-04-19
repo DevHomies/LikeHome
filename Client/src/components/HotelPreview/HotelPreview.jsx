@@ -1,5 +1,6 @@
 import "./HotelPreview.css";
 import "../../index.css";
+import { FaStar } from "react-icons/fa";
 
 function HotelPreview(props) {
   // Clicking on a hotel preview redirects user to corresponding hotel page
@@ -20,6 +21,7 @@ function HotelPreview(props) {
           src= {props.img}
         ></img>
         <div className="info">
+           <div className="rating">{props.rating} <FaStar/></div>
           <h4 className="title">{props.title}</h4>
           <div className="price"> ${props.price} </div>
           <h6 className="address">{props.address}</h6>
