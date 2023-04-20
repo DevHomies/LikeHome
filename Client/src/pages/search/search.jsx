@@ -4,6 +4,7 @@ import Amenities from "../../components/Amenities/Amenities.jsx";
 import Navbar from "../../components/Navbar/Navbar.jsx";
 import "./search.css";
 import { useState, useEffect } from "react";
+import { Footer } from '../../components';
 
 // TO-DO:
 // 1. Handle location
@@ -243,6 +244,7 @@ function Search(props) {
           <section className="hotel-grid">{displayHotels}</section>
         </section>
       </div>
+      <Footer />
     </section>
   );
 }

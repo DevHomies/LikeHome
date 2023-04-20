@@ -1,20 +1,23 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import SearchPage from './pages/search/search.js';
-import { Navbar } from './components';
-import { Amenities } from './components';
-import { HomePage, Login, Registerexample } from './pages';
+import { HomePage, Login, Registerexample, AccountPage, 
+        CurrentReservations, EditReservations, SearchPage, DetailsPage } from './pages';
 
 const App = () => {
   return (
     <div className="App">
-      <SearchPage/>
-      {/* <Routes>
+      <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Registerexample />} />
-      </Routes> */}
-      {/* <Amenities /> */}
+        <Route path='/account' element={<AccountPage/>} />
+        <Route path='/UserReservations' element={<CurrentReservations/>} />
+        <Route path='/EditReservations' element={<EditReservations/>} />
+        <Route path='/search' element={<SearchPage />} />
+        {/* <Route path='/details' element={<DetailsPage/>} /> 
+        * This will need to be a dynamic route for each hotel
+        */}
+      </Routes> 
     </div>
   );
 }

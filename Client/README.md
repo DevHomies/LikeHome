@@ -2,4 +2,5 @@
 - axios
 - react-router-dom
 - react-icons
-- react-dropdown
+- react-date-range
+- date-fns
