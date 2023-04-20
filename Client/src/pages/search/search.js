@@ -1,4 +1,3 @@
-import react from "react";
 import HotelPreview from "../../components/HotelPreview/HotelPreview.jsx";
 import Sort from "../../components/Sort/sort.jsx";
 import Amenities from "../../components/Amenities/Amenities.jsx";
@@ -104,10 +103,10 @@ function Search(props) {
 
   // Update price range state
   function handleOnChangePrice(minimum, maximum) {
-    if (minimum == "") setMinimum(null);
+    if (minimum === "") setMinimum(null);
     else setMinimum(minimum);
 
-    if (maximum == "") setMaximum(null);
+    if (maximum === "") setMaximum(null);
     else setMaximum(maximum);
   }
 
@@ -146,7 +145,7 @@ function Search(props) {
       
       // Check if user has selected a rating
       for (let i = 0; i < starsState.length; i++) {
-        if (starsState[i] == true) {
+        if (starsState[i] === true) {
           ratingSelected = true;
           break;
         }
@@ -154,14 +153,14 @@ function Search(props) {
 
       // If user has selected at least one rating, the hotel's rating must be selected for the hotel to be rendered
       if (ratingSelected) {
-        if (starsState[hotel.rating-1] == false) {
+        if (starsState[hotel.rating-1] === false) {
           return result;
         }
       }
 
       // Do not include hotels that do not have selected filters
       for (const filter of filtersState) {
-        if (filter[1] == true && !hotel.details.includes(filter[0])) {
+        if (filter[1] === true && !hotel.details.includes(filter[0])) {
           return result;
         }
       }
@@ -177,6 +176,8 @@ function Search(props) {
         break;
       case "Price: $$$ - $":
         tempHotels = [...tempHotels].sort((a, b) => b.price - a.price);
+        break;
+      default:
         break;
     }
 
@@ -216,23 +217,19 @@ function Search(props) {
       <Navbar />
       <div className="page">
         <div className="sort-section">
-          <h1 className="sort-section-left">
-            {" "}
-            {hotelCount} results shown in {location}
-          </h1>
-          <h2 className="sort-section-right">
-            {" "}
+          <h1>{hotelCount} results shown in {location}</h1>
+          <h2>
             <Sort
               sortBy={sortBy}
               handleSortBy={setSortBy}
               options={sortByOptions}
-            />{" "}
+            />
           </h2>
         </div>
+
         <section className="layout">
           <div className="anemities-section">
             <div className="anemities">
-              {" "}
               <Amenities
                 items={amenitiesList}
                 handleOnChangeFilters={handleOnChangeFilters}
@@ -242,6 +239,7 @@ function Search(props) {
             </div>
             <div className="showAnemities"> Edit Filters </div>
           </div>
+
           <section className="hotel-grid">{displayHotels}</section>
         </section>
       </div>
