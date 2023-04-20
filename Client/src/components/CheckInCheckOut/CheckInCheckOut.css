@@ -14,7 +14,7 @@
 }
 
 
-input.inputBox {
+.WholeCalendarContainer input.inputBox {
     font-size: 17px;
     border: transparent;
     color: #C2C6CC;
@@ -42,9 +42,9 @@ input.inputBox {
 .check-date {
     display: flex;
     justify-content: space-evenly;
-    padding: 0 1.2rem;
+    padding: 0 2.8rem;
     margin-top: 15px;
-    margin-bottom: 3px;
+    margin-bottom: 0.75rem;
 }
 
 .check-date p {
