@@ -1,8 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import './App.css';
 import { Amenities } from './components';
-import { HomePage, Login, Registerexample, AccountPage, 
-        CurrentReservations, EditReservations, DetailsPage , CancelReserve} from './pages';
+import { HomePage, Login, Registerexample, AccountPage, CurrentReservations, EditReservations, DetailsPage , CancelReserve} from './pages';
 
 const App = () => {
   return (

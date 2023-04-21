@@ -6,49 +6,37 @@ const CancelReserve = () => {
   return (
 
   <>
-  <div className="nav-header">
-          <h2>LIKEHOME</h2>
-  </div>
-    <div className= "box">
-        
-
+    <Navbar />
+    <div className= "cancel-container">
         <div className="cancel-box">
+          <h1>You are canceling a reservation for..</h1>
+          <div className="cancel-inner-box">
+            <div className="cancel-image"></div>
 
-          <div className ="label">You are canceling a reservation for..</div>
+            <div className='container1'>
+              <h2>Hotel1</h2>
+              <h3>Check In: <span>01/01/2023</span> | Check Out: <span>01/02/2023</span></h3>
+              <h3>Travelers: <span>4</span></h3>
+            </div>
 
-          <div className='container'>
+            <BsArrowRight size={82} color="lightgrey" className="arrow" />
+
+            <div className='container2'>
+              <h3 className="label5">Original Sale: $100</h3>
+              <h3 className="label6">Cancellation Fee: -$20 (20%)</h3>
+              <hr />
+              <h2 className="label7"><strong>Refund Amount: $80</strong></h2>
+            </div>
+          </div>
+
+          <div className='container3'>
             <button type="submit" className='back-button'>Go Back</button>
             <button type="submit" className='cancel-button'>Cancel Reservation</button>
           </div>
-
-          <div className='container1'>
-            <div className="label1">Hotel1</div>
-            <div className="label2">Check In : 01/01/2023</div>
-            <div className="label3">Travelers: 4</div>
-          </div>
-
-          <div className="label4">Check Out : 01/02/2023</div>
-          <div className="arrow"> <BsArrowRight size={82} color="lightgrey" className="custom-icon" /></div>
-
-          <div className='container3'>
-            <div className="label5">Original Sale: $100</div>
-            <div className="label6">Cancellation Fee: -$20 (20%)</div>
-            <div class="horizontal-line"></div>
-            <div className="label7"><strong>Refund Amount: $80</strong></div>
-          </div>
         </div>
-
-        <div className="arrow-right"></div>
-        <div className="image" style = {{ width: 200, height: 180 }}>
-         
-
-
-      
-        </div>
-        
     </div>
-     <Footer/>
-    </>
+    <Footer/>
+  </>
     
 )
 }

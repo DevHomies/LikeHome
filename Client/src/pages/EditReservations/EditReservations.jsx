@@ -11,7 +11,9 @@ const EditReservations = () => {
 
                 <div className="EditRoomContainer">
                     <img style = {{ width: 200, height: 180 }} 
-                        src = '/assets/images/dummyRoom.png'/>
+                        src = '/assets/images/dummyRoom.png'
+                        alt = "test"
+                    />
 
                     <div className="RoomInfo">
                         <p id="RoomName">Hotel1</p>
