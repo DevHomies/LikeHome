@@ -1,12 +1,16 @@
 import './cancelReserve.css';
 import React from "react";
 import { BsArrowRight} from 'react-icons/bs';
+import { Navbar, Footer } from '../../components'; 
 const CancelReserve = () => {
   return (
-    <div>
-        <div className="nav-header">
+
+  <>
+  <div className="nav-header">
           <h2>LIKEHOME</h2>
-        </div>
+  </div>
+    <div className= "box">
+        
 
         <div className="cancel-box">
 
@@ -35,17 +39,16 @@ const CancelReserve = () => {
         </div>
 
         <div className="arrow-right"></div>
-        <div className="image">
-        <img style = {{ width: 200, height: 180 }} 
-                        src = '/assets/images/dummyRoom.png' alt="" />
+        <div className="image" style = {{ width: 200, height: 180 }}>
+         
 
 
       
         </div>
         
     </div>
-     
-     
+     <Footer/>
+    </>
     
 )
 }
