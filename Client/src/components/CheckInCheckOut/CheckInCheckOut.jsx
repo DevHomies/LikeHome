@@ -52,10 +52,8 @@ const CheckInCheckOut = () => {
   return (
     <div className="WholeCalendarContainer">
       <div className="SubContainer">
-        <div class="CheckIn">
+        <div class="check-date">
           <p>Check In</p>
-        </div>
-        <div class="CheckOut">
           <p>Check Out</p>
         </div>
           <div className="CalendarWrap">

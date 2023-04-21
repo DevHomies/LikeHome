@@ -2,12 +2,10 @@
     position: relative;
     display: flex;
     justify-content: center;
-    padding-top: 10px;
-    padding-bottom: 5px;
 }
 
 .SubContainer { 
-    width: 320px;
+    width: 330px;
     height: 88px;
     border: 1.5px solid #C2C6CC;
     border-radius: 15px;
@@ -16,9 +14,8 @@
 }
 
 
-input.inputBox {
-    font-size: 21px;
-    border-radius: 5px;
+.WholeCalendarContainer input.inputBox {
+    font-size: 17px;
     border: transparent;
     color: #C2C6CC;
     text-align: center;
@@ -33,24 +30,25 @@ input.inputBox {
     z-index: 999;
 }
 
-.CheckIn p {
-    width: 50%;
-    float: left;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 600;
-    margin-top: 15px;
-    margin-bottom: 3px;
+.rdrMonthAndYearPickers {
+    display: flex;
+    justify-content: space-between;
 }
 
-.CheckOut p {
-    width: 50%;
-    float: left;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 600;
-    margin-top: 15px;
-    margin-bottom: 3px;
-    
+.rdrMonthAndYearPickers select {
+    width: 100%;
 }
 
+.check-date {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 2.8rem;
+    margin-top: 15px;
+    margin-bottom: 0.75rem;
+}
+
+.check-date p {
+    font-size: 18px;
+    font-weight: 600;
+    width: 100%;
+}

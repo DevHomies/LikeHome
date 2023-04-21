@@ -10,10 +10,6 @@
     height: 70px;
     padding: 0 4.75rem;
 
-    /*
-    background-image: linear-gradient(to right, #4c2c8e 45%, 
-    #6137bd, #8d77cb, #d6baf1);
-    */
     background-color: #4c2c8e;
     color: var(--white);
     position: sticky;
@@ -24,7 +20,6 @@
 .nav-logo {
     text-decoration: none;
     color: var(--white);
-    text-shadow: 0px 10px 5px #1e1239;
 }
 
 .nav-header .nav-logo {
@@ -115,7 +110,6 @@
     font-size: 1.1rem;
     font-weight: 600;
     transition: all 0.2s ease-in-out;
-    text-shadow: 0px 10px 5px #1e1239;
 }
 
 .nav-header .signedOut > .signedOut-btn:hover {

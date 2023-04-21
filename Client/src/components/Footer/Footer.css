@@ -1,118 +1,62 @@
 .FeetLoverContainer {
     background-color: #4c2c8e;
-    /*background-image: linear-gradient(to right, #4c2c8e 45%, #6137bd);*/
     color: var(--white);
     text-align: left;
-
 }
 
-.columns {
-    height: 225px;
+.footer {
     width: 100%;
-    display: inline-block;
-    text-shadow: 0px 10px 5px #1e1239;
-    overflow-wrap: break-word;
+    display: flex;
+    justify-content: space-between;
+    padding: 4rem 5rem;
 }
 
-
-.foot-logo {
+.left-col h1 {
     text-decoration: none;
     color: var(--white);
+    font-size: 3.125rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
 }
 
-.compLink {
+.right-col {
+    display: flex;
+    gap: 7rem;
+}
+
+.single-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.single-col h4 {
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+}
+
+.footer-link {
     text-decoration: none;
     color: var(--white);
-}
-.HCLink {
-    text-decoration: none;
-    color: var(--white);
-}
-.CILink {
-    text-decoration: none;
-    color: var(--white);
+    transition: color 150ms ease-in-out;
 }
 
-.Col0 {
-    float: left;
-    width: 30%;
-    padding-top: 25px;
-    padding-left: 5rem;
+.footer-link:hover {
+    color: var(--yellow);
 }
 
-.Col1 {
-    float: left;
-    width: 18%;
-    padding: 35px;
-}
-
-.Col2 {
-    float: left;
-    width: 18%;
-    padding: 35px;
-}
-
-.Col3 {
-    float: left;
-    width: 18%;
-    padding: 35px;
+.FeetLoverContainer hr {
+    color: white;
 }
 
 .Copyrights {
     text-align: left;
-    padding: 15px;
-    padding-left: 25px;
-    text-shadow: 0px 10px 5px #1e1239;
+    padding: 2.5rem 5rem;
 
+    display: flex;
+    justify-content: space-between;
 }
 
-.columns p {
-    padding-top: 5px;
-    white-space: nowrap;
-    padding-bottom: 5px;
-  }
-
-.Col0 h1 {
-    font-size: 2em;
-}
-
-.Col0 p {
-    font-size: 15px;
-    font-style: italic;
-}
-
-
-@media screen and (max-width: 950px) {
-
-    .columns {
-        height: 275px;
-    }
-
-    .Col0 {
-        width: 100%;
-        text-align: center;
-        padding: 0;
-        padding-top: 15px;
-    }
-
-    .Col0 h1 {
-        font-size: 1.5rem;
-    }
-    
-    .Col0 p {
-        font-size: 12px;
-        font-style: italic;
-    }
-
-    .Col1, .Col2, .Col3 {
-        width: 33%;
-        text-align: center;
-        font-size: 12px;
-    }
-
-    .Copyrights {
-        text-align: center;
-        font-size: 12px;
-    }
-
-}
+/* Media Queries here - Not a requirement for responsive design */
