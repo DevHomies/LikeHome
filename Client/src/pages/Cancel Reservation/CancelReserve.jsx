@@ -1,6 +1,6 @@
 import './cancelReserve.css';
 import React from "react";
-import { FaArrowRight} from 'react-icons/fa';
+import { BsArrowRight} from 'react-icons/bs';
 const CancelReserve = () => {
   return (
     <div>
@@ -24,7 +24,7 @@ const CancelReserve = () => {
           </div>
 
           <div className="label4">Check Out : 01/02/2023</div>
-          <div className="arrow"> <FaArrowRight size={32} color="red" className="custom-icon" /></div>
+          <div className="arrow"> <BsArrowRight size={82} color="lightgrey" className="custom-icon" /></div>
 
           <div className='container3'>
             <div className="label5">Original Sale: $100</div>
@@ -38,10 +38,15 @@ const CancelReserve = () => {
         <div className="image">
         <img style = {{ width: 200, height: 180 }} 
                         src = '/assets/images/dummyRoom.png' alt="" />
+
+
       
         </div>
         
     </div>
+     
+     
+    
 )
 }
 
