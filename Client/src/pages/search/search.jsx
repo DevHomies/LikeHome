@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar/Navbar.jsx";
 import "./search.css";
 import { useState, useEffect } from "react";
 import { Footer } from '../../components';
+import { useLocation } from "react-router-dom";
 
 // TO-DO:
 // 1. Handle location
@@ -89,7 +90,11 @@ const hotels = [
 // ---------------------------------------------------
 const sortByOptions = ["Recommended", "Price: $ - $$$", "Price: $$$ - $"];
 
-function Search(props) {
+function Search() {
+  // Grabbing the data from the search component in the home page
+  const { state } = useLocation();
+  console.log(state);
+
   const [sortBy, setSortBy] = useState("Recommended");
   const [minimum, setMinimum] = useState(null);
   const [maximum, setMaximum] = useState(null);

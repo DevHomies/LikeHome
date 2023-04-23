@@ -8,7 +8,7 @@ import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import './CheckInCheckOut.css'
 
-const CheckInCheckOut = () => {
+const CheckInCheckOut = ({parentCallback}) => {
 
   // date state
   const [range, setRange] = useState([
@@ -17,8 +17,12 @@ const CheckInCheckOut = () => {
       endDate: addDays(new Date(), 7),
       key: 'selection'
     }, 
-    
-])
+  ])
+
+  const handleChange = (item) => {
+    setRange([item.selection]);
+    parentCallback("checkDates", [item.selection.startDate, item.selection.endDate]);
+  }
 
   // open close
   const [open, setOpen] = useState(false)
@@ -67,7 +71,7 @@ const CheckInCheckOut = () => {
             <div ref={refOne}>
               {open &&
                   <DateRange 
-                      onChange={item => setRange([item.selection])}
+                      onChange={item => handleChange(item)}
                       editableDateInputs={true}
                       moveRangeOnFirstSelection={false}
                       ranges={range}
