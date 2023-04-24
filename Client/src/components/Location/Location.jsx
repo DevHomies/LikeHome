@@ -1,8 +1,13 @@
 import React, { useState } from "react"
 import "./Location.css";
 
-const Location = () => {
+const Location = ({parentCallback}) => {
   const [location, setlocation] = useState("");
+
+  const handleChange = (e) => {
+    setlocation(e.target.value);
+    parentCallback("location", e.target.value);
+  }
   
   return (
     <div className="WholeLocationContainer">
@@ -12,7 +17,7 @@ const Location = () => {
           type="text"
           required
           value={location}
-          onChange={(e) => setlocation(e.target.value)}
+          onChange={(e) => handleChange(e)}
           placeholder='Santa Clara, San Francisco..' />
       </div>
     </div>
