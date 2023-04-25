@@ -15,3 +15,5 @@ export { default as TrRo } from './Travelers_Rooms/TrRo';
 export { default as SearchBar } from './SearchBar/SearchBar';
 export { default as UpcomingReservations } from './UpcomingReservations/UpcomingReservations';
 export { default as PastReservations } from './PastReservations/PastReservations';
+export { default as BookNow } from './BookNow/BookNow';
+export { default as Payment } from './Payment/Payment';
