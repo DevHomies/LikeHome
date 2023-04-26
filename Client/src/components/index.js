@@ -1,8 +1,11 @@
-// export all the components here so we can import multiple pages with one line
-export { Amenities } from './Amenities/Amenities';
-export { default as ShowMoreLess } from './Amenities/Amenities';
+// Header & Footer
 export { default as Navbar } from './Navbar/Navbar';
 export { default as Footer } from './Footer/Footer';
+
+// Amenities
+export { Amenities } from './Amenities/Amenities';
+export { default as ShowMoreLess } from './Amenities/Amenities';
+
 //Smaller, broken-down components below are for the big search component on the home page :)
 export { default as CheckInCheckOut } from './CheckInCheckOut/CheckInCheckOut';
 export { default as Location } from './Location/Location';

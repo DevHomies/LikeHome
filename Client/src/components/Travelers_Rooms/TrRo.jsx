@@ -2,13 +2,12 @@ import './TrRo.css';
 import Travelers from './Travelers/Travelers';
 import Rooms from './Rooms/Rooms';
 
-function TrRo() {
-
+function TrRo({parentCallback}) {
     return (
     <div className="TrRoContainer">
-      <Travelers />
+      <Travelers parentCallback={parentCallback}/>
       <hr/>         
-      <Rooms />
+      <Rooms parentCallback={parentCallback}/>
     </div>
     )
 }
