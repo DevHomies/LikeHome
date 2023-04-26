@@ -1,18 +1,11 @@
 
 import React from 'react';
-import './BookNow.css'
+import './BookNow.css';
+import { Link } from 'react-router-dom';
 
 const BookNow = () => {
     return (
-       
-            <div className='border'>
-                <div>
-                    <button className='button'>
-                    Book Now 
-                    </button>
-                </div>
-            </div>
-
+        <Link to='/pay'><button className='book-button'>Book Now </button></Link>
     );
 }
 

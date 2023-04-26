@@ -1,33 +1,20 @@
-.border {
-    position: relative;
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+.book-button {
+  background-color: #F6C851;
+  border: none;
+  color: black;
+  width: 276px;
+  height: 80px;
+  text-align: center;
+  border: 1.5px solid #C2C6CC;
+  border-radius: 15px;
+  position: relative;
+  font-size: 30px;
+  font-weight: 700;
+  transition: all 150ms ease-in-out;
+  cursor: pointer;
+}
   
-    border: 3.5px solid #e0e9e2;
-    border-radius: 52px;
-  
-    background-color: white;
-    box-shadow: 0px 2px 5px #1e1239;
-  }
-  .button {
-    background-color: #F6C851;
-    border: none;
-    color: black;
-    width: 276px;
-    height: 80px;
-    text-align: center;
-    border: 1.5px solid #C2C6CC;
-    border-radius: 15px;
-    position: relative;
-    font-size: 30px;
-    font-weight: 700;
-    transition: all 150ms ease-in-out;
-    cursor: pointer;
-  }
-  
-  .button:hover {
-    border: 2px solid rgb(28, 255, 28);
-  }
-  
+.book-button:hover {
+  scale: 1.05;
+  border: 2px solid var(--purple-2);
+}
