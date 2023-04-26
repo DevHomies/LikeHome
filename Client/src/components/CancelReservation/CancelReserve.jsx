@@ -1,15 +1,18 @@
 import './cancelReserve.css';
 import React from "react";
 import { BsArrowRight} from 'react-icons/bs';
-import { Navbar, Footer } from '../../components'; 
-const CancelReserve = () => {
-  return (
 
-  <>
-    <Navbar />
-    <div className= "cancel-container">
+//Michael selfnote: 20% cancellation fee
+
+function CancelReserve({setCancelmodalOpen}) {
+
+  const handleNewChangeSubmit = () => {
+    alert("Your reservation has been cancelled!");
+    setCancelmodalOpen(false);
+  }
+  return (
         <div className="cancel-box">
-          <h1>You are canceling a reservation for..</h1>
+          <h1 id='CRtitle'>You are canceling a reservation for..</h1>
           <div className="cancel-inner-box">
             <div className="cancel-image"></div>
 
@@ -30,15 +33,18 @@ const CancelReserve = () => {
           </div>
 
           <div className='container3'>
-            <button type="submit" className='back-button'>Go Back</button>
-            <button type="submit" className='cancel-button'>Cancel Reservation</button>
+            <button type="button" 
+              className='back-button'
+              id='CRback'
+              onClick={() => {setCancelmodalOpen(false)}}>Go Back</button>
+            <button type="submit" 
+            className='cancel-button'
+            id='CRcancel'
+            onClick={handleNewChangeSubmit}>Cancel Reservation</button>
           </div>
         </div>
-    </div>
-    <Footer/>
-  </>
     
 )
 }
 
-export default CancelReserve
+export default CancelReserve;

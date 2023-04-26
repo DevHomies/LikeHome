@@ -19,3 +19,5 @@ export { default as Sort } from './Sort/sort';
 export { default as UpcomingReservations } from './UpcomingReservations/UpcomingReservations';
 export { default as PastReservations } from './PastReservations/PastReservations';
 export { default as EditReservations } from './EditReservations/EditReservations';
+export { default as CancelReserve } from './CancelReservation/CancelReserve';
+

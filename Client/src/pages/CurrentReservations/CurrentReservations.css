@@ -33,7 +33,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: scroll;
+    overflow: auto;
     border-radius: 0px 10px 10px 0px;
 }
 
@@ -60,7 +60,7 @@
 
 
   .react-tabs__tab {
-    width: 40%;
+    width: 30%;
     list-style: none;
     text-align: left;
     cursor: pointer;

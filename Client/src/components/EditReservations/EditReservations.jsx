@@ -3,7 +3,21 @@ import { useState } from "react";
 import './EditReservations.css';
 import { Travelers } from '../../components';
 
-function EditReservations ({setEditmodalOpen}) { 
+function EditReservations ({setEditmodalOpen}) {
+
+        //todo :( 
+    function handleTravelersChange(travelers) {
+
+    }
+
+    function handleStayDatesChange(checkIn, checkOut) {
+
+    }
+
+    const handleNewChangeSubmit = () => {
+        alert("Your new reservation changes have been made!");
+        setEditmodalOpen(false);
+    }
 
     return (
             <div className="EditReservationsPopupContainer">
@@ -16,8 +30,7 @@ function EditReservations ({setEditmodalOpen}) {
 
                     <div className="RoomInfo">
                         <p id="RoomName">Hotel1</p>
-                        <p id="StayDates">Check In: 01/01/2100</p>
-                        <p id="StayDates"> Check Out: 01/02/2100</p>
+                        <p id="StayDates">Check In: 01/01/2100 | Check Out: 01/02/2100</p>
 
                         <div class="TravelersContainer">
                             <Travelers />
@@ -32,7 +45,8 @@ function EditReservations ({setEditmodalOpen}) {
                         </button>
                     </div>
                     <div className="ERSaveChangesButton">
-                        <button type="button" id="SaveChangesButton"> 
+                        <button type="button" id="SaveChangesButton"
+                            onClick={handleNewChangeSubmit}> 
                             Save Changes
                         </button>
                     </div>

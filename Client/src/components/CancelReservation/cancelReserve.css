@@ -1,23 +1,25 @@
-.cancel-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10rem 0;
-}
-
 .cancel-box {
+  width: 1150px;
+  height: 450px;
   border-radius: 10px;
   box-shadow: 0px 0px 5px #1e1239;
-
+  background-color: white;
   padding: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
-.cancel-box h1 {
+#CRtitle {
   font-size: 2rem;
   margin-bottom: 2rem;
+  text-align: left;
 }
 
 .cancel-inner-box {
@@ -28,14 +30,15 @@
 
 /* This is a placeholder for an image */
 .cancel-image {
-  width: 155px;
-  height: 137px;
+  width: 200px;
+  height: 180px;
   background-color: grey;
   border-radius: 8px;
 }
 
 .container1 {
   display: flex;
+  text-align: left;
   flex-direction: column;
   gap: 1rem;
 }
@@ -43,6 +46,7 @@
 .container1 h2,
 .container2 h2 {
   font-size: 1.4rem;
+  text-align: left;
 }
 
 .container1 h3,
@@ -61,6 +65,7 @@
 
 .container2 {
   display: flex;
+  text-align: left;
   flex-direction: column;
   gap: 0.75rem;
 }
@@ -70,29 +75,32 @@
   margin-left: auto;
 }
 
-.back-button,
-.cancel-button {
-  border-radius: 30px;
+#CRback,
+#CRcancel {
+  border-radius: 15px;
   border: none;
-  padding: 14px 28px;
   color: white;
   cursor: pointer;
   transition: all 150ms ease-in-out;
+  font-size: 1.125rem;
+  font-weight: normal;
+  width: 215px;
+  height: 50px;
 }
 
-.back-button {
+#CRback {
   background-color: var(--grey);
 }
 
-.cancel-button {
+#CRcancel {
   background-color: var(--purple);
   margin-left: 2rem;
 }
 
-.back-button:hover {
+#CRback:hover {
   background-color: #989ba0;
 }
 
-.cancel-button:hover {
+#CRcancel:hover {
   background-color: var(--purple-2);
 }
