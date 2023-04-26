@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import { Amenities } from './components';
 import { HomePage, Login, Registerexample, AccountPage, 
-        CurrentReservations, EditReservations, SearchPage, DetailsPage } from './pages';
+        CurrentReservations, EditReservations, SearchPage, DetailsPage, CancelReserve } from './pages';
 
 const App = () => {
   return (
