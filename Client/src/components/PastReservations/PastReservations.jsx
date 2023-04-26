@@ -12,7 +12,9 @@ function PastReservations() {
                 <div className="PastImg">
                     <img style = {{ width: 120, height: 100 }} 
                         src = '/assets/images/dummyRoom.png'
-                        id="Past"/>
+                        id="Past"
+                alt="dummy img"
+            />
                 </div>
 
                 <div className="PastRoomInfo">
