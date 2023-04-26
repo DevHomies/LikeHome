@@ -19,7 +19,8 @@ class Hotel(models.Model):
     address = models.CharField(max_length=200)
     price= models.FloatField(null=True)
     # photo = models.ImageField(upload_to='room_photos/', null=True, blank=True)
-    amenities = models.ManyToManyField(HotelAmenity, blank=True)
+    hotel_amenities = models.TextField(null=True)
+    # amenities = models.ManyToManyField(HotelAmenity, blank=True)
     rating= models.FloatField(null=True)
 
     def __str__(self):
@@ -50,7 +51,8 @@ class Room(models.Model):
     # room_type = models.CharField(max_length=50)
     price_per_night = models.DecimalField(max_digits=8, decimal_places=2,null=True)
     #photo = models.ImageField(upload_to='room_photos/', null=True, blank=True)
-    amenities = models.ManyToManyField(RoomAmenity)
+    room_amenities = models.TextField(null=True)
+    # amenities = models.ManyToManyField(RoomAmenity)
     
     def __str__(self):
         return f"{self.hotel.name} - Price {self.price_per_night}"
