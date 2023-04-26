@@ -1,52 +1,57 @@
 .UpcomingRoomsContainer {
-    padding-left: 5%;
-    padding-top: 10px;
+    margin-top: 5%;
     display: flex;
     width: 100%;
+    background-color: #edeaf4;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
 }
 
 .UpcomingRoomsContainer img#Upcoming {
     border-radius: 9px;
+    vertical-align: middle;
+    margin-right: 5px;
 }
 
 .UpcomingRoomInfo {
     padding-left: 5px;
     position: relative;
-    background-color: red;
     width: 50%;
+    text-align: left;
+    background-color: #edeaf4;
 }
 
 
-.UpcomingRoomInfo p#URRoomName {
+#URRoomName {
     font-size: 14px;
     font-weight: 700;
     padding-top: 15px;
     padding-left: 5px;
 }
 
-.UpcomingRoomInfo p#URStayDates {
+#URStayDates {
     font-size: 12px;
-    font-weight: 600;
     padding: 5px;
+    font-weight: 600;
     display: inline;
 }
 
-.UpcomingRoomInfo p#URTravelersNum {
+#URTravelersNum {
     font-size: 12px;
     font-weight: 600;
     padding: 5px;
 }
 
-.URBotContainer {
-    background-color: aqua;
+.UREditContainer {
     display: flex;
     width: 50%;
+    background-color: #edeaf4;
+    padding-right: 15px;
 }
 
 .UREditButton,
 .URCancelButton {
     margin: auto;
-
 }
 
 .UREditButton button,
@@ -63,5 +68,42 @@
     background-color: #351f63;
     cursor: pointer;
     color: white;
-    font-weight: 600;
 }
+
+
+
+/*modal styling*/
+body.active-modal {
+    overflow-y: hidden;
+}
+
+.modal, .overlay {
+    display: block;
+    margin: auto;
+    width: 1200px;
+    height: 330px;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    border-radius: 20px;
+    box-shadow: 0px 4px 5px 1.5px #1e1239;
+}
+
+.overlay {
+    background: rgba(49,49,49,0.8);
+}
+
+.modal-content {
+    position: absolute;
+}
+
+.close-modal {
+    position: absolute;
+}
+
+
+

@@ -1,15 +1,16 @@
 import React from "react";
+import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { Navbar, Footer, UpcomingReservations, 
-    PastReservations, EditReservations } from '../../components'; 
+    PastReservations } from '../../components'; 
 import './CurrentReservations.css';
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
-const CurrentReservations = () => { 
+function CurrentReservations() { 
 
     return (
         <>
         <Navbar />
-        
         <div className="ReservationsContainer">
             <div className="RewardStripContainer">
                 <div className="RewardBox">
@@ -17,27 +18,34 @@ const CurrentReservations = () => {
                 </div>
             </div>
 
-            <div className="BoxContainer">
+            <div className="BoxContainerCR">
 
-                <div className="TopContainer">
+                <div className="TopContainerCR">
 
-                    <div className="AccountLinkPages">
+                    <div className="AccountLinkPages" >
                         <p><Link to='/account' className='AccountLinks'>Account</Link></p>
                         
                         <p><Link to='/UserReservations' className='AccountLinks'>Reservations</Link></p>
-                    
-                        <p><Link to='' className='AccountLinks'>Transaction History</Link></p>
-
-                        <p><Link to='' className='AccountLinks'>Change Password</Link></p>
+                        
+                        <p><Link to='/Login' className='AccountLinks'>Log Out</Link></p>
                     </div>
 
-                    <div className="ReservContainer">
-                        <div className="RLinks">
-                            <p><Link to='' className='ReservationLinks'>Upcoming</Link></p>
-                            <p><Link to='' className='ReservationLinks'>Past</Link></p>
-                        </div>
-                        <UpcomingReservations />
-                        <PastReservations />
+                    <div className="ReservationtabsContainer">
+                        <Tabs className="tabsContainer">
+                            
+                            <TabList>
+                            <Tab><p id="Rtabs">Upcoming</p></Tab>
+                            <Tab><p id="Rtabs">Past</p></Tab>
+                            </TabList>
+
+                            <TabPanel>  
+                                <UpcomingReservations />
+                            </TabPanel>
+
+                            <TabPanel>
+                                <PastReservations />
+                            </TabPanel>
+                        </Tabs>
                     </div>
                     
                 </div>

@@ -1,16 +1,17 @@
 import React from "react";
+import { useState } from "react";
 import './EditReservations.css';
 import { Travelers } from '../../components';
 
-const EditReservations = () => { 
+function EditReservations ({setEditmodalOpen}) { 
 
     return (
-        <div className="ERbackground">
             <div className="EditReservationsPopupContainer">
-                <h1>Edit Reservations for. . .</h1>
+                <h1 id="ERtitle">Edit Reservations for. . .</h1>
 
                 <div className="EditRoomContainer">
                     <img style = {{ width: 200, height: 180 }} 
+                        id="ERimg"
                         src = '/assets/images/dummyRoom.png'/>
 
                     <div className="RoomInfo">
@@ -25,19 +26,19 @@ const EditReservations = () => {
                 </div>
                 <div className="BottomContainer">
                     <div className="ERCancelButton">
-                        <button type="button"> 
+                        <button type="button" id="CancelButton"
+                            onClick={() => {setEditmodalOpen(false)}}> 
                             Cancel
                         </button>
                     </div>
                     <div className="ERSaveChangesButton">
-                        <button type="button"> 
+                        <button type="button" id="SaveChangesButton"> 
                             Save Changes
                         </button>
                     </div>
 
                 </div>
             </div>
-        </div>
     )
 
 }

@@ -1,27 +1,32 @@
 .EditReservationsPopupContainer {
-    margin: auto;
     width: 1200px;
     height: 330px;
     background-color: white;
     border-radius: 20px;
     box-shadow: 0px 4px 5px 1.5px #1e1239;
-    position: relative;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
 }
 
 .ERbackground {
     width: 100%;
-    height: 800px;
-    padding-top: 150px;
-    background-color: transparent;
+    height: 100%;
+    background-color: yellow;
 }
 
-.EditReservationsPopupContainer h1 {
+#ERtitle {
     color: #484848;
-    padding-left: 7%;
-    padding-top: 3%;
+    font-size: 34px;
+    text-align: left;
+    padding-left: 5rem;
+    padding-top: 3rem;
 }
 
-.ERSaveChangesButton button {
+#SaveChangesButton {
     background-color: #F6C851;
     color: black;
     width: 215px;
@@ -45,7 +50,7 @@
     position: relative;
 }
 
-.ERCancelButton button {
+#CancelButton {
     background-color: #B4B4B4;
     color: black;
     width: 150px;
@@ -56,13 +61,13 @@
     font-weight: 600;
 }
 
-.ERSaveChangesButton button:hover {
+#SaveChangesButton:hover {
     font-weight: 700;
     cursor: pointer;
     background-color: #c5a041;
 }
 
-.ERCancelButton button:hover {
+#CancelButton:hover {
     font-weight: 700;
     cursor: pointer;
     background-color: #7e7e7e;
@@ -98,23 +103,23 @@
     padding-left: 30px;
 }
 
-.RoomInfo p#RoomName {
+#RoomName {
     font-size: 24px;
     font-weight: 700;
     padding-top: 20px;
+    text-align: left;
 }
 
-.RoomInfo p#StayDates {
+#StayDates {
     font-size: 19px;
     font-weight: 600;
-    padding-left: 5px;
     padding-bottom: 10px;
     padding-top: 10px;
     display: inline-flex;
 }
 
 
-.EditRoomContainer img {
+#ERimg {
     display: inline;
     border-radius: 9px;
   }

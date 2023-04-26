@@ -1,7 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import { HomePage, Login, Registerexample, AccountPage, 
-        CurrentReservations, EditReservations, SearchPage, DetailsPage } from './pages';
+        CurrentReservations, SearchPage, DetailsPage } from './pages';
+import { EditReservations } from './components';
 
 const App = () => {
   return (

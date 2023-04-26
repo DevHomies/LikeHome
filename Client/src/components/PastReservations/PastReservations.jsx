@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState } from "react"
 import './PastReservations.css';
 
 
-const PastReservations = () => { 
+function PastReservations() { 
 
     return (
     
-            <div className="PastRoomsContainer">
-            <img style = {{ width: 120, height: 100 }} 
-                src = '/assets/images/dummyRoom.png'
-                id="Past"/>
+        <div className="PRSpanContainer">
+
+            <div className="PastReservationsContainer">
+                <div className="PastImg">
+                    <img style = {{ width: 120, height: 100 }} 
+                        src = '/assets/images/dummyRoom.png'
+                        id="Past"/>
+                </div>
 
                 <div className="PastRoomInfo">
                     <p id="PRoomName">Hotel1</p>
@@ -18,6 +22,8 @@ const PastReservations = () => {
                     <p id="PTravelersNum">Travelers: 4</p>
                 </div>
             </div>
+
+        </div>
     )
 }
 
