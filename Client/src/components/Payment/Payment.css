@@ -1,76 +1,82 @@
  
-.card {
-    background-color: #ffffff89;
-    border-radius: 30px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    width: 50%;
-    margin: auto;
-    margin-top: 20px;
-  }
+.pay-card {
+  background-color: #ffffff89;
+  border-radius: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 1.625rem 2.68rem;
+  width: 50%;
+  margin: auto;
+  margin-top: 20px;
+}
 
-  
-  .h1 {
-    text-align: center;
-  }
-  
-  .form {
-    width: 500px;
-    margin: 0 auto;
-  }
-  
-  .review {
-    background-color: hsla(0, 0%, 100%, 0.337);
-    border: 1px solid #ccc;
-    border-radius: 30px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    width: 50%;
-    margin: auto;
-  }
-  
-  .review h2 {
-    margin-top: 0;
-  }
-  
-  .review p {
-    margin: 10px 0;
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  
-  .review button {
-    background-color: #F6C851;
-    border: none;
-    color: black;
-    width: 276px;
-    height: 80px;
-    text-align: center;
-    border: 1.5px solid #C2C6CC;
-    border-radius: 15px;
-    position: relative;
-    font-size: 30px;
-    font-weight: 700;
-    transition: all 150ms ease-in-out;
-    cursor: pointer;
-  }
+.pay-card h1,
+.pay-review h1 {
+  font-size: 2.6rem;
+}
 
+.pay-card hr,
+.pay-review hr {
+  max-width: 424px;
+  margin: 12px 0 24px 0;
+}
 
-  .card label {
-    display: block;
-    margin-bottom: 10px;
-  }
-   
- .card input {
-    width: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-  }
-  .review {
-    margin-top: 20px;
-    margin-bottom: 20px;
+.pay-group {
+  position: relative;
+  border: 1px solid var(--grey);
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
 
-  }
+.pay-group:focus-within {
+  outline: 1px solid var(--purple-2);
+}
+
+.pay-group input {
+  border: none;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.pay-group input:focus {
+  outline: none;
+}
+
+.pay-review {
+  background-color: #ffffff89;
+  border-radius: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 1.625rem 2.68rem;
+  width: 50%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.pay-review p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.pay-review button {
+  background-color: #F6C851;
+  border: none;
+  color: black;
+  width: 276px;
+  height: 80px;
+  text-align: center;
+  border: 1.5px solid #C2C6CC;
+  border-radius: 15px;
+  position: relative;
+  font-size: 30px;
+  font-weight: 700;
+  transition: all 150ms ease-in-out;
+  cursor: pointer;
+}
+
+.pay-review {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

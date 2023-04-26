@@ -16,58 +16,70 @@ const Payment = () => {
 
   return (
     <div>
-     <div className ='card'>
-      <h1 className='h1'>Payment Information</h1>
-      <form  classname='form' onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="cardNumber">Card Number</label>
-          <input
-            type="text"
-            id="cardNumber"
-            value={cardNumber}
-            onChange={(e) => setCardNumber(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="expirationDate">Expiration Date</label>
-          <input
-            type="text"
-            id="expirationDate"
-            value={expirationDate}
-            onChange={(e) => setExpirationDate(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="cvc">CVC</label>
-          <input
-            type="text"
-            id="cvc"
-            value={cvc}
-            onChange={(e) => setCvc(e.target.value)}
-          />
-        </div>
-      </form>
-     </div>
-      <div className='review'>
-        <h2>Review</h2>
+      <div className ='pay-card'>
+        <h1>1. Payment Details</h1>
+        <hr />
+        <form  classname='pay-form' onSubmit={handleSubmit}>
+          <label htmlFor="name" className="pay-group">
+            Name
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="John Doe"
+            />
+          </label>
+
+          <label htmlFor="email" className="pay-group">
+            Email
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="example@gmail.com"
+            />
+          </label>
+
+          <label htmlFor="cardNumber" className="pay-group">
+            Card Number
+            <input
+              type="text"
+              id="cardNumber"
+              value={cardNumber}
+              onChange={(e) => setCardNumber(e.target.value)}
+              placeholder="1111 1111 1111 1111"
+            />
+          </label>
+
+          <label htmlFor="expirationDate" className="pay-group">
+            Expiration Date
+            <input
+              type="text"
+              id="expirationDate"
+              value={expirationDate}
+              onChange={(e) => setExpirationDate(e.target.value)}
+              placeholder="02/45"
+            />
+          </label>
+          
+          <label htmlFor="cvc" className="pay-group">
+            CVC
+            <input
+              type="text"
+              id="cvc"
+              value={cvc}
+              onChange={(e) => setCvc(e.target.value)}
+              placeholder="123"
+            />
+          </label>
+        </form>
+      </div>
+
+      <div className='pay-review'>
+        <h1>2. Review</h1>
+        <hr />
         <p>Name: {name}</p>
         <p>Email: {email}</p>
         <p>Card Number: {cardNumber}</p>
@@ -75,7 +87,7 @@ const Payment = () => {
         <p>CVC: {cvc}</p>
         <button classname='button' type="submit">Pay Now</button>
       </div>
-      </div>
+    </div>
   );
 };
 
