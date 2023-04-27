@@ -10,7 +10,7 @@ function HotelPreview(props) {
   }
 
   const details = props.details.map((detail, index) => {
-    return <li className="detail">{detail}</li>;
+    return <li className="detail" key={index}>{detail}</li>;
   });
 
   return (
@@ -19,11 +19,14 @@ function HotelPreview(props) {
         <img
           className="preview"
           src= {props.img}
+          alt="text"
         ></img>
         <div className="info">
-           <div className="rating">{props.rating} <FaStar/></div>
-          <h4 className="title">{props.title}</h4>
-          <div className="price"> ${props.price} </div>
+          <div className="rating">{props.rating} <FaStar/></div>
+          <div className="price"> 
+            <h4>{props.title}</h4>
+            <p>${props.price}</p>
+          </div>
           <h6 className="address">{props.address}</h6>
           <div className="breakContainer">
             <hr className="break"></hr>

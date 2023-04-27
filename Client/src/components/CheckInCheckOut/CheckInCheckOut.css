@@ -1,0 +1,54 @@
+.WholeCalendarContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.SubContainer { 
+    width: 330px;
+    height: 88px;
+    border: 1.5px solid #C2C6CC;
+    border-radius: 15px;
+    position: relative;
+    text-align: center;
+}
+
+
+.WholeCalendarContainer input.inputBox {
+    font-size: 17px;
+    border: transparent;
+    color: #C2C6CC;
+    text-align: center;
+    width: 90%;
+}
+
+.calendarElement {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1.5px solid #484848;
+    z-index: 999;
+}
+
+.rdrMonthAndYearPickers {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rdrMonthAndYearPickers select {
+    width: 100%;
+}
+
+.check-date {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 2.8rem;
+    margin-top: 15px;
+    margin-bottom: 0.75rem;
+}
+
+.check-date p {
+    font-size: 18px;
+    font-weight: 600;
+    width: 100%;
+}

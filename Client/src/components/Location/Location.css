@@ -1,0 +1,39 @@
+.WholeLocationContainer {
+  position: relative;
+  display:flex;
+  justify-content: center;
+}
+
+.subContainer {
+  width: 100%;
+  height: 88px;
+  border: 1.5px solid #C2C6CC;
+  border-radius: 15px;
+  position: relative;
+  text-align: center;
+}
+
+.subContainer p {
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.WholeLocationContainer ::placeholder {
+  font-size: 17px;
+  border: transparent;
+  text-align: center;
+  font: bolder;
+}
+
+.WholeLocationContainer input {
+  font-size: 21px;
+  border-radius: 3px;
+  border: transparent;
+  color: black;
+  text-align: left;
+  font: bolder;
+  padding: 0.5rem;
+  width: 90%;
+}
+

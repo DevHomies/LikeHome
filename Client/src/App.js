@@ -1,10 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import SearchPage from './pages/search/search.js';
-import  PaymentPage from './pages/Payment/payment.jsx';
-import { Navbar } from './components';
-import { Amenities } from './components';
-import { HomePage, Login, Registerexample } from './pages';
+import { HomePage, Login, Registerexample, AccountPage, 
+        CurrentReservations, EditReservations, SearchPage, DetailsPage, PaymentPage} from './pages';
 
 const hotels = [
   {
@@ -41,21 +38,32 @@ const hotels = [
   },
 ];
 
+const hotel = hotels[0];
+
 const nights = 2;
 
 const rewardPoints = 100;
 
 const App = () => {
+  
   return (
     <div className="App">
-      <PaymentPage hotel = {hotels[0]} nights = {nights} rewardPoints = {rewardPoints}/> 
-      {/* <SearchPage/> */}
-      {/* <Routes>
+      <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Registerexample />} />
-      </Routes> */}
-      {/* <Amenities /> */}
+        <Route path='/account' element={<AccountPage/>} />
+        <Route path='/UserReservations' element={<CurrentReservations/>} />
+        <Route path='/EditReservations' element={<EditReservations/>} />
+        <Route path='/search' element={<SearchPage />} />
+        {/* <Route path='/pay' element={<PaymentTest />} /> */}
+        <Route path='/detail' element={<DetailsPage />} />
+        <Route path='/pay' element={<PaymentPage />} />
+       
+        {/* <Route path='/details' element={<DetailsPage/>} /> 
+        * This will need to be a dynamic route for each hotel
+        */}
+      </Routes> 
     </div>
   );
 }

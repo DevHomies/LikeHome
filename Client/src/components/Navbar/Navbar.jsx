@@ -1,11 +1,14 @@
 import { useState } from "react";
 import './Navbar.css';
+import axios from 'axios';
 
 // Import Link for page routing
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 // Import Icons
-import { IoMenuOutline, IoClose, IoPersonCircle } from "react-icons/io5";
+import { IoMenuOutline, IoClose, IoPersonCircle, IoPawOutline } from "react-icons/io5";
+
+import { authlogin } from "../../pages/Login/Login";
 
 //Navbar and FaBars code inspired by https://www.youtube.com/watch?v=amf18mxNX18
 //Dropdown Menu code inspired by https://www.robinwieruch.de/react-dropdown/
@@ -18,7 +21,16 @@ function Navbar() {
     };
 
     // Placeholder for navbar state (logged in vs not)
-    const [loggedIn, setLoggedIn] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(authlogin);
+
+    const navigate = useNavigate();
+    const logout_handle = async () => {
+        const response = await axios.get('/catalog/logout/');
+        if (response.data.success){
+            authlogin = false
+            navigate('login/');
+        }
+    }
 
     return (
         <header className="nav-header">
@@ -38,11 +50,11 @@ function Navbar() {
                     {open ? (
                         <ul className="menu">
                             <li className="menu-item">
-                                <Link to='/' className='menu-btn'>Account</Link>
+                                <Link to='/account' className='menu-btn'>Account</Link>
                             </li>
 
                             <li className="menu-item">
-                                <Link to='/' className='menu-btn'>Reservations</Link>
+                                <Link to='/UserReservations' className='menu-btn'>Reservations</Link>
                             </li>
 
                             <li className="menu-item">
@@ -50,7 +62,7 @@ function Navbar() {
                             </li>
                             <hr />
                             <li className="menu-item">
-                                <Link to='/' className='menu-btn'>Logout</Link>
+                                <button onClick={logout_handle} className='menu-btn'>Logout</button>
                             </li>
                         </ul>
                         ) : null
@@ -59,9 +71,17 @@ function Navbar() {
                 :
                 /* The signedOut section is only shown when user is signed out */
                 <nav className="signedOut">
-                    <Link to='/' className="signedOut-btn">Sign Up</Link>
+                    
+                    {/* temp add so that no need to constantly sign in */}
+
+                    <Link to='/account' className="signedOut-btn"><IoPawOutline /></Link>
                     <h7>|</h7>
-                    <Link to='/' className="signedOut-btn">Login</Link>
+
+                    {/* temp add so that no need to constantly sign in */}
+
+                    <Link to='/register' className="signedOut-btn">Sign Up</Link>
+                    <h7>|</h7>
+                    <Link to='/login' className="signedOut-btn">Login</Link>
                 </nav>
             }
         </header>

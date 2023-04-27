@@ -7,7 +7,7 @@ function Sort(props) {
 
   return (
     <div
-      className={visible ? "box box-highlighted" : "box"}
+      className={visible ? "sort-box box-highlighted" : "sort-box"}
       onClick={() => {
         setVisible(!visible);
         console.log(visible);

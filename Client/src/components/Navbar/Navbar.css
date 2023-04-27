@@ -3,7 +3,6 @@
 * https://www.youtube.com/watch?v=amf18mxNX18 
 */
 .nav-header {
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -11,8 +10,11 @@
     height: 70px;
     padding: 0 4.75rem;
 
-    background-color: var(--purple);
+    background-color: #4c2c8e;
     color: var(--white);
+    position: sticky;
+    top:0;
+    z-index: 99999;
 }
 
 .nav-logo {
@@ -118,7 +120,7 @@
     font-weight: 600;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 950px) {
     .nav-header {
         padding: 0 1.1rem;
     }
