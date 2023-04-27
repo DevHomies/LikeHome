@@ -15,7 +15,7 @@ const App = () => {
         <Route path='/EditReservations' element={<EditReservations/>} />
         <Route path='/search' element={<SearchPage />} />
         <Route path='/pay' element={<PaymentTest />} />
-        <Route path='/detail' element={<DetailsPage />} />
+        <Route path='/detail/:id' element={<DetailsPage />} />
        
         {/* <Route path='/details' element={<DetailsPage/>} /> 
         * This will need to be a dynamic route for each hotel
