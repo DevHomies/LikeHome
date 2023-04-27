@@ -1,94 +1,99 @@
-// import { useEffect, useRef, useState } from 'react'
-// import { DateRange} from 'react-date-range'
+import { useEffect, useRef, useState } from 'react'
+import { DateRange} from 'react-date-range'
 
-// import format from 'date-fns/format'
-// import { addDays } from 'date-fns'
+import format from 'date-fns/format'
+import { addDays } from 'date-fns'
 
-// import 'react-date-range/dist/styles.css'
-// import 'react-date-range/dist/theme/default.css'
-// import './CheckInCheckOut.css'
+import 'react-date-range/dist/styles.css'
+import 'react-date-range/dist/theme/default.css'
+import './CheckInCheckOut.css'
 
-// const CheckInCheckOut = ({parentCallback}) => {
+const CheckInCheckOut = ({parentCallback}) => {
 
-//   // date state
-//   const [range, setRange] = useState([
-//     {
-//       startDate: new Date(),
-//       endDate: addDays(new Date(), 7),
-//       key: 'selection'
-//     }, 
-//   ])
+  // date state
+  const [range, setRange] = useState([
+    {
+      startDate: new Date(),
+      endDate: addDays(new Date(), 7),
+      key: 'selection'
+    }, 
+  ])
 
-//   const handleChange = (item) => {
-//     setRange([item.selection]);
-//     parentCallback("checkDates", [item.selection.startDate, item.selection.endDate]);
-//   }
+  // const handleChange = (item) => {
+  //   setRange([item.selection]);
+  //   parentCallback("checkDates", [item.selection.startDate, item.selection.endDate]);
+  // }
 
-//   // open close
-//   const [open, setOpen] = useState(false)
+  const handleChange = (item) => {
+    setRange([item.selection]);
+    parentCallback("checkDates", [item.selection.startDate, item.selection.endDate]);
+  }
 
-//   // get the target element to toggle 
-//   const refOne = useRef(null)
+  // open close
+  const [open, setOpen] = useState(false)
 
-//   useEffect(() => {
-//     // event listeners
-//     document.addEventListener("keydown", hideOnEscape, true)
-//     document.addEventListener("click", hideOnClickOutside, true)
-//   }, [])
+  // get the target element to toggle 
+  const refOne = useRef(null)
 
-//   // hide dropdown on ESC press
-//   const hideOnEscape = (e) => {
-//     // console.log(e.key)
-//     if( e.key === "Escape" ) {
-//       setOpen(false)
-//     }
-//   }
+  useEffect(() => {
+    // event listeners
+    document.addEventListener("keydown", hideOnEscape, true)
+    document.addEventListener("click", hideOnClickOutside, true)
+  }, [])
 
-//   // Hide on outside click
-//   const hideOnClickOutside = (e) => {
-//     // console.log(refOne.current)
-//     // console.log(e.target)
-//     if( refOne.current && !refOne.current.contains(e.target) ) {
-//       setOpen(false)
-//     }
-//   }
+  // hide dropdown on ESC press
+  const hideOnEscape = (e) => {
+    // console.log(e.key)
+    if( e.key === "Escape" ) {
+      setOpen(false)
+    }
+  }
 
-//   return (
-//     <div className="WholeCalendarContainer">
-//       <div className="SubContainer">
-//         <div class="check-date">
-//           <p>Check In</p>
-//           <p>Check Out</p>
-//         </div>
-//           <div className="CalendarWrap">
+  // Hide on outside click
+  const hideOnClickOutside = (e) => {
+    // console.log(refOne.current)
+    // console.log(e.target)
+    if( refOne.current && !refOne.current.contains(e.target) ) {
+      setOpen(false)
+    }
+  }
 
-//             <input
-//               value={`${format(range[0].startDate, "MM/dd/yyyy")}   |   ${format(range[0].endDate, "MM/dd/yyyy")}`}
-//               readOnly
-//               className="inputBox"
-//               onClick={() => setOpen(open => !open)} />
+  return (
+    <div className="WholeCalendarContainer">
+      <div className="SubContainer">
+        <div class="check-date">
+          <p>Check In</p>
+          <p>Check Out</p>
+        </div>
+          <div className="CalendarWrap">
 
-//             <div ref={refOne}>
-//               {open &&
-//                   <DateRange 
-//                       onChange={item => handleChange(item)}
-//                       editableDateInputs={true}
-//                       moveRangeOnFirstSelection={false}
-//                       ranges={range}
-//                       months={2}
-//                       direction="horizontal"
-//                       className="calendarElement" 
-//                       minDate={new Date()}
-//                       maxDate={addDays(new Date(), 31)}
-//                       />
-//                     }
-//             </div>  
-//           </div>
+            <input
+              value={`${format(range[0].startDate, "MM/dd/yyyy")}   |   ${format(range[0].endDate, "MM/dd/yyyy")}`}
+              readOnly
+              className="inputBox"
+              onClick={() => setOpen(open => !open)} />
 
-//       </div>
+            <div ref={refOne}>
+              {open &&
+                  <DateRange 
+                      onChange={item => handleChange(item)}
+                      editableDateInputs={true}
+                      moveRangeOnFirstSelection={false}
+                      ranges={range}
+                      months={2}
+                      direction="horizontal"
+                      className="calendarElement" 
+                      minDate={new Date()}
+                      maxDate={addDays(new Date(), 31)}
+                      />
+                    }
+            </div>  
+          </div>
 
-//     </div>
-//   )
-// }
+      </div>
 
-// export default CheckInCheckOut
+    </div>
+  )
+}
+
+export default CheckInCheckOut
