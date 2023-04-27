@@ -21,3 +21,5 @@ export { default as PastReservations } from './PastReservations/PastReservations
 export { default as EditReservations } from './EditReservations/EditReservations';
 export { default as CancelReserve } from './CancelReservation/CancelReserve';
 
+export { default as BookNow } from './BookNow/BookNow';
+export { default as Payment } from './Payment/Payment';
