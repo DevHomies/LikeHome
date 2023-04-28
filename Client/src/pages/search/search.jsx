@@ -93,7 +93,6 @@ const sortByOptions = ["Recommended", "Price: $ - $$$", "Price: $$$ - $"];
 function Search() {
   // Grabbing the data from the search component in the home page
   const { state } = useLocation();
-  console.log(state);
 
   const [sortBy, setSortBy] = useState("Recommended");
   const [minimum, setMinimum] = useState(null);
@@ -204,6 +203,7 @@ function Search() {
             img={hotel.img}
             rating={hotel.rating}
             id={hotel.title.replace(/\s/g, "")}
+            search={state}
           />
         </div>
       );

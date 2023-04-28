@@ -4,20 +4,14 @@ import { FaStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 function HotelPreview(props) {
-  // Clicking on a hotel preview redirects user to corresponding hotel page
-  function handleClick() {
-    console.log(props.title);
-    // TO-DO: Redirect to corresponding page
-  }
-
   const details = props.details.map((detail, index) => {
     return <li className="detail" key={index}>{detail}</li>;
   });
 
   return (
     <div>
-      <Link className="preview-link" to={'/detail/' + props.id}>
-        <div className="container" onClick={() => handleClick()}>
+      <Link className="preview-link" to={'/detail/' + props.id} state={props}>
+        <div className="container">
           <img
             className="preview"
             src= {props.img}
