@@ -83,8 +83,8 @@
     padding-bottom: 50px;
     list-style-position: inside;
     overflow: hidden;
-    width: 1200px;
     object-fit: cover;
+    flex: 1;
 }
 .hotelAddress, .hotelDescription {
     color: #9A9A9A;
@@ -92,6 +92,8 @@
 }
 .nameAndAddress {
     padding-bottom: 50px;
+    display: flex;
+    gap: 4rem;
 }
 .nameAndAddress h1:first-child,
 .descriptionWithTitle h2:first-child {

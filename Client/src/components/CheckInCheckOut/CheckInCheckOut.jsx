@@ -19,6 +19,11 @@ const CheckInCheckOut = ({parentCallback}) => {
     }, 
   ])
 
+  // const handleChange = (item) => {
+  //   setRange([item.selection]);
+  //   parentCallback("checkDates", [item.selection.startDate, item.selection.endDate]);
+  // }
+
   const handleChange = (item) => {
     setRange([item.selection]);
     parentCallback("checkDates", [item.selection.startDate, item.selection.endDate]);

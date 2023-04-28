@@ -1,8 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
 import { Amenities } from './components';
 import { HomePage, Login, Registerexample, AccountPage, CurrentReservations, EditReservations, DetailsPage , CancelReserve} from './pages';
+import './App.css';
+import { HomePage, Login, Registerexample, AccountPage, 
+        CurrentReservations, EditReservations, SearchPage, DetailsPage, PaymentPage} from './pages';
 
 const App = () => {
+  
   return (
     <div className="App">
       <Routes>
@@ -14,9 +18,11 @@ const App = () => {
         <Route path='/UserReservations' element={<CurrentReservations/>} />
         <Route path='/EditReservations' element={<EditReservations/>} />
         <Route path='/search' element={<SearchPage />} />
-        {/* <Route path='/details' element={<DetailsPage/>} /> 
-        * This will need to be a dynamic route for each hotel
-        */}
+        <Route path='/details' element={<DetailsPage/>} /> 
+        <Route path='/pay' element={<PaymentPage />} />
+
+        {/* * This will need to be a dynamic route for each hotel */}
+        
       </Routes> 
     </div>
   );
