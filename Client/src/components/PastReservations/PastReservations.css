@@ -21,6 +21,14 @@
     background-color: #edeaf4;
 }
 
+#PRRoomPrice {
+    font-size: 14px;
+    font-weight: 700;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+
 
 .PastRoomInfo p#PRoomName {
     font-size: 14px;
@@ -33,7 +41,6 @@
     font-size: 12px;
     font-weight: 600;
     padding: 5px;
-    display: inline;
 }
 
 .PastRoomInfo p#PTravelersNum {

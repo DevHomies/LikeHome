@@ -3,7 +3,7 @@ import { useState } from "react";
 import './EditReservations.css';
 import { Travelers } from '../../components';
 
-function EditReservations ({setEditmodalOpen}) {
+function EditReservations ({setEditmodalOpen, upcomingReservations}) {
 
         //todo :( 
     function handleTravelersChange(travelers) {
@@ -15,25 +15,25 @@ function EditReservations ({setEditmodalOpen}) {
     }
 
     const handleNewChangeSubmit = () => {
-        alert("Your new reservation changes have been made!");
+        alert("Your new reservation changes have been implemented!");
         setEditmodalOpen(false);
     }
 
-    return (
+    return upcomingReservations.map((upcReserves) => 
             <div className="EditReservationsPopupContainer">
                 <h1 id="ERtitle">Edit Reservations for. . .</h1>
 
                 <div className="EditRoomContainer">
                     <img style = {{ width: 200, height: 180 }} 
                         id="ERimg"
-                        src = '/assets/images/dummyRoom.png'/>
+                        src={upcReserves.img}/>
 
                     <div className="RoomInfo">
-                        <p id="RoomName">Hotel1</p>
-                        <p id="StayDates">Check In: 01/01/2100 | Check Out: 01/02/2100</p>
+                        <p id="RoomName">{upcReserves.title}</p>
+                        <p id="StayDates">Check In: {upcReserves.checkIn} | Check Out: {upcReserves.checkOut}</p>
 
                         <div class="TravelersContainer">
-                            <Travelers />
+                            <Travelers /> 
                         </div>
                     </div>
                 </div>

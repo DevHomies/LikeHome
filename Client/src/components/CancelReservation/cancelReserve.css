@@ -1,5 +1,5 @@
-.cancel-box {
-  width: 1150px;
+#cancelbox {
+  width: 1250px;
   height: 450px;
   border-radius: 10px;
   box-shadow: 0px 0px 5px #1e1239;
@@ -29,7 +29,7 @@
 }
 
 /* This is a placeholder for an image */
-.cancel-image {
+#CancelImage {
   width: 200px;
   height: 180px;
   background-color: grey;
