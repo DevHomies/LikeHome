@@ -95,6 +95,17 @@ function Search() {
   const { state } = useLocation();
   console.log(state);
 
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+      fetch('/catalog/hotelinfo/')
+          .then(response => response.json())
+          .then(data => setData(data))
+          .catch(error => console.error(error));
+  }, []);
+  
+  console.log("datatest: ", data);
+  
   const [sortBy, setSortBy] = useState("Recommended");
   const [minimum, setMinimum] = useState(null);
   const [maximum, setMaximum] = useState(null);
@@ -246,7 +257,22 @@ function Search() {
             <div className="showAnemities"> Edit Filters </div>
           </div>
 
-          <section className="hotel-grid">{displayHotels}</section>
+          <section className="hotel-grid">{
+              data.map((hotel, index) => {
+                return (
+                  <div className="item">
+                    <HotelPreview
+                      title={hotel.name}
+                      address={hotel.address}
+                      details={hotel.amenities}
+                      price={hotel.price}
+                      img={""}
+                      rating={hotel.rating}
+                    />
+                  </div>
+                );
+              })
+          }</section>
         </section>
       </div>
       <Footer />

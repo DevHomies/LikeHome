@@ -1,5 +1,5 @@
 from rest_framework.response import Response
-from .models import Reservation
+from .models import Reservation, Hotel
 from .serializers import catalogSerializer
 from django.contrib.auth import authenticate, login as auth_login, logout
 from django.contrib.auth.models import User
@@ -51,6 +51,11 @@ def getRegister(request):
         print("can be created")
         return JsonResponse({'success': True})
 
+
+def hotel_info(request):
+    test1 = Hotel.objects.all()
+    serializer = catalogSerializer(test1, many=True)
+    return Response(serializer.data)
 
 def logout_user(request):
     
