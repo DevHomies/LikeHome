@@ -8,5 +8,4 @@ export { default as CurrentReservations } from './CurrentReservations/CurrentRes
 export { default as EditReservations } from './EditReservations/EditReservations';
 export { default as SearchPage } from './search/search'
 export { default as DetailsPage } from './DetailsPage/DetailsPage';
-export { default as PaymentTest } from './PaymentTest/PaymentTest';
-
+export { default as PaymentPage } from './PaymentPage/PaymentPage';
