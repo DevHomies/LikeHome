@@ -1,8 +1,12 @@
 import { Navbar, Footer, BookNow } from '../../components';
 import './DetailsPage.css';
 import { useState } from "react";
+import { useNavigate, useLocation } from 'react-router-dom';
 
-function DetailsPage (props) {
+function DetailsPage () {
+    const { state } = useLocation();
+    const navigate = useNavigate();
+
     const [selectedImage, setSelectedImage] = useState(null);
     const handleImageClick = (imageSource) => {
         setSelectedImage(imageSource);
@@ -10,6 +14,10 @@ function DetailsPage (props) {
     const handleCloseImage = () => {
         setSelectedImage(null);
     };
+
+    const toPayment = () => {
+        navigate(`/pay`, { state: state });
+    }
 
     return (
         <>
@@ -45,19 +53,13 @@ function DetailsPage (props) {
                     <div className="HotelInfo">
                         <div className="nameAndAddress">
                             <div>
-                                {/* Filler: */}
-                                <h1 className='hotel-title'>Hotel 1</h1>
+                                <h1 className='hotelName'>{state.title}</h1>
                             
-                                {/* <h1 className='hotelName'>{props.hotelName}</h1> */}
-
-                                {/* Filler: */}
-                                <h3 className='hotelAddress'>100 Smart Street, LA, USA</h3>
-                            
-                                {/* <h3 className='hotelAddress'>{props.hotelAddress}</h3> */}
+                                <h3 className='hotelAddress'>{state.address}</h3>
                             </div>
 
                             <div className = "Booking">
-                                <BookNow />
+                                <BookNow parentCallback={toPayment} />
                             </div>
                         </div>
                         <div className="descriptionWithTitle">
@@ -71,23 +73,11 @@ function DetailsPage (props) {
                         <div className="amenities">
                             <h2 className='hotel-title'>Offered Amenities</h2>
                             <div className="amenitieAttributes">
-                                {/* Filler: */}
                                 <ul>
-                                    <h3>🍴 Kitchen</h3>
-                                    <h3>📺 Television with Netflix</h3>
-                                    <h3>🧊 Air Conditioner</h3>
-                                    <h3>📡 Free Wireless Internet</h3>
-                                    <h3>🧺 Washer</h3>
-                                    <h3>🌆 Balcony or Patio</h3>
-                                    <h3>🥼 Cleaner</h3>
-                                    <h3>🅿️ Parking</h3>
-                                </ul>
-                               
-                                {/* <ul>
-                                    {props.amenities.map((amenity) => {
+                                    {state.details.map((amenity) => {
                                         return <h3>{amenity}</h3>;
                                     })}
-                                </ul> */}
+                                </ul>
                             </div>
                         </div>
                     </div>

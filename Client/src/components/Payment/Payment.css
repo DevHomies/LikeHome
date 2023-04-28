@@ -1,5 +1,4 @@
- 
-.pay-card {
+ .pay-card {
   background-color: #ffffff89;
   border-radius: 30px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -38,7 +37,8 @@
 }
 
 .payment-text-element {
-  font-size: 14;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 
@@ -85,6 +85,20 @@
   cursor: pointer;
 }
 
+.pay-review button:hover {
+  border: 2px solid var(--purple-2);
+}
+
+.pay-review button:first-of-type {
+  margin-right: 2rem;
+}
+
+.pay-review button:last-of-type {
+  background-color: rgb(248, 79, 79);
+  width: 226px;
+  height: 70px;
+}
+
 .pay-review {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -123,10 +137,9 @@
 }
 
 .payment-preview {
-  padding: 30px;
+  padding: 1.625rem 2.68rem;
   position: relative;
   left: 25px;
-  /* margin-left: 100px; */
   width: auto;
   background-color: var(--light-grey);
   border-radius: 20px;
@@ -134,27 +147,42 @@
   position: sticky;
 }
 
-.payment-total {
-  display: inline-block;
-  color: var(--dark-grey);
+.payment-hotel-info-section {
+  position: relative;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 }
 
 .payment-image {
   object-fit: cover;
-  max-width: 150px;
-  min-width: 100px;
-  border-radius: 20px;
+  width: 100%;
 }
 
+.payment-hotel-info {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.6);
 
-.payment-reward-text {
-  font-size: 13px;
-  text-indent: 15px;
-  display: inline-block;
+  font-size: 3rem;
+  color: white;
+  text-shadow: 1px 1px 3px var(--purple-2);
 }
 
-.payment-hotel-info-section {
-  columns: 2;
+.payment-apply {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  margin-bottom: 0.25rem;
 }
 
 .payment-reward-checkbox { 
@@ -163,12 +191,40 @@
 }
 
 .payment-reward-text {
-  user-select: none;
+  font-size: 13px;
+  text-indent: 15px;
+  display: inline-block;
+}
+
+.payment-title{
+  color: var(--dark-grey);
+}
+
+.payment-personnel {
+  display: flex;
+  gap: 1rem;
+  font-weight: 600;
+  color: var(--dark-grey);
+}
+
+.payment-dates {
+  font-weight: 600;
+  color: var(--dark-grey);
+}
+
+.payment-dates p {
+  margin: 0;
+  margin-bottom: 0.5rem;;
+}
+
+.final-summary {
+  margin-top: 1rem;
 }
 
 .payment-subtotal {
   display: inline;
 }
+
 .payment-subtotal-info {
   text-indent: 10px;
   font-style: italic;
@@ -177,18 +233,9 @@
   float: right;
 }
 
-.payment-title{
+.payment-total {
+  display: block;
   color: var(--dark-grey);
-}
-
-.payment-reservation-info {
-  margin-top: 5px;
-  columns: 2;
-  padding-bottom: 10px;
-}
-
-.payment-reservation-detail {
-  font-weight: 600;
-  padding: 5px;
-  color: var(--dark-grey);
+  margin-top: 0.75rem;
+  margin-bottom: 4rem;
 }
