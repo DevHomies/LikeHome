@@ -93,7 +93,6 @@ const sortByOptions = ["Recommended", "Price: $ - $$$", "Price: $$$ - $"];
 function Search() {
   // Grabbing the data from the search component in the home page
   const { state } = useLocation();
-  console.log(state);
 
   const [sortBy, setSortBy] = useState("Recommended");
   const [minimum, setMinimum] = useState(null);
@@ -195,7 +194,7 @@ function Search() {
     var newHotels = filtersAndSortHotels(hotels); // Filter and sort hotels
     newHotels = newHotels.map((hotel, index) => {
       return (
-        <div className="item">
+        <div className="item" key={index}>
           <HotelPreview
             title={hotel.title}
             address={hotel.address}
@@ -203,6 +202,8 @@ function Search() {
             price={hotel.price}
             img={hotel.img}
             rating={hotel.rating}
+            id={hotel.title.replace(/\s/g, "")}
+            search={state}
           />
         </div>
       );
