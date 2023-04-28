@@ -4,9 +4,10 @@
   border-radius: 30px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   padding: 1.625rem 2.68rem;
-  width: 50%;
+  width: auto;
   margin: auto;
   margin-top: 20px;
+  background-color: var(--light-grey);
 }
 
 .pay-card h1,
@@ -29,13 +30,20 @@
   gap: 0.5rem;
   border-radius: 12px;
   margin-bottom: 1.5rem;
+  background-color: var(--light-grey);
 }
 
 .pay-group:focus-within {
   outline: 1px solid var(--purple-2);
 }
 
+.payment-text-element {
+  font-size: 14;
+}
+
+
 .pay-group input {
+  background-color: var(--light-grey);
   border: none;
   width: 100%;
   font-size: 1rem;
@@ -50,9 +58,10 @@
   border-radius: 30px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   padding: 1.625rem 2.68rem;
-  width: 50%;
+  width: auto;
   margin: auto;
   margin-top: 20px;
+  background-color: var(--light-grey);
 }
 
 .pay-review p {
@@ -79,4 +88,107 @@
 .pay-review {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+/* Below is Albany's migrated CSS */
+
+.payment-layout {
+  margin-left: 5%;
+  margin-right: 5%;
+  text-align:left;
+  position: relative;
+  display: grid;
+  grid-template-rows: [row1-start] 1fr;
+  grid-template-columns: [row1-start] 2fr [row1-end row2-start] 1fr [row2-end];
+  column-gap:3%;
+  padding: 50px;
+  
+}
+
+.payment-details {
+  width: 100%;
+  height: 900px;
+}
+
+.payment-pricing {
+  font-weight: 500;
+}
+
+
+.payment-details {
+  width: 100%;
+  background-color: var(--light-grey);
+  border-radius: 5px;
+  border: 3px solid var(--purple);
+}
+
+.payment-preview {
+  padding: 30px;
+  position: relative;
+  left: 25px;
+  /* margin-left: 100px; */
+  width: auto;
+  background-color: var(--light-grey);
+  border-radius: 20px;
+  border: 3px solid var(--purple);
+  position: sticky;
+}
+
+.payment-total {
+  display: inline-block;
+  color: var(--dark-grey);
+}
+
+.payment-image {
+  object-fit: cover;
+  max-width: 150px;
+  min-width: 100px;
+  border-radius: 20px;
+}
+
+
+.payment-reward-text {
+  font-size: 13px;
+  text-indent: 15px;
+  display: inline-block;
+}
+
+.payment-hotel-info-section {
+  columns: 2;
+}
+
+.payment-reward-checkbox { 
+  width: 20px;
+  height: 20px;
+}
+
+.payment-reward-text {
+  user-select: none;
+}
+
+.payment-subtotal {
+  display: inline;
+}
+.payment-subtotal-info {
+  text-indent: 10px;
+  font-style: italic;
+  font-size: 12px;
+  color: var(--dark-grey);
+  float: right;
+}
+
+.payment-title{
+  color: var(--dark-grey);
+}
+
+.payment-reservation-info {
+  margin-top: 5px;
+  columns: 2;
+  padding-bottom: 10px;
+}
+
+.payment-reservation-detail {
+  font-weight: 600;
+  padding: 5px;
+  color: var(--dark-grey);
 }
