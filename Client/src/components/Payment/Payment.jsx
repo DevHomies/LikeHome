@@ -1,36 +1,17 @@
 import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import "./Payment.css";
-
-const hotels = [
-  {
-    title: "Marriot Hotel",
-    address: "123 Marriot St. CA USA",
-    details: ["Free Wi-Fi", "Pool", "Kitchen", "Spa", "Restaurants"],
-    price: 150,
-    img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
-    rating: 1,
-  }
-];
-
-
-// This page requires at least the below variables ------
-
-// Assuming these will be dates parsed into strings
-const checkIn = "01/21/2023";
-const checkOut = "01/23/2023";
-const travelers = "4";
-
-const hotel = hotels[0];
-
-const nights = 3; // Depends on Date() range and should be mathematically calculated fromit
 
 const rewardPoints = 150; // user's reward points, btw $1 = 1 reward point
 
 // ----------------------------------
 
+function Payment() {
+  const { state } = useLocation();
+  const navigate = useNavigate();
+  const nights = state.search.checkDates[1].getDay() - state.search.checkDates[0].getDay();
 
-function Payment(props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [cardNumber, setCardNumber] = useState("");
@@ -40,7 +21,7 @@ function Payment(props) {
 
 
   function hasEnoughRewardPoints() {
-    if (rewardPoints >= hotel.price) return true;
+    if (rewardPoints >= state.price) return true;
     return false;
   }
   
@@ -48,6 +29,10 @@ function Payment(props) {
     e.preventDefault();
     console.log(name, email, cardNumber, expirationDate, cvc);
   };
+
+  const goBack = () => {
+    navigate(-1);
+  }
 
   return (
     <div>
@@ -129,44 +114,40 @@ function Payment(props) {
               <hr/>
             </section>
             <section>
-              <div className="payment-hotel-info-section">
-                <img
-                  className="payment-image"
-                  src="https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI="
-                ></img>
-                <p className="payment-hotel-info"> {hotel.title} </p>
-                <p className="payment-hotel-info"> {hotel.address} </p>
+              <h2> {state.title} </h2>
+              <p> {state.address} </p>
+              
+              <div className="payment-personnel">
+                <p>Travelers: {state.search.travelers}</p>
+                <p>Rooms: {state.search.rooms}</p>
               </div>
 
-              <div className="payment-reservation-info">
-                <div className="payment-reservation-detail">
-                  Checkin: {checkIn}
-                </div>
+              <div className="payment-dates">
+                <p>
+                  Checkin: {state.search.checkDates[0].toString()}
+                </p>
 
-                <div className="payment-reservation-detail">
-                  Checkout: {checkOut}
-                </div>
-                <div className="payment-reservation-detail">
-                  Travelers: {travelers}
-                </div>
+                <p>
+                  Checkout: {state.search.checkDates[1].toString()}
+                </p>
               </div>
             </section>
             <hr />
             <section>
-              <p>Subtotal: ${hotel.price * nights}</p>
+              <p>Subtotal: ${state.price * nights}</p>
               {rewardApplied ? "" : <div></div>}
-              <div> {rewardApplied ? "Reward points: -$" + hotel.price : ""}</div>
+              <div> {rewardApplied ? "Reward points: -$" + state.price : ""}</div>
               <h3 className="payment-total">
-                Total: ${ rewardApplied ? hotel.price * nights - hotel.price: hotel.price * nights}
+                Total: ${ rewardApplied ? state.price * nights - state.price: state.price * nights}
               </h3>
-              <br/>
-              <button classname="button" type="submit">
-                Pay Now
-              </button>
+
+              <button classname="button" type="submit">Pay Now</button>
+              <button className="payment-cancel" onClick={goBack}>Cancel</button>
             </section>
           </div>
           
         </div>
+
         <div className="payment-right">
           <div className="payment-preview">
             <h3 className="payment-text-element"> Summary </h3>
@@ -175,32 +156,37 @@ function Payment(props) {
                 <img
                   className="payment-image"
                   src="https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI="
+                  alt="hotel"
                 ></img>
-                <p className="payment-hotel-info"> {hotel.title}</p>
-                <p className="payment-hotel-info"> {hotel.address} </p>
+                <div className="payment-hotel-info">
+                  <p> {state.title}</p>
+                  <p> {state.address} </p>
+                </div>
               </div>
             </section>
             <hr />
             <section>
-              <i> Remaining reward points: {rewardApplied ? rewardPoints -  hotel.price: rewardPoints}</i>
+              <i> Remaining reward points: {rewardApplied ? rewardPoints -  state.price: rewardPoints}</i>
               <br/>
               <br/>
-              <input disabled = {hasEnoughRewardPoints() ? false : true} className="payment-reward-checkbox" type="checkbox"
-              onChange = {() => setRewardApplied(!rewardApplied)}></input>
-              <p className="payment-reward-text">
-                {hasEnoughRewardPoints()
-                  ? "Apply award Points"
-                  : "You don't have enough reward points"}
-              </p>
+              <div className="payment-apply">
+                <input disabled = {hasEnoughRewardPoints() ? false : true} className="payment-reward-checkbox" type="checkbox"
+                onChange = {() => setRewardApplied(!rewardApplied)} id='apply-rewards'></input>
+                <label className="payment-reward-text" htmlFor="apply-rewards">
+                  {hasEnoughRewardPoints()
+                    ? "Apply award Points"
+                    : "You don't have enough reward points"}
+                </label>
+              </div>
             </section>
             <hr />
-            <section>
-              <div className="payment-subtotal">Subtotal: ${hotel.price * nights}</div>
-              <div className="payment-subtotal-info">{nights} nights x ${hotel.price}</div>
+            <section className="final-summary">
+              <div className="payment-subtotal">Subtotal: ${state.price * nights}</div>
+              <div className="payment-subtotal-info">{nights} nights x ${state.price}</div>
               {rewardApplied ? "" : <div></div>}
-              <div> {rewardApplied ? "Reward points: -$" + hotel.price : ""}</div>
+              <div> {rewardApplied ? "Reward points: -$" + state.price : ""}</div>
               <h3 className="payment-total">
-                Total: ${ rewardApplied ? hotel.price * nights - hotel.price: hotel.price * nights}
+                Total: ${ rewardApplied ? state.price * nights - state.price: state.price * nights}
               </h3>
             </section>
           </div>
