@@ -1,8 +1,8 @@
 from rest_framework.serializers import ModelSerializer
-from catalog.models import Reservation
+from catalog.models import Reservation, Hotel
 
 
 class catalogSerializer(ModelSerializer):
     class Meta:
-        model = Reservation
+        model = Hotel
         fields = '__all__'

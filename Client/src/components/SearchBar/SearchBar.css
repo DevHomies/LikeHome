@@ -35,6 +35,10 @@
   cursor: pointer;
 }
 
+.home-error  {
+  font-weight: 600;
+  color: var(--purple-2);
+}
 .SearchButton:hover {
   border: 2px solid var(--purple-2);
 }
