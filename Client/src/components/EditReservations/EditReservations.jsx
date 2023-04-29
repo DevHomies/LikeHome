@@ -3,7 +3,7 @@ import { useState } from "react";
 import './EditReservations.css';
 import { BsArrowRight} from 'react-icons/bs';
 
-function EditReservations ({setEditmodalOpen, upcomingReservations, updateReservations}) {
+function EditReservations ({setEditmodalOpen, upcomingReservations, setupcomingReservations, updateReservations}) {
 
     const [editcheckin, seteditcheckin] = useState(upcomingReservations.checkIn);
     const [editcheckout, seteditcheckout] = useState(upcomingReservations.checkOut);
@@ -71,7 +71,7 @@ function EditReservations ({setEditmodalOpen, upcomingReservations, updateReserv
                             <h3 >Original Sale: ${upcReserves.price}</h3>
                             <h3 >Reservation Edit Fee: ${upcReserves.price * 0.25} (25%)</h3>
                             <hr />
-                            <h2 >New Amount: ${upcReserves.price + (upcReserves.price * 0.25)}</h2>
+                            <h2 >New Amount: ${(upcReserves.price * 1.25)}</h2>
                         </div>
                 </div>
                 </form>
@@ -85,7 +85,9 @@ function EditReservations ({setEditmodalOpen, upcomingReservations, updateReserv
                     </div>
                     <div className="ERSaveChangesButton">
                         <button type="button" id="SaveChangesButton"
-                        onClick={() => {updateReservations(upcReserves.id, upcReserves.checkIn, upcReserves.checkOut, upcReserves.travelers)}}> 
+                        onClick={() => 
+                        {updateReservations(upcReserves.id, editcheckin, editcheckout, edittravelers, editprice)}
+                        }> 
                             Save Changes
                         </button>
                     </div>
