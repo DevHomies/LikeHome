@@ -52,41 +52,6 @@ const amenitiesList = [
   },
 ];
 
-const hotels = [
-  {
-    title: "Marriot Hotel",
-    address: "123 Marriot St.",
-    details: ["Free Wi-Fi", "Pool", "Kitchen", "Spa", "Restaurants"],
-    price: 100,
-    img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
-    rating: 1,
-  },
-  {
-    title: "Another Hotel",
-    address: "123 Another St.",
-    details: ["Free Wi-Fi", "Pool"],
-    price: 230,
-    img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
-    rating: 4,
-  },
-  {
-    title: "Pee Hotel",
-    address: "123 Peep St.",
-    details: ["Free Wi-Fi", "Kitchen"],
-    price: 100,
-    img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
-    rating: 4,
-  },
-  {
-    title: "Poop Hotel",
-    address: "123 Poop St.",
-    details: ["Free Wi-Fi", "Pool", "Kitchen"],
-    price: 123,
-    img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
-    rating: 5,
-  },
-];
-
 // ---------------------------------------------------
 const sortByOptions = ["Recommended", "Price: $ - $$$", "Price: $$$ - $"];
 
@@ -195,16 +160,19 @@ function Search() {
   // Returns a list of react HotelPreview components
   function hotelPreviews() {
     var newHotels = filtersAndSortHotels(data); // Filter and sort hotels
+    var newHotels = filtersAndSortHotels(data); // Filter and sort hotels
     newHotels = newHotels.map((hotel, index) => {
       return (
-        <div className="item">
+        <div className="item" key={index}>
           <HotelPreview
-            title={hotel.title}
+            title={hotel.name}
             address={hotel.address}
-            details={hotel.details}
+            details={hotel.amenities}
             price={hotel.price}
-            img={hotel.img}
+            img={"https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI="}
             rating={hotel.rating}
+            id={hotel.name.replace(/\s/g, "")}
+            search={state}
           />
         </div>
       );
@@ -258,7 +226,9 @@ useEffect(() => {
             <div className="showAnemities"> Edit Filters </div>
           </div>
 
-          <section className="hotel-grid">{displayHotels}</section>
+          <section className="hotel-grid">{
+              displayHotels
+          }</section>
         </section>
       </div>
       <Footer />

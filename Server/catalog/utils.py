@@ -52,6 +52,11 @@ def getRegister(request):
         return JsonResponse({'success': True})
 
 
+def hotel_info(request):
+    test1 = Hotel.objects.all()
+    serializer = catalogSerializer(test1, many=True)
+    return Response(serializer.data)
+
 def logout_user(request):
     
     logout(request)

@@ -4,7 +4,7 @@ from catalog.models import Reservation,Hotel
 
 class catalogSerializer(ModelSerializer):
     class Meta:
-        model = Reservation
+        model = Hotel
         fields = '__all__'
 class searchSerializer(ModelSerializer):
     class Meta:
