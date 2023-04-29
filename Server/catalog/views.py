@@ -36,7 +36,6 @@ def getRoutes(request):
             'body': {'body': ""},
             'description': 'log in user'
         },
-        
     ]
     return Response(routes)
 
