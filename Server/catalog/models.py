@@ -39,15 +39,25 @@ class HotelAmenity(models.Model):
         return self.name
     
 class Hotel(models.Model):
+    city = models.CharField(max_length=100,null = True)
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=200)
     price= models.FloatField(null=True)
     # photo = models.ImageField(upload_to='room_photos/', null=True, blank=True)
-    amenities = models.ManyToManyField(HotelAmenity, blank=True)
+    hotel_amenities = models.TextField(null=True)
+    # amenities = models.ManyToManyField(HotelAmenity, blank=True)
     rating= models.FloatField(null=True)
+    room_available = models.IntegerField(null = True)
 
     def __str__(self):
         return f"Hotel {self.name}"
+    
+
+class HotelAmenity(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
         
 class RoomAmenity(models.Model):
     name = models.CharField(max_length=100)
