@@ -66,28 +66,16 @@ def logout_user(request):
 def getSearch(request):
     
     data = request.data
+    global location
     location = data['location']
+    global room
     room = data['rooms']
     traveler = data['travelers']
     check_in = data['checkDates']
 
-    print(location)
-    print(room)
-    print(traveler)
-    print(check_in)
-    
-    hotel = Hotel.objects.filter(city = location,room_available__gt=room)
-    serializer = searchSerializer(hotel,many = True)
-    print(hotel)
-    for i in hotel:
-        print(i.city)
-        print(i.hotel_amenities)
-        print(i.room_available)
     return Response({'success': True})
 
 def hotel_info(request):
-    hotel = Hotel.objects.all()
+    hotel = Hotel.objects.filter(city = location,room_available__gt=room)
     serializer = searchSerializer(hotel,many = True)
     return Response(serializer.data)
-
-
