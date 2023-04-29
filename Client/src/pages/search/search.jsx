@@ -93,7 +93,9 @@ const sortByOptions = ["Recommended", "Price: $ - $$$", "Price: $$$ - $"];
 function Search() {
   // Grabbing the data from the search component in the home page
   const { state } = useLocation();
+  const [data, setData] = useState([]);
   console.log(state);
+  
 
   const [sortBy, setSortBy] = useState("Recommended");
   const [minimum, setMinimum] = useState(null);
@@ -192,7 +194,7 @@ function Search() {
 
   // Returns a list of react HotelPreview components
   function hotelPreviews() {
-    var newHotels = filtersAndSortHotels(hotels); // Filter and sort hotels
+    var newHotels = filtersAndSortHotels(data); // Filter and sort hotels
     newHotels = newHotels.map((hotel, index) => {
       return (
         <div className="item">
@@ -214,10 +216,20 @@ function Search() {
 
 
   // Re-Render hotels if filters, sort, minimum/maximum price, or rating is changed
-  useEffect(() => {
-    setDisplayHotels(hotelPreviews());
-  }, [filtersState, sortBy, minimum, maximum, starsState]);
+ // useEffect(() => {
+  ////  setDisplayHotels(hotelPreviews());
+ // }, [filtersState, sortBy, minimum, maximum, starsState]);
+ useEffect(() => {
+  fetch('/catalog/hotelinfo/')
+      .then(response => response.json())
+      .then(data => setData(data))
+      .catch(error => console.error(error));
+},[]);
 
+// Re-Render hotels if filters, sort, minimum/maximum price, or rating is changed
+useEffect(() => {
+  setDisplayHotels(hotelPreviews());
+}, [filtersState, sortBy, minimum, maximum, starsState, data]);
   return (
     <section>
       <Navbar />
