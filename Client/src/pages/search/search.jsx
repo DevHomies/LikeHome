@@ -7,18 +7,6 @@ import { useState, useEffect } from "react";
 import { Footer } from '../../components';
 import { useLocation } from "react-router-dom";
 
-// TO-DO:
-// 1. Handle location
-// 2. Decide what amenities you want
-// 3. Handle hotel DB
-// For now (before everything is integrated), everything mentioned above is handled with the test input below
-
-// Functionality-wise
-// 4. Amenities component invalid input handling
-// 5. Import michael's check/in/out + travlers/rooms components at the top
-// 6. Route HotelPreview component to details page
-
-const location = "San Jose, CA";
 const amenitiesList = [
   {
     name: "Free Wi-Fi",
@@ -58,7 +46,6 @@ const sortByOptions = ["Recommended", "Price: $ - $$$", "Price: $$$ - $"];
 function Search() {
   // Grabbing the data from the search component in the home page
   const { state } = useLocation();
-
   const [data, setData] = useState([]);
   
   const [sortBy, setSortBy] = useState("Recommended");
@@ -165,7 +152,7 @@ function Search() {
           <HotelPreview
             title={hotel.name}
             address={hotel.address}
-            details={hotel.amenities}
+            details={hotel.hotel_amenities.split(",")}
             price={hotel.price}
             img={"https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI="}
             rating={hotel.rating}
@@ -180,25 +167,29 @@ function Search() {
     return newHotels;
   }
 
-  // Instantly runs on page load
-  useEffect(() => {
-    fetch('/catalog/hotelinfo/')
-        .then(response => response.json())
-        .then(data => setData(data))
-        .catch(error => console.error(error));
-  },[]);
 
   // Re-Render hotels if filters, sort, minimum/maximum price, or rating is changed
-  useEffect(() => {
-    setDisplayHotels(hotelPreviews());
-  }, [filtersState, sortBy, minimum, maximum, starsState, data]);
+ // useEffect(() => {
+  ////  setDisplayHotels(hotelPreviews());
+ // }, [filtersState, sortBy, minimum, maximum, starsState]);
+useEffect(() => {
+  fetch('/catalog/hotelinfo/')
+      .then(response => response.json())
+      .then(data => setData(data))
+      .catch(error => console.error(error));
+},[]);
+
+// Re-Render hotels if filters, sort, minimum/maximum price, or rating is changed
+useEffect(() => {
+  setDisplayHotels(hotelPreviews());
+}, [filtersState, sortBy, minimum, maximum, starsState, data]);
 
   return (
     <section>
       <Navbar />
       <div className="page">
         <div className="sort-section">
-          <h1>{hotelCount} results shown in {location}</h1>
+          <h1>{hotelCount} results shown in {state.location}</h1>
           <h2>
             <Sort
               sortBy={sortBy}
