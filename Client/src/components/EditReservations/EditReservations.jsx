@@ -10,7 +10,13 @@ function EditReservations ({setEditmodalOpen, upcomingReservations, setupcomingR
     const [editprice, seteditprice] = useState(upcomingReservations.price);
     const [edittravelers, setedittravelers] = useState(upcomingReservations.travelers);
 
+    const [showError, setShowError] = useState(false);
 
+    const handleSubmit = (e) => {
+        if (editcheckin === "" || editcheckout === "" || edittravelers === "") {
+            setShowError(true);
+        }
+    } 
 
     return upcomingReservations.map((upcReserves) => 
 
@@ -76,7 +82,6 @@ function EditReservations ({setEditmodalOpen, upcomingReservations, setupcomingR
                                 </h2>
                         </div>
                 </div>
-                </form>
 
                 <div className="BottomContainer">
                     <div className="ERCancelButton">
@@ -86,15 +91,16 @@ function EditReservations ({setEditmodalOpen, upcomingReservations, setupcomingR
                         </button>
                     </div>
                     <div className="ERSaveChangesButton">
-                        <button type="button" id="SaveChangesButton"
+                        <button type="button" 
+                        id="SaveChangesButton"
                         onClick={() => 
                         {updateReservations(upcReserves.id, editprice, editcheckin, editcheckout, edittravelers)}
                         }> 
                             Save Changes
                         </button>
                     </div>
-
                 </div>
+                </form>
             </div>
     )
 
