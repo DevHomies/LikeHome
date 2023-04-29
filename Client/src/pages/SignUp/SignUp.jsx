@@ -18,7 +18,7 @@ function Registerexample() {
   const [errPass, setErrPass] = useState(false);
   
   const navigate = useNavigate();
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
