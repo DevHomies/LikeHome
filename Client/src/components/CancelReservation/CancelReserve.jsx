@@ -6,13 +6,8 @@ import { BsArrowRight} from 'react-icons/bs';
 
 function CancelReserve({setCancelmodalOpen, upcomingReservations, handleCancel}) {
 
-  const handleCancelSubmit = () => {
-    alert("Your reservation has been cancelled!");
-    setCancelmodalOpen(false);
-  }
 
-
-  
+  //oh 
   return upcomingReservations.map((upcReserves) => 
         <div className="cancel-box" id='cancelbox'>
           <h1 id='CRtitle'>You are canceling a reservation for..</h1>
@@ -34,8 +29,8 @@ function CancelReserve({setCancelmodalOpen, upcomingReservations, handleCancel})
             <BsArrowRight size={82} color="lightgrey" className="arrow" />
 
             <div className='container2'>
-              <h3 className="label5">Original Sale: {upcReserves.price}</h3>
-              <h3 className="label6">Cancellation Fee: {upcReserves.price * 0.2} (20%)</h3>
+              <h3 className="label5">Original Sale: ${upcReserves.price}</h3>
+              <h3 className="label6">Cancellation Fee: ${upcReserves.price * 0.2} (20%)</h3>
               <hr />
               <h2 className="label7"><strong>Refund Amount: ${upcReserves.price - (upcReserves.price * 0.2)}</strong></h2>
             </div>

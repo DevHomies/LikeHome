@@ -1,24 +1,25 @@
 .EditReservationsPopupContainer {
     width: 1250px;
     height: 450px;
-    background-color: white;
     border-radius: 10px;
     box-shadow: 0px 0px 5px #1e1239;
+    background-color: white;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
     margin: auto;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    position: absolute;
 }
 
 #ERtitle {
-    color: #484848;
-    font-size: 34px;
+    font-size: 2rem;
+    margin-bottom: 2rem;
     text-align: left;
-    padding-left: 5rem;
-    padding-top: 4rem;
-    padding-bottom: 1rem;
 }
 
 #SaveChangesButton {
@@ -63,14 +64,51 @@
     cursor: pointer;
 }
 
-.TravelersContainer {
+#newtrav {
+    font-size: 1.125rem;
+    font-weight: normal;
+    text-align: left;
+    display: block;
+}
+
+#ERtravelers {
     background-color: white;
-    width: 160px;
-    height: 88px;
-    border-radius: 15px;
+    color: black;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
     border:1.5px solid #C2C6CC;
     text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 10px;
 }
+
+#ERtravelers::placeholder {
+    text-align: center;
+}
+
+.TravelersContainer {
+    text-align: left;
+    font-size: 19px;
+    font-weight:600;
+    display: flex;
+    align-items: center;
+}
+
+#ERstaydates {
+    background-color: white;
+    width: 140px;
+    height: 50px;
+    border-radius: 5px;
+    border:1.5px solid #C2C6CC;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 0.5rem;
+    margin-left: 10px;
+}
+
 
 .BottomContainer {
     width: 100%;
@@ -82,34 +120,49 @@
 }
 
 .EditRoomContainer {
-    padding-left: 7%;
-    padding-top: 10px;
     display: flex;
-    height: 50%;
+    align-items: center;
+    gap: 2rem;
 }
 
 .RoomInfo {
-    position: relative;
-    padding-left: 30px;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-#RoomName {
-    font-size: 24px;
-    font-weight: 700;
-    padding-top: 20px;
+#RoomName,
+.ERnewprice h2 {
+    font-size: 1.4rem;
     text-align: left;
+    display: block;
 }
 
 #StayDates {
-    font-size: 19px;
-    font-weight: 600;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    display: inline-flex;
+    font-size: 1.125rem;
+    font-weight: normal;
+    text-align: left;
+    display: block;
+
 }
 
+.arrow {
+    margin: 0 1rem; 
+  }
 
 #ERimg {
-    display: inline;
     border-radius: 8px;
   }
+
+.ERnewprice {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.ERnewprice h3 {
+    font-size: 1.125rem;
+    font-weight: normal;
+}

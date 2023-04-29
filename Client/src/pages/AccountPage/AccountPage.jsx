@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { Navbar, Footer } from '../../components'; 
 import './AccountPage.css';
 
-function AccountPage({onLogin}) { 
+function AccountPage({parentCallback}) { 
+    // const { state } = useLocation();
+    // const navigate = useNavigate();
     const [Fname, setFname] = React.useState('');
     const [Lname, setLname] = React.useState('');
     const [Email, setEmail] = React.useState('');
@@ -28,11 +30,12 @@ function AccountPage({onLogin}) {
         event.preventDefault();
         alert("Name: " + Fname + " " + Lname + " " +
               " Email: " + Email + " Phone number: " + Phone);
-        
-        //onLogin(form);
+        //parentCallback(true);
+
     };
 
     
+
 
 
     return (

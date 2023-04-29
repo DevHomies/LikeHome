@@ -27,7 +27,7 @@ function UpcomingReservations() {
             price: 200,
             checkIn:  "02/01/2100",
             checkOut:  "02/04/2100",  
-            travelers: 5,
+            travelers: 2,
             img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
         },        {
             id: 3,
@@ -35,7 +35,7 @@ function UpcomingReservations() {
             price: 300,
             checkIn:  "03/01/2100",
             checkOut:  "03/04/2100",  
-            travelers: 5,
+            travelers: 4,
             img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
         },   
         {
@@ -44,25 +44,29 @@ function UpcomingReservations() {
             price: 400,
             checkIn:  "04/01/2100",
             checkOut:  "04/04/2100",  
-            travelers: 5,
+            travelers: 3,
             img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
         },
     ]);
 
-    //for editing reservations?
+    //for editing reservations? 
     function updateReservations(id, newprice, newcheckIn, newcheckOut, newtravelers) {
         const updatedReservations = upcomingReservations.map((upcomingReserves) => {
-            if (id == upcomingReserves.id) {
-                return { ...upcomingReserves, price: newprice, checkIn: newcheckIn, 
-                        checkOut:newcheckOut, travelers:newtravelers}
+            if (id === upcomingReserves.id) {
+                return { ...upcomingReserves, checkIn: newcheckIn, 
+                        checkOut:newcheckOut, travelers:newtravelers, price: newprice}
             }
 
             return upcomingReserves;
         });
         setupcomingReservations(updatedReservations);
+        alert("Your new reservation changes have been implemented!");
+        alert("New check in date: " + newcheckIn + " New check out date: " + newcheckOut +
+            " New number of travelers: " + newtravelers );
+        setEditmodalOpen(false);
     }
 
-    //don't know if it will work with others' implementations
+    //don't know if it will work with others' implementations??
     function addNewReservations(id, title, price, checkIn, checkOut, travelers, img) {
         const newReservations = {
             id: id,
@@ -85,6 +89,9 @@ function UpcomingReservations() {
         alert("Your reservation has been cancelled!");
         setCancelmodalOpen(false);
     }
+
+    //validate reservation date dupes here
+
 
     return (
         
@@ -120,7 +127,8 @@ function UpcomingReservations() {
                             {EditmodalOpen && 
                                 <EditReservations 
                                 setEditmodalOpen={setEditmodalOpen} 
-                                upcomingReservations={upcomingReservations}/>}
+                                upcomingReservations={upcomingReservations}
+                                updateReservations={updateReservations}/>}
                         </div>
 
                         <div className="URCancelButton">
