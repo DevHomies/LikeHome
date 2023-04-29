@@ -47,19 +47,22 @@ class Payment(models.Model):
         return f"{self.user.username} - {self.amount}"
 class Room(models.Model):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE,null=True)
+    name = models.CharField(max_length=50,blank=True)
     # room_number = models.CharField(max_length=10,null=True)
     # room_type = models.CharField(max_length=50)
     # price_per_night = models.DecimalField(max_digits=8, decimal_places=2,null=True)
     #photo = models.ImageField(upload_to='room_photos/', null=True, blank=True)
-    start_date = models.DateField(null=True,blank=True)
-    end_date = models.DateField(null=True,blank=True)
     room_amenities = models.TextField(null=True)
     # amenities = models.ManyToManyField(RoomAmenity)
     
     def __str__(self):
         return f"{self.hotel.name}"
         # return f"{self.hotel.name} - Room number {self.room_number} at {self.price_per_night}"
-    
+class Booking(models.Model):
+    room = models.ForeignKey(Room, on_delete=models.CASCADE)
+    start_date = models.DateField(null=True,blank=True)
+    end_date = models.DateField(null=True,blank=True)
+
 class Reward(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     # reward_name = models.CharField(max_length=100)
