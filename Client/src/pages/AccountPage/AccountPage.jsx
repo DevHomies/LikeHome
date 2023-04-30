@@ -34,10 +34,6 @@ function AccountPage({parentCallback}) {
 
     };
 
-    
-
-
-
     return (
         <>
         <Navbar />
@@ -46,7 +42,7 @@ function AccountPage({parentCallback}) {
 
             <div className="RewardStripContainer">
                 <div className="RewardBox">
-                    <p>YOU HAVE 3,000,000,000,000 REWARD POINTS AVAILABLE</p>
+                    <p>YOU HAVE 300 REWARD POINTS AVAILABLE</p>
                 </div>
             </div>
 
@@ -67,38 +63,46 @@ function AccountPage({parentCallback}) {
 
                             <div className="UserName">
                                 <div className="First">
-                                    <p>First Name : </p>
+                                    <label htmlFor="first-name">First Name : </label>
                                     <input type='text' 
-                                    placeholder='First Name' 
-                                    value={Fname}
-                                    onChange={handleFname}/>
+                                        placeholder='First Name' 
+                                        value={Fname}
+                                        onChange={handleFname}
+                                        id='first-name'
+                                    />
                                 </div>
 
                                 <div className="Last">
-                                    <p>Last Name  : </p>
+                                    <label htmlFor="last-name">Last Name  : </label>
                                     <input type='text' 
-                                    placeholder='Last Name' 
-                                    value={Lname}
-                                    onChange={handleLname}/>
+                                        placeholder='Last Name' 
+                                        value={Lname}
+                                        onChange={handleLname}
+                                        id='last-name'
+                                    />
                                 </div>
                             </div>
 
                             <div className="ContactInfo">
                                 <div className="Email">
-                                    <p>Email : </p>
+                                    <label htmlFor='account-page-email'>Email : </label>
                                     <input type='text' 
-                                    placeholder='Email' 
-                                    value={Email}
-                                    onChange={handleEmail}/>
+                                        placeholder='Email' 
+                                        value={Email}
+                                        onChange={handleEmail}
+                                        id="account-page-email"
+                                    />
                                 </div>
 
                                 <div className="Phone">
-                                    <p>Phone Number : </p>
+                                    <label htmlFor="account-phone-number">Phone Number : </label>
                                     <input type='number' 
-                                    maxLength={10}
-                                    placeholder='XXX-XXX-XXXX' 
-                                    value={Phone}
-                                    onChange={handlePhoneNum}/>
+                                        maxLength={10}
+                                        placeholder='XXX-XXX-XXXX' 
+                                        value={Phone}
+                                        onChange={handlePhoneNum}
+                                        id="account-phone-number"
+                                    />
                                 </div>
                             </div>
 

@@ -93,7 +93,7 @@
     border-radius: 0px 10px 0px 0px;
 }
 
-.InputFieldContainer p {
+.InputFieldContainer label {
     color: gray;
     font-size: 18px;
     font-weight: 650;
@@ -131,12 +131,13 @@
     border-radius: 10px;
     padding-left: 10px;
     border: none;
+    margin-top: 0.25rem;
 }
 
 .AccountPageContainer ::placeholder {
     font-size: 18px;
     color: gray;
-    text-align: center;
+    text-align: left;
     font: bolder;
   }
 

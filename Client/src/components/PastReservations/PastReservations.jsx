@@ -49,16 +49,20 @@ function PastReservations() {
             
                 <div className="PastReservationsContainer">
                     <div className="PastImg">
-                        <img style = {{ width: 120, height: 100 }} 
-                            src = {pastReserves.img}
-                            id="Past"/>
+                        <img 
+                          src = {pastReserves.img}
+                          id="Past"
+                          alt="past"
+                        />
                     </div>
 
                     <div className="PastRoomInfo">
-                        <p id="PRoomName">{pastReserves.title}</p>
-                        <p id="PRRoomPrice">${pastReserves.price}</p>
-                        <p id="PStayDates">Check In: {pastReserves.checkIn} | Check Out: {pastReserves.checkOut}</p>
-                        <p id="PTravelersNum">Travelers: {pastReserves.travelers}</p>
+                      <h1>{pastReserves.title} - ${pastReserves.price}</h1>
+                      <p className="past-address">123 Some Street, San Jose</p>
+                      <p>Check In: {pastReserves.checkIn}</p>
+                      <p className="past-checkout">Check Out: {pastReserves.checkOut}</p>
+                      <p>Travelers: {pastReserves.travelers}</p>
+                      <p>Rooms: 5</p>
                     </div>
                 </div>
 

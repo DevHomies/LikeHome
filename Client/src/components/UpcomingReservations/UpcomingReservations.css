@@ -1,58 +1,35 @@
 .UpcomingRoomsContainer {
-    margin-top: 5%;
     display: flex;
-    width: 100%;
-    background-color: #edeaf4;
-    padding-left: 2.5%;
-    padding-right: 2.5%;
 }
 
 .UpcomingRoomsContainer img#Upcoming {
-    border-radius: 8px;
+    border-radius: 9px;
     vertical-align: middle;
-    margin-right: 5px;
+    width: 100%;
 }
 
 .UpcomingRoomInfo {
-    padding-left: 5px;
+    padding-left: 1rem;
     position: relative;
-    width: 50%;
     text-align: left;
-    background-color: #edeaf4;
+    width: 100%;
 }
 
-
-#URRoomName {
-    font-size: 14px;
-    font-weight: 700;
-    padding-top: 15px;
-    padding-left: 5px;
+.UpcomingRoomInfo h1 {
+    font-size: 1.35rem;
 }
 
-#URRoomPrice {
-    font-size: 14px;
-    font-weight: 700;
-    padding-top: 5px;
-    padding-left: 5px;
+.upc-address {
+    margin-bottom: 1rem;
+    color: grey;
 }
 
-#URStayDates {
-    font-size: 12px;
-    padding: 5px;
-    font-weight: 600;
+.UpcomingRoomInfo p {
+    font-size: 1rem;
 }
 
-#URTravelersNum {
-    font-size: 12px;
-    font-weight: 600;
-    padding: 5px;
-}
-
-.UREditContainer {
-    display: flex;
-    width: 50%;
-    background-color: #edeaf4;
-    padding-right: 15px;
+.upc-checkout {
+    margin-bottom: 1rem;
 }
 
 .UREditButton,
@@ -62,22 +39,33 @@
 
 .UREditButton button,
 .URCancelButton button {
-    width: 140px;
-    height: 34px;
+    width: 150px;
+    padding: 0.5rem 0;
     border-radius: 15px;
     background-color: #4C2C8E;
     color: white;
+    border: none;
 }
 
 .UREditButton button:hover,
 .URCancelButton button:hover {
-    background-color: #351f63;
+    background-color: #8651f7;
     cursor: pointer;
     color: white;
 }
 
 .URlist {
     list-style-type: none;
+    margin-top: 5%;
+    width: 100%;
+    border-top: 1px solid var(--purple-2);
+    border-bottom: 1px solid var(--purple-2);
+    box-shadow: 0px 0px 5px black;
+    padding: 1rem;
+}
+
+.URlist:last-of-type {
+    margin-bottom: 5%;
 }
 
 

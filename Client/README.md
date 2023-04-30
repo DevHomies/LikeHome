@@ -4,3 +4,4 @@
 - react-icons
 - react-date-range
 - date-fns
+- react-tabs
