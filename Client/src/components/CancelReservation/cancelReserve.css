@@ -1,0 +1,107 @@
+#cancelbox {
+  width: 1250px;
+  height: 450px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px #1e1239;
+  background-color: white;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 10%;
+  z-index: 100;
+}
+
+#CRtitle {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.cancel-inner-box {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* This is a placeholder for an image */
+#CancelImage {
+  width: 200px;
+  height: 180px;
+  background-color: grey;
+  border-radius: 8px;
+}
+
+.container1 {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.container1 h2,
+.container2 h2 {
+  font-size: 1.4rem;
+  text-align: left;
+}
+
+.container1 h3,
+.container2 h3 {
+  font-size: 1.125rem;
+  font-weight: normal;
+}
+
+.container1 span {
+  color: #9A9A9A;
+}
+
+.arrow {
+  margin: 0 1rem; 
+}
+
+.container2 {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.container3 {
+  margin-top: 2rem;
+  margin-left: auto;
+}
+
+#CRback,
+#CRcancel {
+  border-radius: 15px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+  font-size: 1.125rem;
+  font-weight: normal;
+  width: 215px;
+  height: 50px;
+}
+
+#CRback {
+  background-color: var(--grey);
+}
+
+#CRcancel {
+  background-color: var(--purple);
+  margin-left: 2rem;
+}
+
+#CRback:hover {
+  background-color: #989ba0;
+}
+
+#CRcancel:hover {
+  background-color: var(--purple-2);
+}

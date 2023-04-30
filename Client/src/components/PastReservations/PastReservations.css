@@ -1,38 +1,41 @@
-.PastRoomsContainer {
-    padding-left: 5%;
-    padding-top: 10px;
+.PastReservationsContainer {
+    margin-top: 5%;
     display: flex;
     width: 100%;
+    border-top: 1px solid var(--purple-2);
+    border-bottom: 1px solid var(--purple-2);
+    box-shadow: 0px 0px 5px black;
+    padding: 1rem;
+    position: relative;
 }
 
-.PastRoomsContainer img#Past {
+.PastImg img#Past {
     border-radius: 9px;
+    vertical-align: middle;
+    width: 100%;
+    max-width: 430px;
 }
 
 .PastRoomInfo {
-    padding-left: 5px;
+    padding-left: 1rem;
     position: relative;
-    background-color: yellow;
-    width: 50%;
+    text-align: left;
+    width: 100%;
 }
 
-
-.PastRoomInfo p#PRoomName {
-    font-size: 14px;
-    font-weight: 700;
-    padding-top: 15px;
-    padding-left: 5px;
+.PastRoomInfo h1 {
+    font-size: 1.35rem;
 }
 
-.PastRoomInfo p#PStayDates {
-    font-size: 12px;
-    font-weight: 600;
-    padding: 5px;
-    display: inline;
+.past-address {
+    margin-bottom: 1rem;
+    color: grey;
 }
 
-.PastRoomInfo p#PTravelersNum {
-    font-size: 12px;
-    font-weight: 600;
-    padding: 5px;
+.PastRoomInfo p {
+    font-size: 1rem;
+}
+
+.past-checkout {
+    margin-bottom: 1rem;
 }

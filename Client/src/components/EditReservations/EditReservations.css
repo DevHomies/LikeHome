@@ -1,0 +1,169 @@
+.EditReservationsPopupContainer {
+    width: 1250px;
+    height: 450px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #1e1239;
+    background-color: white;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 10%;
+    z-index: 100;
+}
+
+#ERtitle {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+#SaveChangesButton {
+    background-color: #F6C851;
+    color: black;
+    width: 215px;
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.ERSaveChangesButton {
+    padding-right: 2rem;
+    width: fit-content;
+    float: right;
+}
+
+.ERCancelButton {
+    padding-right: 2rem;
+    width:fit-content;
+    display: inline-block;
+    position: relative;
+}
+
+#CancelButton {
+    background-color: #B4B4B4;
+    color: black;
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    font-size: 22px;
+    font-weight: 600;
+    border: #1e1239;
+}
+
+#SaveChangesButton:hover,
+#CancelButton:hover {
+    border: 2px solid var(--purple-2);
+    cursor: pointer;
+}
+
+#newtrav {
+    font-size: 1.125rem;
+    font-weight: normal;
+    text-align: left;
+    display: block;
+}
+
+#ERtravelers {
+    background-color: white;
+    color: black;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    border:1.5px solid #C2C6CC;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+#ERtravelers::placeholder {
+    text-align: center;
+}
+
+.TravelersContainer {
+    text-align: left;
+    font-size: 19px;
+    font-weight:600;
+    display: flex;
+    align-items: center;
+}
+
+#ERstaydates {
+    background-color: white;
+    width: 140px;
+    height: 50px;
+    border-radius: 5px;
+    border:1.5px solid #C2C6CC;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 0.5rem;
+    margin-left: 10px;
+}
+
+
+.BottomContainer {
+    width: 100%;
+    border-radius: 0px 0px 10px 10px;
+    float: right;
+    text-align: right;
+    height: 20%;
+    padding-bottom: 20px;
+}
+
+.EditRoomContainer {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.RoomInfo {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#RoomName,
+.ERnewprice h2 {
+    font-size: 1.4rem;
+    text-align: left;
+    display: block;
+}
+
+#StayDates {
+    font-size: 1.125rem;
+    font-weight: normal;
+    text-align: left;
+    display: block;
+
+}
+
+.arrow {
+    margin: 0 1rem; 
+  }
+
+#ERimg {
+    border-radius: 8px;
+  }
+
+.ERnewprice {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.ERnewprice h3 {
+    font-size: 1.125rem;
+    font-weight: normal;
+}

@@ -5,7 +5,6 @@ export { default as Login } from './Login/Login';
 export { default as Registerexample } from './SignUp/SignUp';
 export { default as AccountPage } from './AccountPage/AccountPage';
 export { default as CurrentReservations } from './CurrentReservations/CurrentReservations';
-export { default as EditReservations } from './EditReservations/EditReservations';
 export { default as SearchPage } from './search/search'
 export { default as DetailsPage } from './DetailsPage/DetailsPage';
 export { default as PaymentPage } from './PaymentPage/PaymentPage';
