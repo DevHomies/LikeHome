@@ -7,18 +7,6 @@ import { useState, useEffect } from "react";
 import { Footer } from '../../components';
 import { useLocation } from "react-router-dom";
 
-// TO-DO:
-// 1. Handle location
-// 2. Decide what amenities you want
-// 3. Handle hotel DB
-// For now (before everything is integrated), everything mentioned above is handled with the test input below
-
-// Functionality-wise
-// 4. Amenities component invalid input handling
-// 5. Import michael's check/in/out + travlers/rooms components at the top
-// 6. Route HotelPreview component to details page
-
-const location = "San Jose, CA";
 const amenitiesList = [
   {
     name: "Free Wi-Fi",
@@ -52,48 +40,14 @@ const amenitiesList = [
   },
 ];
 
-const hotels = [
-  {
-    title: "Marriot Hotel",
-    address: "123 Marriot St.",
-    details: ["Free Wi-Fi", "Pool", "Kitchen", "Spa", "Restaurants"],
-    price: 100,
-    img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
-    rating: 1,
-  },
-  {
-    title: "Another Hotel",
-    address: "123 Another St.",
-    details: ["Free Wi-Fi", "Pool"],
-    price: 230,
-    img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
-    rating: 4,
-  },
-  {
-    title: "Pee Hotel",
-    address: "123 Peep St.",
-    details: ["Free Wi-Fi", "Kitchen"],
-    price: 100,
-    img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
-    rating: 4,
-  },
-  {
-    title: "Poop Hotel",
-    address: "123 Poop St.",
-    details: ["Free Wi-Fi", "Pool", "Kitchen"],
-    price: 123,
-    img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
-    rating: 5,
-  },
-];
-
 // ---------------------------------------------------
 const sortByOptions = ["Recommended", "Price: $ - $$$", "Price: $$$ - $"];
 
 function Search() {
   // Grabbing the data from the search component in the home page
   const { state } = useLocation();
-
+  const [data, setData] = useState([]);
+  
   const [sortBy, setSortBy] = useState("Recommended");
   const [minimum, setMinimum] = useState(null);
   const [maximum, setMaximum] = useState(null);
@@ -191,18 +145,18 @@ function Search() {
 
   // Returns a list of react HotelPreview components
   function hotelPreviews() {
-    var newHotels = filtersAndSortHotels(hotels); // Filter and sort hotels
+    var newHotels = filtersAndSortHotels(data); // Filter and sort hotels
     newHotels = newHotels.map((hotel, index) => {
       return (
         <div className="item" key={index}>
           <HotelPreview
-            title={hotel.title}
+            title={hotel.name}
             address={hotel.address}
-            details={hotel.details}
+            details={hotel.hotel_amenities.split(",")}
             price={hotel.price}
-            img={hotel.img}
+            img={"https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI="}
             rating={hotel.rating}
-            id={hotel.title.replace(/\s/g, "")}
+            id={hotel.name.replace(/\s/g, "")}
             search={state}
           />
         </div>
@@ -215,16 +169,27 @@ function Search() {
 
 
   // Re-Render hotels if filters, sort, minimum/maximum price, or rating is changed
-  useEffect(() => {
-    setDisplayHotels(hotelPreviews());
-  }, [filtersState, sortBy, minimum, maximum, starsState]);
+ // useEffect(() => {
+  ////  setDisplayHotels(hotelPreviews());
+ // }, [filtersState, sortBy, minimum, maximum, starsState]);
+useEffect(() => {
+  fetch('/catalog/hotelinfo/')
+      .then(response => response.json())
+      .then(data => setData(data))
+      .catch(error => console.error(error));
+},[]);
+
+// Re-Render hotels if filters, sort, minimum/maximum price, or rating is changed
+useEffect(() => {
+  setDisplayHotels(hotelPreviews());
+}, [filtersState, sortBy, minimum, maximum, starsState, data]);
 
   return (
     <section>
       <Navbar />
       <div className="page">
         <div className="sort-section">
-          <h1>{hotelCount} results shown in {location}</h1>
+          <h1>{hotelCount} results shown in {state.location}</h1>
           <h2>
             <Sort
               sortBy={sortBy}
@@ -247,7 +212,9 @@ function Search() {
             <div className="showAnemities"> Edit Filters </div>
           </div>
 
-          <section className="hotel-grid">{displayHotels}</section>
+          <section className="hotel-grid">{
+              displayHotels
+          }</section>
         </section>
       </div>
       <Footer />

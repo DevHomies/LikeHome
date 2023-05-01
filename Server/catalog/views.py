@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout
 from catalog import models
-from catalog.utils import getInfolist, getLoginInfo,getRegister, logout_user
+from catalog.utils import getInfolist, getLoginInfo,getRegister, logout_user,getSearch,hotel_info
 
 from catalog.serializers import catalogSerializer
 from rest_framework.response import Response
@@ -36,7 +36,6 @@ def getRoutes(request):
             'body': {'body': ""},
             'description': 'log in user'
         },
-        
     ]
     return Response(routes)
 
@@ -59,6 +58,20 @@ def registerview(request):
 def logout_view(request):
     if request.method == 'GET':
         return logout_user(request)
+#12   
+@api_view(['GET', 'POST'])
+def searchview(request):
+    if request.method == 'POST':
+        return getSearch(request)
+    elif request.method == 'GET':
+        return hotel_info(request)
+    
+    
+@api_view(['GET', 'POST'])
+def hotel_view(request):
+    if request.method == 'GET':
+        return hotel_info(request)
+    
 # ------------------------------------------------------------------------HTML------------------------------------
 """
 # Create your views here.

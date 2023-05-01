@@ -2,8 +2,9 @@ import './SearchBar.css';
 import CheckInCheckOut from '../CheckInCheckOut/CheckInCheckOut';
 import Location from '../Location/Location';
 import TrRo from '../Travelers_Rooms/TrRo';
-import { Link, useNavigate } from 'react-router-dom';
-import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 function SearchBar() {
     const navigate = useNavigate();
@@ -15,14 +16,19 @@ function SearchBar() {
     }
     const [showError, setShowError] = useState(false);
 
-
-    const handleClick = () => {
-        if (searchState.location == "" || searchState.checkDates == null) 
-            setShowError(true);
-        else 
-            navigate('/Search', { state: searchState });
-
-    }
+    const handleClick = async (e) => {
+        
+        try {
+            const response = await axios.post('/catalog/search/', searchState);
+            if (searchState.location === "" || searchState.checkDates === null) {
+                setShowError(true);
+            } else if (response.data.success){
+                navigate('/search', { state: searchState });
+            } 
+          } catch (error) {
+            console.error(error);
+          }
+        };
 
     return (
         <div className="SBcontainer">

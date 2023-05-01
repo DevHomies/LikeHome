@@ -13,7 +13,13 @@ export { default as Rooms } from './Travelers_Rooms/Rooms/Rooms';
 export { default as Travelers } from './Travelers_Rooms/Travelers/Travelers';
 export { default as TrRo } from './Travelers_Rooms/TrRo';
 export { default as SearchBar } from './SearchBar/SearchBar';
+export { default as Sort } from './Sort/sort';
+
+//For reservations 
 export { default as UpcomingReservations } from './UpcomingReservations/UpcomingReservations';
 export { default as PastReservations } from './PastReservations/PastReservations';
+export { default as EditReservations } from './EditReservations/EditReservations';
+export { default as CancelReserve } from './CancelReservation/CancelReserve';
+
 export { default as BookNow } from './BookNow/BookNow';
 export { default as Payment } from './Payment/Payment';

@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
-import { Amenities } from './components';
-import './App.css';
 import { HomePage, Login, Registerexample, AccountPage, 
-        CurrentReservations, EditReservations, SearchPage, DetailsPage, PaymentPage} from './pages';
+        CurrentReservations, SearchPage, DetailsPage, PaymentPage} from './pages';
+import { EditReservations, CancelReserve, Amenities } from './components';
+import './App.css';
 
 const App = () => {
   
@@ -15,6 +15,7 @@ const App = () => {
         <Route path='/account' element={<AccountPage/>} />
         <Route path='/UserReservations' element={<CurrentReservations/>} />
         <Route path='/EditReservations' element={<EditReservations/>} />
+        <Route path='/CancelReservations' element={<CancelReserve/>}/>
         <Route path='/search' element={<SearchPage />} />
         <Route path='/details' element={<DetailsPage/>} /> 
         <Route path='/pay' element={<PaymentPage />} />

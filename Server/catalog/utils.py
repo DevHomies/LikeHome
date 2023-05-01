@@ -1,6 +1,6 @@
 from rest_framework.response import Response
-from .models import Reservation
-from .serializers import catalogSerializer
+from .models import Reservation,Hotel
+from .serializers import catalogSerializer, searchSerializer
 from django.contrib.auth import authenticate, login as auth_login, logout
 from django.contrib.auth.models import User
 
@@ -52,8 +52,30 @@ def getRegister(request):
         return JsonResponse({'success': True})
 
 
+def hotel_info(request):
+    test1 = Hotel.objects.all()
+    serializer = catalogSerializer(test1, many=True)
+    return Response(serializer.data)
+
 def logout_user(request):
     
     logout(request)
     
     return JsonResponse({'success': True})
+#12
+def getSearch(request):
+    
+    data = request.data
+    global location
+    location = data['location']
+    global room
+    room = data['rooms']
+    traveler = data['travelers']
+    check_in = data['checkDates']
+
+    return Response({'success': True})
+
+def hotel_info(request):
+    hotel = Hotel.objects.filter(city = location,room_available__gt=room)
+    serializer = searchSerializer(hotel,many = True)
+    return Response(serializer.data)

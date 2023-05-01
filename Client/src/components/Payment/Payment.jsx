@@ -7,7 +7,7 @@ const rewardPoints = 150; // user's reward points, btw $1 = 1 reward point
 
 // ----------------------------------
 
-function Payment() {
+function Payment({ parentCallback }) {
   const { state } = useLocation();
   const navigate = useNavigate();
   const nights = state.search.checkDates[1].getDay() - state.search.checkDates[0].getDay();
@@ -18,7 +18,7 @@ function Payment() {
   const [expirationDate, setExpirationDate] = useState("");
   const [cvc, setCvc] = useState("");
   const [rewardApplied, setRewardApplied] = useState(false);
-
+  const [submitted, setSubmitted] = useState(false);
 
   function hasEnoughRewardPoints() {
     if (rewardPoints >= state.price) return true;
@@ -27,7 +27,8 @@ function Payment() {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, email, cardNumber, expirationDate, cvc);
+    setSubmitted(true);
+    parentCallback(true);
   };
 
   const goBack = () => {
@@ -35,13 +36,13 @@ function Payment() {
   }
 
   return (
-    <div>
+    <div className={ submitted ? "payment-blur" : "" }>
       <div className="payment-layout">
         <div className="payment-left">
           <div className="pay-card">
             <h1 className="payment-title">1. Payment Details</h1>
             <hr />
-            <form classname="pay-form" onSubmit={handleSubmit}>
+            <form classname="pay-form" onSubmit={handleSubmit} id='payment-form'>
               <label htmlFor="name" className="pay-group">
                 Name
                 <input
@@ -50,6 +51,7 @@ function Payment() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="John Doe"
+                  required
                 />
               </label>
 
@@ -61,6 +63,7 @@ function Payment() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="example@gmail.com"
+                  required
                 />
               </label>
 
@@ -74,6 +77,7 @@ function Payment() {
                   autocomplete="cc-number" 
                   maxlength="16"
                   placeholder="1111 1111 1111 1111"
+                  required
                 />
               </label>
 
@@ -85,6 +89,7 @@ function Payment() {
                   value={expirationDate}
                   onChange={(e) => setExpirationDate(e.target.value)}
                   placeholder="02/45"
+                  required
                 />
               </label>
 
@@ -96,6 +101,7 @@ function Payment() {
                   value={cvc}
                   onChange={(e) => setCvc(e.target.value)}
                   placeholder="123"
+                  required
                 />
               </label>
             </form>
@@ -141,7 +147,7 @@ function Payment() {
                 Total: ${ rewardApplied ? state.price * nights - state.price: state.price * nights}
               </h3>
 
-              <button classname="button" type="submit">Pay Now</button>
+              <button classname="button" type="submit" form="payment-form">Pay Now</button>
               <button className="payment-cancel" onClick={goBack}>Cancel</button>
             </section>
           </div>

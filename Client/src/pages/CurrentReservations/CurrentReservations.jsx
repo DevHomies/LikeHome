@@ -1,52 +1,75 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-import { Navbar, Footer, UpcomingReservations, 
-    PastReservations, EditReservations } from '../../components'; 
+import { useState } from "react";
+import { Link, useNavigate } from 'react-router-dom';
+import { Navbar, Footer, UpcomingReservations, PastReservations } from '../../components'; 
 import './CurrentReservations.css';
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { authlogin } from "../../pages/Login/Login";
+import axios from 'axios';
 
-const CurrentReservations = () => { 
+function CurrentReservations() { 
+    const [open, setOpen] = useState(false);
+
+    const blurBg = (e) => {
+        setOpen(e);
+    }
+
+    const navigate = useNavigate();
+    const logout_handle = async () => {
+        const response = await axios.get('/catalog/logout/');
+        if (response.data.success){
+            authlogin = false
+            navigate('login/');
+        }
+    }
 
     return (
-        <>
-        <Navbar />
-        
-        <div className="ReservationsContainer">
-            <div className="RewardStripContainer">
-                <div className="RewardBox">
-                    <p>YOU HAVE 3,000,000,000,000 REWARD POINTS AVAILABLE</p>
-                </div>
-            </div>
-
-            <div className="BoxContainer">
-
-                <div className="TopContainer">
-
-                    <div className="AccountLinkPages">
-                        <p><Link to='/account' className='AccountLinks'>Account</Link></p>
-                        
-                        <p><Link to='/UserReservations' className='AccountLinks'>Reservations</Link></p>
-                    
-                        <p><Link to='' className='AccountLinks'>Transaction History</Link></p>
-
-                        <p><Link to='' className='AccountLinks'>Change Password</Link></p>
+        <div>
+            <Navbar />
+            <div className="ReservationsContainer">
+                <div className={ open? "payment-blur RewardStripContainer" : "RewardStripContainer"}>
+                    <div className="RewardBox">
+                        <p>YOU HAVE 300 REWARD POINTS AVAILABLE</p>
                     </div>
+                </div>
 
-                    <div className="ReservContainer">
-                        <div className="RLinks">
-                            <p><Link to='' className='ReservationLinks'>Upcoming</Link></p>
-                            <p><Link to='' className='ReservationLinks'>Past</Link></p>
+                <div className="BoxContainerCR">
+
+                    <div className="TopContainerCR">
+
+                        <div className={open ? "payment-blur AccountLinkPages" : "AccountLinkPages"}>
+                            <p><Link to='/account' className='AccountLinks'>Account</Link></p>
+                            
+                            <p><Link to='/UserReservations' className='AccountLinks'>Reservations</Link></p>
+                            
+                            <p onClick={logout_handle}>Log Out</p>
                         </div>
-                        <UpcomingReservations />
-                        <PastReservations />
+
+                        <div className="ReservationtabsContainer">
+                            <Tabs className="tabsContainer">
+                                
+                                <TabList>
+                                <Tab><p id="Rtabs">Upcoming</p></Tab>
+                                <Tab><p id="Rtabs">Past</p></Tab>
+                                </TabList>
+
+                                <TabPanel>  
+                                    <UpcomingReservations parentCallback={blurBg}/>
+                                </TabPanel>
+
+                                <TabPanel>
+                                    <PastReservations />
+                                </TabPanel>
+                            </Tabs>
+                        </div>
+                        
                     </div>
-                    
+
                 </div>
-
             </div>
-        </div>
 
-        <Footer />
-        </>
+            <Footer />
+        </div>
     )
 
 }

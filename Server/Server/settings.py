@@ -7,11 +7,11 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config("SECRET_KEY")
 
-DEBUG = config('DEBUG', cast=bool)
+DEBUG = config("DEBUG", cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["likehome.rentals"]
 
 
 # Application definition
@@ -24,10 +24,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    
     "rest_framework",
     "corsheaders",
-    
 ]
 
 MIDDLEWARE = [
@@ -38,9 +36,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    
     "corsheaders.middleware.CorsMiddleware",
-
 ]
 
 ROOT_URLCONF = "Server.urls"
@@ -48,7 +44,7 @@ ROOT_URLCONF = "Server.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, '../Client/build')],
+        "DIRS": [os.path.join(BASE_DIR, "../Client/build")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -115,12 +111,12 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-STATICFILES_DIRS = [os.path.join(BASE_DIR, '../Client/build/static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "../Client/build/static")]
 
 CORS_ALLOW_ALL_ORIGINS = True
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES':[
-        'rest_framework.permissions.AllowAny',
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.AllowAny",
     ]
 }

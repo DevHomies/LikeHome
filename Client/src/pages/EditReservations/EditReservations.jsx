@@ -43,5 +43,3 @@ const EditReservations = () => {
     )
 
 }
-
-export default EditReservations;
