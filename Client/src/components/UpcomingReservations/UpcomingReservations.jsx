@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import EditReservations from "../EditReservations/EditReservations";
 import CancelReserve from "../CancelReservation/CancelReserve";
 import './UpcomingReservations.css';
+import axios from 'axios';
 
 
 
-function UpcomingReservations({ parentCallback }) { 
+
+function UpcomingReservations({ data1,parentCallback }) { 
 
     //opening popup tops for editing reservations and cancelling reservations respectively
     const [EditmodalOpen, setEditmodalOpen] = useState(false);
@@ -66,6 +68,7 @@ function UpcomingReservations({ parentCallback }) {
         },
     ]);
 
+    console.log("i am here: ", data1);
     //for editing reservations? 
     function updateReservations(id, newprice, newcheckIn, newcheckOut, newtravelers) {
         const updatedReservations = upcomingReservations.map((upcomingReserves) => {
@@ -84,11 +87,21 @@ function UpcomingReservations({ parentCallback }) {
     }
 
     //for cancelling reservations (sort of works)
-    const handleCancel = (id) => {
-        console.log(id);
+    const handleCancel = async (id) => {
+        // console.log(id);
+        const current = data1.filter((upcReserves) => upcReserves.id === id);
 
-        const newList = upcomingReservations.filter((upcReserves) => upcReserves.id !== id);
-        setupcomingReservations(newList);
+        try {
+            const response = await axios.post('/catalog/currentreservation/', current);
+            console.log("i am here: ", response)
+            //may break 
+            // setupcomingReservations(response);
+
+          } catch (error) {
+            console.error(error);
+          }
+        // const newList = upcomingReservations.filter((upcReserves) => upcReserves.id !== id);
+        // setupcomingReservations(newList);
         alert("Your reservation has been cancelled!");
         setCancelmodalOpen(false);
     }
@@ -100,24 +113,24 @@ function UpcomingReservations({ parentCallback }) {
         
         <div className="URSpanContainer">
 
-            {upcomingReservations.map((upcReserves) => (
+            {data1.map((upcReserves) => (
                 <li className="URlist" key={upcReserves.id}>
                     <div className="UpcomingRoomsContainer">
                         <div className={ CancelmodalOpen || EditmodalOpen ? "payment-blur UpcomingImg" : "UpcomingImg"}>
                             <img 
-                                src = {upcReserves.img}
+                                src = {"https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI="}
                                 id="Upcoming"
                                 alt="upcoming"
                             />
                         </div>
 
                         <div className={ CancelmodalOpen || EditmodalOpen ? "payment-blur UpcomingRoomInfo" : "UpcomingRoomInfo"}>
-                            <h1>{upcReserves.title} - ${upcReserves.price}</h1>
-                            <p className="upc-address">{upcReserves.address}</p>
-                            <p>Check In: {upcReserves.checkIn}</p>
-                            <p className="upc-checkout">Check Out: {upcReserves.checkOut}</p>
+                            <h1>{upcReserves.name} - ${upcReserves.total}</h1>
+                            <p className="upc-address">{"upcReserves.address"}</p>
+                            <p>Check In: {upcReserves.check_in}</p>
+                            <p className="upc-checkout">Check Out: {upcReserves.check_out}</p>
                             <p>Travelers: {upcReserves.travelers}</p>
-                            <p>Rooms: {upcReserves.rooms}</p>
+                            <p>Rooms: {upcReserves.num_of_rooms}</p>
                         </div>
 
                         <div className="UREditContainer">

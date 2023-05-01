@@ -28,7 +28,7 @@ function Navbar() {
         const response = await axios.get('/catalog/logout/');
         if (response.data.success){
             authlogin = false
-            navigate('login/');
+            navigate('/login');
         }
     }
 

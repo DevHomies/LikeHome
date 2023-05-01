@@ -3,9 +3,10 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout
 from catalog import models
-from catalog.utils import getInfolist, getLoginInfo,getRegister, logout_user,getSearch,hotel_info
+from catalog.utils import getInfolist, getLoginInfo,getRegister, logout_user, getSearch, hotel_info, postReserve, post_current_reserve,post_reward_point, cancel_reserve, edit_reserve
 
 from catalog.serializers import catalogSerializer
+from rest_framework import permissions, status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework.serializers import Serializer
@@ -14,7 +15,7 @@ from django.http import HttpResponse, JsonResponse
 
 from catalog import serializers
 
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
 def getRoutes(request):
 
     routes = [
@@ -34,8 +35,15 @@ def getRoutes(request):
             'Endpoint': '/catalog/register/',
             'method': 'POST',
             'body': {'body': ""},
-            'description': 'log in user'
+            'description': 'signup in user'
         },
+        {
+            'Endpoint': '/catalog/search/',
+            'method': 'POST' and 'GET',
+            'body': {'body': ""},
+            'description': 'search page'
+        },
+        
     ]
     return Response(routes)
 
@@ -61,6 +69,7 @@ def logout_view(request):
 #12   
 @api_view(['GET', 'POST'])
 def searchview(request):
+    # permission_classes = (permissions.IsAuthenticated)
     if request.method == 'POST':
         return getSearch(request)
     elif request.method == 'GET':
@@ -69,9 +78,35 @@ def searchview(request):
     
 @api_view(['GET', 'POST'])
 def hotel_view(request):
+    # permission_classes = (permissions.IsAuthenticated)
+
     if request.method == 'GET':
         return hotel_info(request)
+
+#payment information and reservation action
+@api_view(['GET','POST'])
+def reservation_view(request):
+    if request.method == 'POST':
+        return postReserve(request)
+
+#view reservation history in the account proflie
+@api_view(['GET','POST','DELETE'])
+def current_reservation_view(request):
+    if request.method == 'GET':
+        return post_current_reserve(request)
+    elif request.method == 'POST':
+        return cancel_reserve(request)
     
+@api_view(['GET','POST'])
+def reward_view(request):
+    if request.method == 'GET':
+        return post_reward_point(request)
+    
+@api_view(['GET', 'POST'])
+def edit_view(request):
+    if request.method == 'POST':
+        return edit_reserve(request)
+
 # ------------------------------------------------------------------------HTML------------------------------------
 """
 # Create your views here.

@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import axios from 'axios';
 
+
 function SearchBar() {
     const navigate = useNavigate();
     const [searchState, setSearchState] = useState({
