@@ -35,7 +35,7 @@
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    padding: 4.7px;
+    padding: 1px 4.7px;
 
     border-radius: 23px;
     background-color: var(--white);

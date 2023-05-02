@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './EditReservations.css';
 import { BsArrowRight} from 'react-icons/bs';
 import axios from 'axios';
@@ -10,8 +10,9 @@ function EditReservations ({setEditmodalOpen, upcSelected, updateReservations}) 
     const [editcheckin, seteditcheckin] = useState(upcSelected.checkIn);
     const [editcheckout, seteditcheckout] = useState(upcSelected.checkOut);
     const [editprice, seteditprice] = useState(upcSelected.price);
+    const [newprice, setNewprice] = useState(0);
     const [edittravelers, setedittravelers] = useState(upcSelected.travelers);
-    const [editrooms, seteditrooms] = useState(upcSelected.rooms)
+    const [editrooms, seteditrooms] = useState(upcSelected.num_of_rooms)
 
     const [showError, setShowError] = useState(false);
 
@@ -27,16 +28,21 @@ function EditReservations ({setEditmodalOpen, upcSelected, updateReservations}) 
             try {
                 const response = await axios.post('/catalog/edit/', dataedit);
                 console.log("i am here: ", response)
-
-                //may break
-                // setupcomingReservations(response);
-    
+                updateReservations(response.data);
               } catch (error) {
                 console.error(error);
               }
         }
 
     }
+
+    useEffect(() => {
+        const firstDay = upcSelected.check_in.slice(-2);
+        const secondDay = upcSelected.check_out.slice(-2);
+        const nights = parseInt(secondDay) - parseInt(firstDay);
+        const o_price = upcSelected.total / nights / upcSelected.num_of_rooms;
+        setNewprice(nights * editrooms * o_price);
+    }, [editrooms])
 
     return (
             <div className="EditReservationsPopupContainer">
@@ -64,7 +70,8 @@ function EditReservations ({setEditmodalOpen, upcSelected, updateReservations}) 
                                 value={editrooms}
                                 placeholder={upcSelected.rooms}
                                 onChange={(e) => {
-                                    seteditrooms(e.target.value);}}/>
+                                    seteditrooms(e.target.value);
+                                }}/>
                                 </h3>
                             <h3 id="newtrav">
                                 New number of travelers? : 
@@ -76,8 +83,7 @@ function EditReservations ({setEditmodalOpen, upcSelected, updateReservations}) 
                                 placeholder={upcSelected.travelers}
                                 onChange={(e) => {
                                     setedittravelers(e.target.value);
-                                    seteditprice((upcSelected.total * 1.25))
-                                    }}/>
+                                }}/>
                             </h3>
                         </div>
                     
@@ -85,10 +91,9 @@ function EditReservations ({setEditmodalOpen, upcSelected, updateReservations}) 
                         <BsArrowRight size={82} color="lightgrey" className="arrow" />
 
                         <div className='ERnewprice' id="ER">
-                            <h3 >Original Sale: ${upcSelected.price}</h3>
-                            <h3 >Reservation Edit Fee: ${upcSelected.total * 0.25} (25%)</h3>
+                            <h3 >Original Sale: ${upcSelected.total}</h3>
                             <hr />
-                            <h2 >New Amount: ${(upcSelected.total * 1.25)}
+                            <h2 >New Amount: ${newprice}
                                 </h2>
                         </div>
                 </div>
@@ -104,7 +109,7 @@ function EditReservations ({setEditmodalOpen, upcSelected, updateReservations}) 
                         <button type="button" 
                         id="SaveChangesButton"
                         onClick={() => 
-                        {updateReservations(upcSelected.id, editprice, editcheckin, editcheckout, edittravelers);handleSubmit()}
+                        {handleSubmit()}
                         }> 
                             Save Changes
                         </button>

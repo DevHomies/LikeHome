@@ -13,12 +13,17 @@ const Location = ({parentCallback}) => {
     <div className="WholeLocationContainer">
       <div className='subContainer'>
         <p>Location</p>
-        <input
+        <select onChange={(e) => handleChange(e)}>
+          <option value=''>Santa Clara, San Francisco..</option>
+          <option value='San Jose'>San Jose</option>
+          <option value='Las Vegas'>Las Vegas</option>
+        </select>
+        {/* <input
           type="text"
           required
           value={location}
           onChange={(e) => handleChange(e)}
-          placeholder='Santa Clara, San Francisco..' />
+          placeholder='Santa Clara, San Francisco..' /> */}
       </div>
     </div>
   );

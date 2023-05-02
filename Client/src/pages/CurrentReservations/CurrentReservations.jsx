@@ -11,6 +11,7 @@ function CurrentReservations() {
     const [open, setOpen] = useState(false);
     const [data1, setData] = useState([]);
     const [reward, setReward] = useState([]);
+    const [rewardPoints, setRewardPoints] = useState();
 
     const blurBg = (e) => {
         setOpen(e);
@@ -31,9 +32,12 @@ function CurrentReservations() {
             .then(response => response.json())
             .then(reward => setReward(reward))
             .catch(error => console.error(error));
-      },[]);
+    },[]);
 
-    console.log("reward check: ", reward);
+      useEffect(() => {
+        if (reward[0] !== undefined)
+          setRewardPoints(reward[0].reward_points);
+      },[reward])
 
     const navigate = useNavigate();
     const logout_handle = async () => {
@@ -50,7 +54,7 @@ function CurrentReservations() {
             <div className="ReservationsContainer">
                 <div className={ open? "payment-blur RewardStripContainer" : "RewardStripContainer"}>
                     <div className="RewardBox">
-                        <p>YOU HAVE 300 REWARD POINTS AVAILABLE</p>
+                        <p>YOU HAVE {rewardPoints} REWARD POINTS AVAILABLE</p>
                     </div>
                 </div>
 

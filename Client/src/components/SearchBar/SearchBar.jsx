@@ -5,7 +5,7 @@ import TrRo from '../Travelers_Rooms/TrRo';
 import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import { authlogin } from "../../pages/Login/Login";
 
 function SearchBar() {
     const navigate = useNavigate();
@@ -23,7 +23,7 @@ function SearchBar() {
             const response = await axios.post('/catalog/search/', searchState);
             if (searchState.location === "" || searchState.checkDates === null) {
                 setShowError(true);
-            } else if (response.data.success){
+            } else if (response.data.success && authlogin){
                 navigate('/search', { state: searchState });
             } 
           } catch (error) {
@@ -38,7 +38,7 @@ function SearchBar() {
                 <CheckInCheckOut parentCallback={dataCallback}/>
                 <TrRo parentCallback={dataCallback}/>
 
-                <div className="home-error">{showError ? "Please fill out all fields" : ""}</div>
+                <div className="home-error">{showError ? "FILL ALL FIELDS & LOGIN" : ""}</div>
                 <div className='YellowSearchButton'>
                     <button className='SearchButton' onClick={handleClick}>
                     Search 
