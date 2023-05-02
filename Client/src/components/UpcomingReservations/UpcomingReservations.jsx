@@ -72,7 +72,7 @@ function UpcomingReservations({ data1, parentCallback }) {
 
                         <div className={ CancelmodalOpen || EditmodalOpen ? "payment-blur UpcomingRoomInfo" : "UpcomingRoomInfo"}>
                             <h1>{upcReserves.name} - ${upcReserves.total}</h1>
-                            <p className="upc-address">{"upcReserves.address"}</p>
+                            <p className="upc-address">{upcReserves.payment_date}</p>
                             <p>Check In: {upcReserves.check_in}</p>
                             <p className="upc-checkout">Check Out: {upcReserves.check_out}</p>
                             <p>Travelers: {upcReserves.travelers}</p>

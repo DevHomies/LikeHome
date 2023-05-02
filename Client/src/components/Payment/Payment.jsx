@@ -9,7 +9,7 @@ import "./Payment.css";
 function Payment({ parentCallback }) {
   const { state } = useLocation();
   const navigate = useNavigate();
-  const nights = state.search.checkDates[1].getDate() - state.search.checkDates[0].getDate();
+  const nights = (state.search.checkDates[1].getTime() - state.search.checkDates[0].getTime()) / (1000 * 3600 * 24);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
