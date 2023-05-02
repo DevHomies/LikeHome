@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout
 from catalog import models
-from catalog.utils import getInfolist, getLoginInfo,getRegister, logout_user, getSearch, hotel_info, postReserve, post_current_reserve,post_reward_point, cancel_reserve, edit_reserve
+from catalog.utils import getInfolist, getLoginInfo,getRegister, logout_user, getSearch, hotel_info, postReserve, post_current_reserve,post_reward_point, cancel_reserve, edit_reserve,display_acc
 
 from catalog.serializers import catalogSerializer
 from rest_framework import permissions, status
@@ -106,6 +106,11 @@ def reward_view(request):
 def edit_view(request):
     if request.method == 'POST':
         return edit_reserve(request)
+    
+@api_view(['GET','POST'])
+def account_view(request):
+    if request.method == 'GET':
+        return display_acc(request)
 
 # ------------------------------------------------------------------------HTML------------------------------------
 """

@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from catalog.models import Reservation,Hotel, Reward
+from catalog.models import Reservation,Hotel, Reward, User
 
 
 class catalogSerializer(ModelSerializer):
@@ -20,4 +20,9 @@ class reserveSerializer(ModelSerializer):
 class rewardSerializer(ModelSerializer):
     class Meta:
         model = Reward 
+        fields = '__all__'
+
+class userSerializer(ModelSerializer):
+    class Meta:
+        model = User
         fields = '__all__'

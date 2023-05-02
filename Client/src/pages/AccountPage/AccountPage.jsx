@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { Navbar, Footer } from '../../components'; 
 import './AccountPage.css';
+import { useState,useEffect } from "react";
+
 
 function AccountPage({parentCallback}) { 
     // const { state } = useLocation();
@@ -10,6 +12,17 @@ function AccountPage({parentCallback}) {
     const [Lname, setLname] = React.useState('');
     const [Email, setEmail] = React.useState('');
     const [Phone, setPhone] = React.useState('');
+
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch('/catalog/account/')
+            .then(response => response.json())
+            .then(data => setData(data))
+            .catch(error => console.error(error));
+      },[]);
+
+    console.log("Yo NEW Message: ", data)
 
     const handleFname = (event) => {
         setFname(event.target.value);
