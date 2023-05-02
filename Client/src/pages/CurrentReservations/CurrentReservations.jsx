@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { Navbar, Footer, UpcomingReservations, PastReservations } from '../../components'; 
 import './CurrentReservations.css';
@@ -9,17 +9,42 @@ import axios from 'axios';
 
 function CurrentReservations() { 
     const [open, setOpen] = useState(false);
+    const [data1, setData] = useState([]);
+    const [reward, setReward] = useState([]);
+    const [rewardPoints, setRewardPoints] = useState();
 
     const blurBg = (e) => {
         setOpen(e);
     }
+
+    useEffect(() => {
+        fetch('/catalog/currentreservation/')
+            .then(response => response.json())
+            .then(data1 => setData(data1))
+            .catch(error => console.error(error));
+      },[]);
+
+    // console.log("temp data:",data1)
+
+
+    useEffect(() => {
+        fetch('/catalog/reward/')
+            .then(response => response.json())
+            .then(reward => setReward(reward))
+            .catch(error => console.error(error));
+    },[]);
+
+      useEffect(() => {
+        if (reward[0] !== undefined)
+          setRewardPoints(reward[0].reward_points);
+      },[reward])
 
     const navigate = useNavigate();
     const logout_handle = async () => {
         const response = await axios.get('/catalog/logout/');
         if (response.data.success){
             authlogin = false
-            navigate('login/');
+            navigate('/login');
         }
     }
 
@@ -29,7 +54,7 @@ function CurrentReservations() {
             <div className="ReservationsContainer">
                 <div className={ open? "payment-blur RewardStripContainer" : "RewardStripContainer"}>
                     <div className="RewardBox">
-                        <p>YOU HAVE 300 REWARD POINTS AVAILABLE</p>
+                        <p>YOU HAVE {rewardPoints} REWARD POINTS AVAILABLE</p>
                     </div>
                 </div>
 
@@ -54,12 +79,12 @@ function CurrentReservations() {
                                 </TabList>
 
                                 <TabPanel>  
-                                    <UpcomingReservations parentCallback={blurBg}/>
+                                    <UpcomingReservations data1={data1} parentCallback={blurBg}/>
                                 </TabPanel>
 
-                                <TabPanel>
+                                {/* <TabPanel>
                                     <PastReservations />
-                                </TabPanel>
+                                </TabPanel> */}
                             </Tabs>
                         </div>
                         

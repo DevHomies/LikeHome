@@ -11,7 +11,7 @@ SECRET_KEY = config("SECRET_KEY")
 
 DEBUG = config("DEBUG", cast=bool)
 
-ALLOWED_HOSTS = ["likehome.rentals"]
+# ALLOWED_HOSTS = ["likehome.rentals"]
 
 
 # Application definition

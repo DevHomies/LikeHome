@@ -26,14 +26,16 @@
   font: bolder;
 }
 
-.WholeLocationContainer input {
-  font-size: 21px;
+.WholeLocationContainer select {
+  font-size: 18px;
   border-radius: 3px;
   border: transparent;
-  color: black;
+  color: #C2C6CC;
   text-align: left;
   font: bolder;
   padding: 0.5rem;
   width: 90%;
+  background-color: transparent;
+  text-align: center;
 }
 

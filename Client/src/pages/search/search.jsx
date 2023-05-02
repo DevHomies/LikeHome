@@ -119,7 +119,7 @@ function Search() {
 
       // Do not include hotels that do not have selected filters
       for (const filter of filtersState) {
-        if (filter[1] === true && !hotel.details.includes(filter[0])) {
+        if (filter[1] === true && !hotel.hotel_amenities.includes(filter[0])) {
           return result;
         }
       }
@@ -158,6 +158,7 @@ function Search() {
             rating={hotel.rating}
             id={hotel.name.replace(/\s/g, "")}
             search={state}
+            rooms={hotel.room_available}
           />
         </div>
       );

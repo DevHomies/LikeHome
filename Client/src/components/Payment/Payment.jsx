@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 import "./Payment.css";
-
-const rewardPoints = 150; // user's reward points, btw $1 = 1 reward point
 
 // ----------------------------------
 
 function Payment({ parentCallback }) {
   const { state } = useLocation();
   const navigate = useNavigate();
-  const nights = state.search.checkDates[1].getDay() - state.search.checkDates[0].getDay();
+  const nights = (state.search.checkDates[1].getTime() - state.search.checkDates[0].getTime()) / (1000 * 3600 * 24);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -20,13 +19,40 @@ function Payment({ parentCallback }) {
   const [rewardApplied, setRewardApplied] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  const [reward, setReward] = useState([]); 
+  const [rewardPoints, setRewardPoints] = useState(0);
+
   function hasEnoughRewardPoints() {
-    if (rewardPoints >= state.price) return true;
+    if (rewardPoints >= 150) return true;
     return false;
   }
-  
-  const handleSubmit = (e) => {
+
+  useEffect(() => {
+    fetch('/catalog/reward/')
+        .then(response => response.json())
+        .then(reward => setReward(reward))
+        .catch(error => console.error(error));
+  },[]);
+
+  useEffect(() => {
+    if (reward[0] !== undefined)
+      setRewardPoints(reward[0].reward_points);
+  },[reward])
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const data = {
+      rewardApplied,
+      state,
+      nights,
+    };
+    try {
+      const response = await axios.post('/catalog/reservation/', data);
+
+    } catch (error) {
+      console.error(error);
+    }
     setSubmitted(true);
     parentCallback(true);
   };
@@ -140,11 +166,10 @@ function Payment({ parentCallback }) {
             </section>
             <hr />
             <section>
-              <p>Subtotal: ${state.price * nights}</p>
               {rewardApplied ? "" : <div></div>}
-              <div> {rewardApplied ? "Reward points: -$" + state.price : ""}</div>
+              <div> {rewardApplied ? "Reward Points Applied! FREE STAY " : ""}</div>
               <h3 className="payment-total">
-                Total: ${ rewardApplied ? state.price * nights - state.price: state.price * nights}
+                Total: ${ rewardApplied ? 0 : state.price * nights * state.search.rooms}
               </h3>
 
               <button classname="button" type="submit" form="payment-form">Pay Now</button>
@@ -172,7 +197,7 @@ function Payment({ parentCallback }) {
             </section>
             <hr />
             <section>
-              <i> Remaining reward points: {rewardApplied ? rewardPoints -  state.price: rewardPoints}</i>
+              <i> Remaining reward points: {rewardApplied ? rewardPoints -  150 : rewardPoints}</i>
               <br/>
               <br/>
               <div className="payment-apply">
@@ -187,12 +212,12 @@ function Payment({ parentCallback }) {
             </section>
             <hr />
             <section className="final-summary">
-              <div className="payment-subtotal">Subtotal: ${state.price * nights}</div>
-              <div className="payment-subtotal-info">{nights} nights x ${state.price}</div>
+              <div className="payment-subtotal">Subtotal: ${state.price * nights * state.search.rooms}</div>
+              <div className="payment-subtotal-info">{nights} nights x ${state.price} x {state.search.rooms} rooms</div>
               {rewardApplied ? "" : <div></div>}
-              <div> {rewardApplied ? "Reward points: -$" + state.price : ""}</div>
+              <div> {rewardApplied ? "Reward Points Applied! FREE STAY " : ""}</div>
               <h3 className="payment-total">
-                Total: ${ rewardApplied ? state.price * nights - state.price: state.price * nights}
+                Total: ${ rewardApplied ? 0: state.price * nights * state.search.rooms}
               </h3>
             </section>
           </div>

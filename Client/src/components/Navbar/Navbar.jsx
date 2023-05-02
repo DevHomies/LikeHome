@@ -6,7 +6,7 @@ import axios from 'axios';
 import { Link,useNavigate } from 'react-router-dom';
 
 // Import Icons
-import { IoMenuOutline, IoClose, IoPersonCircle, IoPawOutline } from "react-icons/io5";
+import { IoMenuOutline, IoClose, IoPersonCircle } from "react-icons/io5";
 
 import { authlogin } from "../../pages/Login/Login";
 
@@ -28,7 +28,7 @@ function Navbar() {
         const response = await axios.get('/catalog/logout/');
         if (response.data.success){
             authlogin = false
-            navigate('login/');
+            navigate('/login');
         }
     }
 
@@ -71,14 +71,6 @@ function Navbar() {
                 :
                 /* The signedOut section is only shown when user is signed out */
                 <nav className="signedOut">
-                    
-                    {/* temp add so that no need to constantly sign in */}
-
-                    <Link to='/account' className="signedOut-btn"><IoPawOutline /></Link>
-                    <h7>|</h7>
-
-                    {/* temp add so that no need to constantly sign in */}
-
                     <Link to='/register' className="signedOut-btn">Sign Up</Link>
                     <h7>|</h7>
                     <Link to='/login' className="signedOut-btn">Login</Link>

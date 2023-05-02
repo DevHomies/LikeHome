@@ -1,15 +1,26 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from datetime import datetime
+
 # Create your models here.
 class Reservation(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    room = models.CharField(max_length=50)
-    start_time = models.DateTimeField()
-    end_time = models.DateTimeField()
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # room = models.CharField(max_length=50)
+    # start_time = models.DateTimeField()
+    # end_time = models.DateTimeField()
+    
+    user = models.TextField(null=True)
+    name= models.CharField(max_length=100, null=True)
+    check_in = models.DateField(null=True)
+    check_out = models.DateField(null=True)
+    payment_date = models.DateTimeField(default=datetime.now())
+    total = models.DecimalField(max_digits=8, decimal_places=2, null=True)
+    travelers=models.IntegerField(null=True)
+    num_of_rooms=models.IntegerField(null=True)
 
     def __str__(self):
-        return f"Reservation for {self.room} from {self.start_time} to {self.end_time}"
+        return f"Reservation for {self.user} from {self.check_in} to {self.check_out}"
     
 class HotelAmenity(models.Model):
     name = models.CharField(max_length=100)
@@ -70,10 +81,10 @@ class Room(models.Model):
         # return f"{self.hotel.name} - Room number {self.room_number} at {self.price_per_night}"
     
 class Reward(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.TextField(null=True)
     # reward_name = models.CharField(max_length=100)
     # reward_description = models.TextField()
-    reward_points = models.IntegerField(null=True)
+    reward_points = models.IntegerField(default=150)
     
     def __str__(self):
-        return f"{self.user.username} - {self.reward_points}"
+        return f"{self.user} - {self.reward_points}"

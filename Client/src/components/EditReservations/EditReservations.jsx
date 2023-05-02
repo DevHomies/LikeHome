@@ -1,22 +1,48 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './EditReservations.css';
 import { BsArrowRight} from 'react-icons/bs';
+import axios from 'axios';
+
 
 function EditReservations ({setEditmodalOpen, upcSelected, updateReservations}) {
 
     const [editcheckin, seteditcheckin] = useState(upcSelected.checkIn);
     const [editcheckout, seteditcheckout] = useState(upcSelected.checkOut);
     const [editprice, seteditprice] = useState(upcSelected.price);
+    const [newprice, setNewprice] = useState(0);
     const [edittravelers, setedittravelers] = useState(upcSelected.travelers);
+    const [editrooms, seteditrooms] = useState(upcSelected.num_of_rooms)
 
     const [showError, setShowError] = useState(false);
 
-    const handleSubmit = (e) => {
-        if (editcheckin === "" || editcheckout === "" || edittravelers === "") {
+    const handleSubmit = async (e) => {
+        if (editrooms === "" || edittravelers === "") {
             setShowError(true);
+        }else {
+            const dataedit = {
+                upcSelected,
+                edittravelers,
+                editrooms,
+            };
+            try {
+                const response = await axios.post('/catalog/edit/', dataedit);
+                console.log("i am here: ", response)
+                updateReservations(response.data);
+              } catch (error) {
+                console.error(error);
+              }
         }
-    } 
+
+    }
+
+    useEffect(() => {
+        const firstDay = upcSelected.check_in.slice(-2);
+        const secondDay = upcSelected.check_out.slice(-2);
+        const nights = parseInt(secondDay) - parseInt(firstDay);
+        const o_price = upcSelected.total / nights / upcSelected.num_of_rooms;
+        setNewprice(nights * editrooms * o_price);
+    }, [editrooms])
 
     return (
             <div className="EditReservationsPopupContainer">
@@ -28,34 +54,24 @@ function EditReservations ({setEditmodalOpen, upcSelected, updateReservations}) 
                     <div className="cancel-image">
                         <img style = {{ width: 250, height: 200 }} 
                             id="ERimg"
-                            src={upcSelected.img}
+                            src={"https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI="}
                             alt="something"
                         />
                     </div>
 
                         <div className="RoomInfo">
-                            <h2 id="RoomName">{upcSelected.title}</h2>
+                            <h2 id="RoomName">{upcSelected.name}</h2>
                             <h3 id="StayDates">
-                                New check in date? : 
+                                New rooms ? :
                                 <input 
                                 id="ERstaydates" 
                                 type="text"
                                 maxLength={10}
-                                value={editcheckin}
-                                placeholder={upcSelected.checkIn}
+                                value={editrooms}
+                                placeholder={upcSelected.rooms}
                                 onChange={(e) => {
-                                    seteditcheckin(e.target.value);}}/>
-                            </h3>
-                            <h3 id="StayDates">
-                                New check out date? :
-                                <input 
-                                id="ERstaydates" 
-                                type="text"
-                                maxLength={10}
-                                value={editcheckout}
-                                placeholder={upcSelected.checkOut}
-                                onChange={(e) => {
-                                    seteditcheckout(e.target.value);}}/>
+                                    seteditrooms(e.target.value);
+                                }}/>
                                 </h3>
                             <h3 id="newtrav">
                                 New number of travelers? : 
@@ -67,8 +83,7 @@ function EditReservations ({setEditmodalOpen, upcSelected, updateReservations}) 
                                 placeholder={upcSelected.travelers}
                                 onChange={(e) => {
                                     setedittravelers(e.target.value);
-                                    seteditprice((upcSelected.price * 1.25))
-                                    }}/>
+                                }}/>
                             </h3>
                         </div>
                     
@@ -76,10 +91,9 @@ function EditReservations ({setEditmodalOpen, upcSelected, updateReservations}) 
                         <BsArrowRight size={82} color="lightgrey" className="arrow" />
 
                         <div className='ERnewprice' id="ER">
-                            <h3 >Original Sale: ${upcSelected.price}</h3>
-                            <h3 >Reservation Edit Fee: ${upcSelected.price * 0.25} (25%)</h3>
+                            <h3 >Original Sale: ${upcSelected.total}</h3>
                             <hr />
-                            <h2 >New Amount: ${(upcSelected.price * 1.25)}
+                            <h2 >New Amount: ${newprice}
                                 </h2>
                         </div>
                 </div>
@@ -95,7 +109,7 @@ function EditReservations ({setEditmodalOpen, upcSelected, updateReservations}) 
                         <button type="button" 
                         id="SaveChangesButton"
                         onClick={() => 
-                        {updateReservations(upcSelected.id, editprice, editcheckin, editcheckout, edittravelers)}
+                        {handleSubmit()}
                         }> 
                             Save Changes
                         </button>

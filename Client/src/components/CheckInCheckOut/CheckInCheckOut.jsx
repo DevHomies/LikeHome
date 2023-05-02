@@ -84,7 +84,7 @@ const CheckInCheckOut = ({parentCallback}) => {
                       direction="horizontal"
                       className="calendarElement" 
                       minDate={new Date()}
-                      maxDate={addDays(new Date(), 31)}
+                      maxDate={addDays(new Date(), 350)}
                       />
                     }
             </div>  

@@ -14,5 +14,11 @@ urlpatterns = [
     path('logout/', views.logout_view, name="logout"),
     path('search/',views.searchview, name ='search'),
     path('hotelinfo/', views.hotel_view, name="hotelinfo"),
+    path('reservation/', views.reservation_view, name="reservation"),
+    path('currentreservation/', views.current_reservation_view,name="currentreservation"),
+    path('reward/', views.reward_view, name="reward"),
+    path('edit/', views.edit_view, name="edit"),
+    path('account/', views.account_view, name="account"),
     
+
 ]

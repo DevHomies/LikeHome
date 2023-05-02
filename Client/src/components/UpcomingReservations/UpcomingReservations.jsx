@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import EditReservations from "../EditReservations/EditReservations";
 import CancelReserve from "../CancelReservation/CancelReserve";
 import './UpcomingReservations.css';
+import axios from 'axios';
 
 
 
-function UpcomingReservations({ parentCallback }) { 
+
+function UpcomingReservations({ data1, parentCallback }) { 
 
     //opening popup tops for editing reservations and cancelling reservations respectively
     const [EditmodalOpen, setEditmodalOpen] = useState(false);
@@ -21,80 +23,37 @@ function UpcomingReservations({ parentCallback }) {
     }, [CancelmodalOpen])
 
     //using albany's test inputs with new elements
-    const [upcomingReservations, setupcomingReservations] = useState([
-        {
-            id: 1,
-            title: "Marriot Hotel",
-            address: "123 Some Street",
-            price: 100,
-            checkIn:  "01/01/2100",
-            checkOut:  "01/04/2100",  
-            travelers: 5,
-            rooms: 2,
-            img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
-        },        {
-            id: 2,
-            title: "Hotel Hotel",
-            address: "321 West Ave",
-            price: 200,
-            checkIn:  "02/01/2100",
-            checkOut:  "02/04/2100",  
-            travelers: 2,
-            rooms: 1,
-            img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
-        },        {
-            id: 3,
-            title: "Not a Hotel",
-            address: "8713 South Rd",
-            price: 300,
-            checkIn:  "03/01/2100",
-            checkOut:  "03/04/2100",  
-            travelers: 4,
-            rooms: 1,
-            img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
-        },   
-        {
-            id: 4,
-            title: "Hotel",
-            address: "1238 Another Street",
-            price: 400,
-            checkIn:  "04/01/2100",
-            checkOut:  "04/04/2100",  
-            travelers: 3,
-            rooms: 5,
-            img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
-        },
-    ]);
+    const [upcomingReservations, setupcomingReservations] = useState([]);
 
+    useEffect(() => {
+        if (data1.length !== 0) setupcomingReservations(data1);
+    }, [data1])
+
+    console.log("i am here: ", data1);
     //for editing reservations? 
-    function updateReservations(id, newprice, newcheckIn, newcheckOut, newtravelers) {
-        const updatedReservations = upcomingReservations.map((upcomingReserves) => {
-            if (id === upcomingReserves.id) {
-                return { ...upcomingReserves, checkIn: newcheckIn, 
-                        checkOut:newcheckOut, travelers:newtravelers, price: newprice}
-            }
-
-            return upcomingReserves;
-        });
-        setupcomingReservations(updatedReservations);
+    function updateReservations(e) {
+        setupcomingReservations(e);
         alert("Your new reservation changes have been implemented!");
-        alert("New check in date: " + newcheckIn + " New check out date: " + newcheckOut +
-            " New number of travelers: " + newtravelers );
         setEditmodalOpen(false);
     }
 
     //for cancelling reservations (sort of works)
-    const handleCancel = (id) => {
-        console.log(id);
+    const handleCancel = async (id) => {
+        // console.log(id);
+        const current = data1.filter((upcReserves) => upcReserves.id === id);
 
-        const newList = upcomingReservations.filter((upcReserves) => upcReserves.id !== id);
-        setupcomingReservations(newList);
+        try {
+            const response = await axios.post('/catalog/currentreservation/', current);
+            setupcomingReservations(response.data);
+
+          } catch (error) {
+            console.error(error);
+          }
+        // const newList = upcomingReservations.filter((upcReserves) => upcReserves.id !== id);
+        // setupcomingReservations(newList);
         alert("Your reservation has been cancelled!");
         setCancelmodalOpen(false);
     }
-
-    //validate reservation date dupes here
-
 
     return (
         
@@ -105,19 +64,19 @@ function UpcomingReservations({ parentCallback }) {
                     <div className="UpcomingRoomsContainer">
                         <div className={ CancelmodalOpen || EditmodalOpen ? "payment-blur UpcomingImg" : "UpcomingImg"}>
                             <img 
-                                src = {upcReserves.img}
+                                src = {"https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI="}
                                 id="Upcoming"
                                 alt="upcoming"
                             />
                         </div>
 
                         <div className={ CancelmodalOpen || EditmodalOpen ? "payment-blur UpcomingRoomInfo" : "UpcomingRoomInfo"}>
-                            <h1>{upcReserves.title} - ${upcReserves.price}</h1>
-                            <p className="upc-address">{upcReserves.address}</p>
-                            <p>Check In: {upcReserves.checkIn}</p>
-                            <p className="upc-checkout">Check Out: {upcReserves.checkOut}</p>
+                            <h1>{upcReserves.name} - ${upcReserves.total}</h1>
+                            <p className="upc-address">Payment Date: {String(upcReserves.payment_date).slice(0, 10)}</p>
+                            <p>Check In: {upcReserves.check_in}</p>
+                            <p className="upc-checkout">Check Out: {upcReserves.check_out}</p>
                             <p>Travelers: {upcReserves.travelers}</p>
-                            <p>Rooms: {upcReserves.rooms}</p>
+                            <p>Rooms: {upcReserves.num_of_rooms}</p>
                         </div>
 
                         <div className="UREditContainer">

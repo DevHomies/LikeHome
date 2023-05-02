@@ -85,6 +85,16 @@
   height: 65%;
 }
 
+.rooms {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  color: var(--dark-grey);
+  position: absolute;
+  right: 1rem;
+  top: 8.5rem;
+}
+
 .rating {
   display: flex;
   justify-content: center;
@@ -92,7 +102,7 @@
   color: var(--dark-grey);
   position: absolute;
   right: 1rem;
-  top: 9rem;
+  top: 10rem;
 }
 
 .preview-link {

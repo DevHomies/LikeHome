@@ -120,20 +120,6 @@
     display: block;
 }
 
-.AccountPageContainer input {
-    display: block;
-    margin: auto;
-    width: 80%;
-    height: 40px;
-    text-align: left;
-    font: bolder;
-    font-size: 18px;
-    border-radius: 10px;
-    padding-left: 10px;
-    border: none;
-    margin-top: 0.25rem;
-}
-
 .AccountPageContainer ::placeholder {
     font-size: 18px;
     color: gray;
@@ -162,4 +148,15 @@
 
 .SaveChangesButton button:hover {
     border: 2px solid var(--purple-2);
+}
+
+.First p,
+.Last p {
+    font-size: 1.25rem;
+    padding-left: 3.25rem;
+    padding-top: 2px;
+}
+
+.ContactInfo p {
+    font-size: 1.25rem;
 }

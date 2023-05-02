@@ -1,38 +1,47 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { Navbar, Footer } from '../../components'; 
 import './AccountPage.css';
 
+
 function AccountPage({parentCallback}) { 
-    // const { state } = useLocation();
-    // const navigate = useNavigate();
-    const [Fname, setFname] = React.useState('');
-    const [Lname, setLname] = React.useState('');
-    const [Email, setEmail] = React.useState('');
-    const [Phone, setPhone] = React.useState('');
+    const [reward, setReward] = useState([]); 
+    const [rewardPoints, setRewardPoints] = useState(0);
 
-    const handleFname = (event) => {
-        setFname(event.target.value);
-        };
-    const handleLname = (event) => {
-        setLname(event.target.value);
-        };
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [joined, setJoined] = useState("");
 
-    const handleEmail = (event) => {
-        setEmail(event.target.value);
-        };
+    useEffect(() => {
+        fetch('/catalog/reward/')
+            .then(response => response.json())
+            .then(reward => setReward(reward))
+            .catch(error => console.error(error));
+      },[]);
+    
+      useEffect(() => {
+        if (reward[0] !== undefined)
+          setRewardPoints(reward[0].reward_points);
+      },[reward])
 
-    const handlePhoneNum = (event) => {
-        setPhone(event.target.value.slice(0, 10));
-        };
+    const [data, setData] = useState([]);
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        alert("Name: " + Fname + " " + Lname + " " +
-              " Email: " + Email + " Phone number: " + Phone);
-        //parentCallback(true);
+    useEffect(() => {
+        fetch('/catalog/account/')
+            .then(response => response.json())
+            .then(data => setData(data))
+            .catch(error => console.error(error));
+      },[]);
+    
+      console.log(data);
+    useEffect(() => {
+        if (data[0] !== undefined) {
+            setUsername(data[0].username);
+            setEmail(data[0].email);
+            setJoined(data[0].date_joined)
+        }
+    }, [data])
 
-    };
 
     return (
         <>
@@ -42,7 +51,7 @@ function AccountPage({parentCallback}) {
 
             <div className="RewardStripContainer">
                 <div className="RewardBox">
-                    <p>YOU HAVE 300 REWARD POINTS AVAILABLE</p>
+                    <p>YOU HAVE {rewardPoints} REWARD POINTS AVAILABLE</p>
                 </div>
             </div>
 
@@ -59,58 +68,23 @@ function AccountPage({parentCallback}) {
                             
                         </div>
 
-                        <form className="InputFieldContainer" onSubmit={handleSubmit} >
+                        <form className="InputFieldContainer" >
 
                             <div className="UserName">
                                 <div className="First">
-                                    <label htmlFor="first-name">First Name : </label>
-                                    <input type='text' 
-                                        placeholder='First Name' 
-                                        value={Fname}
-                                        onChange={handleFname}
-                                        id='first-name'
-                                    />
+                                    <label>Username : </label>
+                                    <p>{username}</p>
                                 </div>
 
                                 <div className="Last">
-                                    <label htmlFor="last-name">Last Name  : </label>
-                                    <input type='text' 
-                                        placeholder='Last Name' 
-                                        value={Lname}
-                                        onChange={handleLname}
-                                        id='last-name'
-                                    />
+                                    <label >Email  : </label>
+                                    <p>{email}</p>
                                 </div>
                             </div>
 
                             <div className="ContactInfo">
-                                <div className="Email">
-                                    <label htmlFor='account-page-email'>Email : </label>
-                                    <input type='text' 
-                                        placeholder='Email' 
-                                        value={Email}
-                                        onChange={handleEmail}
-                                        id="account-page-email"
-                                    />
-                                </div>
-
-                                <div className="Phone">
-                                    <label htmlFor="account-phone-number">Phone Number : </label>
-                                    <input type='number' 
-                                        maxLength={10}
-                                        placeholder='XXX-XXX-XXXX' 
-                                        value={Phone}
-                                        onChange={handlePhoneNum}
-                                        id="account-phone-number"
-                                    />
-                                </div>
+                                <p>Date Joined: {joined.slice(0, 10)}</p>
                             </div>
-
-                            <div className="SaveChangesButton">
-                                    <button type="submit">
-                                        Save Changes
-                                    </button>
-                                </div>
                         </form>
 
                     </div>
