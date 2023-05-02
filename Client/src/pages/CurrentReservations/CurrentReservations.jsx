@@ -82,9 +82,9 @@ function CurrentReservations() {
                                     <UpcomingReservations data1={data1} parentCallback={blurBg}/>
                                 </TabPanel>
 
-                                <TabPanel>
+                                {/* <TabPanel>
                                     <PastReservations />
-                                </TabPanel>
+                                </TabPanel> */}
                             </Tabs>
                         </div>
                         
