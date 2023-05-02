@@ -15,8 +15,8 @@ const Location = ({parentCallback}) => {
         <p>Location</p>
         <select onChange={(e) => handleChange(e)}>
           <option value=''>Santa Clara, San Francisco..</option>
-          <option value='san jose'>San Jose</option>
-          <option value='las vegas'>Las Vegas</option>
+          <option value='San Jose'>San Jose</option>
+          <option value='Las Vegas'>Las Vegas</option>
         </select>
         {/* <input
           type="text"
