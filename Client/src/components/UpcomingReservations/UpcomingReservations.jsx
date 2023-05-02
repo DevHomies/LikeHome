@@ -7,7 +7,7 @@ import axios from 'axios';
 
 
 
-function UpcomingReservations({ data1,parentCallback }) { 
+function UpcomingReservations({ data1, parentCallback }) { 
 
     //opening popup tops for editing reservations and cancelling reservations respectively
     const [EditmodalOpen, setEditmodalOpen] = useState(false);
@@ -23,66 +23,17 @@ function UpcomingReservations({ data1,parentCallback }) {
     }, [CancelmodalOpen])
 
     //using albany's test inputs with new elements
-    const [upcomingReservations, setupcomingReservations] = useState([
-        {
-            id: 1,
-            title: "Marriot Hotel",
-            address: "123 Some Street",
-            price: 100,
-            checkIn:  "01/01/2100",
-            checkOut:  "01/04/2100",  
-            travelers: 5,
-            rooms: 2,
-            img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
-        },        {
-            id: 2,
-            title: "Hotel Hotel",
-            address: "321 West Ave",
-            price: 200,
-            checkIn:  "02/01/2100",
-            checkOut:  "02/04/2100",  
-            travelers: 2,
-            rooms: 1,
-            img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
-        },        {
-            id: 3,
-            title: "Not a Hotel",
-            address: "8713 South Rd",
-            price: 300,
-            checkIn:  "03/01/2100",
-            checkOut:  "03/04/2100",  
-            travelers: 4,
-            rooms: 1,
-            img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
-        },   
-        {
-            id: 4,
-            title: "Hotel",
-            address: "1238 Another Street",
-            price: 400,
-            checkIn:  "04/01/2100",
-            checkOut:  "04/04/2100",  
-            travelers: 3,
-            rooms: 5,
-            img: "https://media.istockphoto.com/id/104731717/photo/luxury-resort.jpg?s=612x612&w=0&k=20&c=cODMSPbYyrn1FHake1xYz9M8r15iOfGz9Aosy9Db7mI=",
-        },
-    ]);
+    const [upcomingReservations, setupcomingReservations] = useState([]);
+
+    useEffect(() => {
+        if (data1.length !== 0) setupcomingReservations(data1);
+    }, [data1])
 
     console.log("i am here: ", data1);
     //for editing reservations? 
-    function updateReservations(id, newprice, newcheckIn, newcheckOut, newtravelers) {
-        const updatedReservations = upcomingReservations.map((upcomingReserves) => {
-            if (id === upcomingReserves.id) {
-                return { ...upcomingReserves, checkIn: newcheckIn, 
-                        checkOut:newcheckOut, travelers:newtravelers, price: newprice}
-            }
-
-            return upcomingReserves;
-        });
-        setupcomingReservations(updatedReservations);
+    function updateReservations(e) {
+        setupcomingReservations(e);
         alert("Your new reservation changes have been implemented!");
-        alert("New check in date: " + newcheckIn + " New check out date: " + newcheckOut +
-            " New number of travelers: " + newtravelers );
         setEditmodalOpen(false);
     }
 
@@ -93,9 +44,7 @@ function UpcomingReservations({ data1,parentCallback }) {
 
         try {
             const response = await axios.post('/catalog/currentreservation/', current);
-            console.log("i am here: ", response)
-            //may break 
-            // setupcomingReservations(response);
+            setupcomingReservations(response.data);
 
           } catch (error) {
             console.error(error);
@@ -106,14 +55,11 @@ function UpcomingReservations({ data1,parentCallback }) {
         setCancelmodalOpen(false);
     }
 
-    //validate reservation date dupes here
-
-
     return (
         
         <div className="URSpanContainer">
 
-            {data1.map((upcReserves) => (
+            {upcomingReservations.map((upcReserves) => (
                 <li className="URlist" key={upcReserves.id}>
                     <div className="UpcomingRoomsContainer">
                         <div className={ CancelmodalOpen || EditmodalOpen ? "payment-blur UpcomingImg" : "UpcomingImg"}>

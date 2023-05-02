@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { Navbar, Footer } from '../../components'; 
 import './AccountPage.css';
@@ -10,6 +10,20 @@ function AccountPage({parentCallback}) {
     const [Lname, setLname] = React.useState('');
     const [Email, setEmail] = React.useState('');
     const [Phone, setPhone] = React.useState('');
+    const [reward, setReward] = useState([]); 
+    const [rewardPoints, setRewardPoints] = useState(0);
+
+    useEffect(() => {
+        fetch('/catalog/reward/')
+            .then(response => response.json())
+            .then(reward => setReward(reward))
+            .catch(error => console.error(error));
+      },[]);
+    
+      useEffect(() => {
+        if (reward[0] !== undefined)
+          setRewardPoints(reward[0].reward_points);
+      },[reward])
 
     const handleFname = (event) => {
         setFname(event.target.value);
@@ -42,7 +56,7 @@ function AccountPage({parentCallback}) {
 
             <div className="RewardStripContainer">
                 <div className="RewardBox">
-                    <p>YOU HAVE 300 REWARD POINTS AVAILABLE</p>
+                    <p>YOU HAVE {rewardPoints} REWARD POINTS AVAILABLE</p>
                 </div>
             </div>
 

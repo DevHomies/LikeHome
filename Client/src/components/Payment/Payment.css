@@ -174,9 +174,15 @@
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.6);
 
-  font-size: 3rem;
+  font-size: 2rem;
   color: white;
   text-shadow: 1px 1px 3px var(--purple-2);
+}
+
+@media screen and (max-width: 1330px) {
+  .payment-hotel-info {
+    font-size: 1rem;
+  }
 }
 
 .payment-apply {

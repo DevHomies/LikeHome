@@ -1,6 +1,6 @@
 import "./HotelPreview.css";
 import "../../index.css";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaDoorOpen } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 function HotelPreview(props) {
@@ -18,6 +18,7 @@ function HotelPreview(props) {
             alt="text"
           ></img>
           <div className="info">
+            <div className="rooms">{props.rooms} <FaDoorOpen/></div>
             <div className="rating">{props.rating} <FaStar/></div>
             <div className="price"> 
               <h4>{props.title}</h4>

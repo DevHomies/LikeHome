@@ -4,8 +4,6 @@ import axios from 'axios';
 
 import "./Payment.css";
 
-const rewardPoints = 150; // user's reward points, btw $1 = 1 reward point
-
 // ----------------------------------
 
 function Payment({ parentCallback }) {
@@ -22,12 +20,12 @@ function Payment({ parentCallback }) {
   const [submitted, setSubmitted] = useState(false);
 
   const [reward, setReward] = useState([]); 
+  const [rewardPoints, setRewardPoints] = useState(0);
 
   function hasEnoughRewardPoints() {
-    if (rewardPoints >= state.price) return true;
+    if (rewardPoints >= 150) return true;
     return false;
   }
-  
 
   useEffect(() => {
     fetch('/catalog/reward/')
@@ -36,7 +34,11 @@ function Payment({ parentCallback }) {
         .catch(error => console.error(error));
   },[]);
 
-  console.log("reward check: ", reward);
+  useEffect(() => {
+    if (reward[0] !== undefined)
+      setRewardPoints(reward[0].reward_points);
+  },[reward])
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -165,9 +167,9 @@ function Payment({ parentCallback }) {
             <hr />
             <section>
               {rewardApplied ? "" : <div></div>}
-              <div> {rewardApplied ? "Reward points: -$" + state.price : ""}</div>
+              <div> {rewardApplied ? "Reward Points Applied! FREE STAY " : ""}</div>
               <h3 className="payment-total">
-                Total: ${ rewardApplied ? state.price * nights - state.price: state.price * nights * state.search.rooms}
+                Total: ${ rewardApplied ? 0 : state.price * nights * state.search.rooms}
               </h3>
 
               <button classname="button" type="submit" form="payment-form">Pay Now</button>
@@ -195,7 +197,7 @@ function Payment({ parentCallback }) {
             </section>
             <hr />
             <section>
-              <i> Remaining reward points: {rewardApplied ? rewardPoints -  state.price: rewardPoints}</i>
+              <i> Remaining reward points: {rewardApplied ? rewardPoints -  150 : rewardPoints}</i>
               <br/>
               <br/>
               <div className="payment-apply">
@@ -213,7 +215,7 @@ function Payment({ parentCallback }) {
               <div className="payment-subtotal">Subtotal: ${state.price * nights * state.search.rooms}</div>
               <div className="payment-subtotal-info">{nights} nights x ${state.price} x {state.search.rooms} rooms</div>
               {rewardApplied ? "" : <div></div>}
-              <div> {rewardApplied ? "Reward points: -$" + state.price : ""}</div>
+              <div> {rewardApplied ? "Reward Points Applied! FREE STAY " : ""}</div>
               <h3 className="payment-total">
                 Total: ${ rewardApplied ? 0: state.price * nights * state.search.rooms}
               </h3>
