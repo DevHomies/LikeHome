@@ -88,26 +88,30 @@ def getSearch(request):
     global hotel_real
     
     hotel_real = Hotel.objects.filter(city = location,room_available__gt=room)
+    if data['checkDates'] is not None:
+        checkin = data['checkDates'][0][:10]
+        checkout = data['checkDates'][1][:10]
     
-    checkin = data['checkDates'][0][:10]
-    checkout = data['checkDates'][1][:10]
-    
-    checkin_1 = datetime.datetime.strptime(checkin, '%Y-%m-%d')
-    checkout_1 = datetime.datetime.strptime(checkout, '%Y-%m-%d')
+        checkin_1 = datetime.datetime.strptime(checkin, '%Y-%m-%d')
+        checkout_1 = datetime.datetime.strptime(checkout, '%Y-%m-%d')
+        try:
+            current_user
+        except NameError:
+            print("NOT LOGGED IN")
+        else: 
+            re1_check = Reservation.objects.filter(user=current_user)
 
-    re1_check = Reservation.objects.filter(user=current_user)
-    
-    for i in re1_check:
-        temp1 = datetime.datetime.min.time()
-        start_date = datetime.datetime.combine(i.check_in,temp1)
-        end_date = datetime.datetime.combine(i.check_out,temp1)
-        
-        if start_date<=checkin_1<=end_date or start_date<=checkout_1<=end_date or (checkin_1 <= start_date and checkout_1 >= end_date):
-            hotel_real = hotel_real.filter(city = location,room_available__gt=room).exclude(name=i.name)
-            
-        # print(start_date<=checkin_1<=end_date)
-        # print(start_date<=checkout_1<=end_date)
-        # print(checkin_1 <= start_date and checkout_1 >= end_date)
+            for i in re1_check:
+                temp1 = datetime.datetime.min.time()
+                start_date = datetime.datetime.combine(i.check_in,temp1)
+                end_date = datetime.datetime.combine(i.check_out,temp1)
+                
+                if start_date<=checkin_1<=end_date or start_date<=checkout_1<=end_date or (checkin_1 <= start_date and checkout_1 >= end_date):
+                    hotel_real = hotel_real.filter(city = location,room_available__gt=room).exclude(name=i.name)
+                    
+                # print(start_date<=checkin_1<=end_date)
+                # print(start_date<=checkout_1<=end_date)
+                # print(checkin_1 <= start_date and checkout_1 >= end_date)
         
 
     return Response({'success': True})

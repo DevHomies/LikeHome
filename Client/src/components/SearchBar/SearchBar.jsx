@@ -18,10 +18,10 @@ function SearchBar() {
     const [showError, setShowError] = useState(false);
 
     const handleClick = async (e) => {
-        
+        console.log(searchState.checkDates);
         try {
             const response = await axios.post('/catalog/search/', searchState);
-            if (searchState.location === "" || searchState.checkDates === null) {
+            if (searchState.location === "" || searchState.checkDates === null || authlogin === false) {
                 setShowError(true);
             } else if (response.data.success && authlogin){
                 navigate('/search', { state: searchState });

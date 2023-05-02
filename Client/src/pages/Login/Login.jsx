@@ -65,9 +65,9 @@ function Login() {
             <div className='form-group'>
               <FaEnvelope className='form-icons'/>
               <div className='form-group-inputs'>
-                <label htmlFor="username">Email</label>
+                <label htmlFor="username">Username</label>
                 <input
-                  placeholder='example@gmail.com'
+                  placeholder='JohnDoe'
                   type="text"
                   id="username"
                   value={username}
