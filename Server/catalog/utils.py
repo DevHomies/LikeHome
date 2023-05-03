@@ -87,7 +87,7 @@ def getSearch(request):
     global checkout
     global hotel_real
     
-    hotel_real = Hotel.objects.filter(city = location,room_available__gt=room)
+    hotel_real = Hotel.objects.filter(city = location,room_available__gte=room)
     if data['checkDates'] is not None:
         checkin = data['checkDates'][0][:10]
         checkout = data['checkDates'][1][:10]
@@ -107,7 +107,7 @@ def getSearch(request):
                 end_date = datetime.datetime.combine(i.check_out,temp1)
                 
                 if start_date<=checkin_1<=end_date or start_date<=checkout_1<=end_date or (checkin_1 <= start_date and checkout_1 >= end_date):
-                    hotel_real = hotel_real.filter(city = location,room_available__gt=room).exclude(name=i.name)
+                    hotel_real = hotel_real.filter(city = location,room_available__gte=room).exclude(name=i.name)
                     
                 # print(start_date<=checkin_1<=end_date)
                 # print(start_date<=checkout_1<=end_date)
